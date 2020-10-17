@@ -1,5 +1,9 @@
 .shareFormation {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 
   .shareBtn {
     background-color: #c9d3de;
@@ -17,5 +21,11 @@
       opacity: 0.5;
       cursor: default;
     }
+  }
+
+  .copyNotification {
+    position: absolute;
+    top: 2rem;
+    color: white;
   }
 }

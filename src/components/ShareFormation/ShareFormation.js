@@ -1,8 +1,9 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { TYPE_FORMATION } from "../../utils/propTypes";
 import s from "./ShareFormation.module.scss";
 
 const ShareFormation = ({ formation }) => {
+  const [copyNotification, setCopyNotification] = useState(false);
   const troopsInFormation = Object.keys(formation);
 
   const createShareableLink = useCallback(() => {
@@ -21,6 +22,9 @@ const ShareFormation = ({ formation }) => {
     newTextarea.select();
     document.execCommand("copy");
     newTextarea.remove();
+
+    setCopyNotification(true);
+    setTimeout(() => setCopyNotification(false), 3000);
   }, [formation, troopsInFormation]);
 
   return (
@@ -32,6 +36,9 @@ const ShareFormation = ({ formation }) => {
       >
         Share Formation
       </button>
+      {copyNotification && (
+        <span className={s.copyNotification}>Link copied!</span>
+      )}
     </div>
   );
 };
