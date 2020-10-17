@@ -3,12 +3,11 @@ import { MAX_TROOP_LEVEL, SQUARES } from "./constants";
 
 const getFormationFromURL = () => {
   const troopsFromURL = {};
-
   const urlParamHashes = window.location.href
     .slice(window.location.href.indexOf("?") + 1)
     ?.split("&");
 
-  if (urlParamHashes.length > 1) {
+  if (urlParamHashes.length) {
     let hash;
     let squareTroopData;
 
@@ -28,9 +27,9 @@ const getFormationFromURL = () => {
         };
       }
     }
-
-    return troopsFromURL;
   }
+
+  return troopsFromURL;
 };
 
 export default getFormationFromURL;

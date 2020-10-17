@@ -42,6 +42,9 @@ const App = () => {
     <div className={s.app}>
       {troopSelectionFormStatus && <div className={s.backdrop} />}
       <Header />
+      <div role="alert" className={s.screenRotationNotification}>
+        Please rotate your device
+      </div>
       <ShareFormation formation={formation} />
       <div className={s.formationShare}>
         {troopSelectionFormStatus && (

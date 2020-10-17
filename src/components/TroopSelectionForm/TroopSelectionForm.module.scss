@@ -15,6 +15,7 @@
     font-size: 1rem;
     line-height: 1rem;
     border: 2px solid lightblue;
+    cursor: pointer;
 
     &:last-child {
       background-color: #02152b;
@@ -36,5 +37,6 @@
     align-items: center;
     justify-content: center;
     color: darkred;
+    cursor: pointer;
   }
 }
