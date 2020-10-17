@@ -23,11 +23,10 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
         <button
           aria-label={hasTroops ?? `Square ${squareNum}`}
           title={hasTroops ?? `Square ${squareNum}`}
-          data-square={squareNum}
           className={s.troopSquare}
           key={`${name}-${squareNum}`}
           id={`${name}-${squareNum}`}
-          onClick={showTroopSelectionForm}
+          onClick={() => showTroopSelectionForm(`${squareNum}`)}
         >
           {hasTroops ? (
             <span className={s.troopLevel}>

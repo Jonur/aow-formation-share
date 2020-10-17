@@ -10,9 +10,9 @@ const App = () => {
   const [selectedSquare, setSelectedSquare] = useState();
   const [formation, setFormation] = useState({});
 
-  const showTroopSelectionForm = useCallback((e) => {
+  const showTroopSelectionForm = useCallback((squareNum) => {
     setTroopSelectionFormStatus(true);
-    setSelectedSquare(e.target.attributes["data-square"].value);
+    setSelectedSquare(squareNum);
   }, []);
 
   const handleFormSubmit = useCallback(
