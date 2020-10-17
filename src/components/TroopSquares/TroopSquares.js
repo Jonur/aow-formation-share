@@ -25,7 +25,7 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
           title={
             hasTroops
               ? `${troop.name} level ${formation[`${squareNum}`].level}`
-              : `Square ${squareNum}`
+              : `Square ${squareNum}, click to add troops`
           }
           className={classNames(s.troopSquare, {
             [s[`${troop?.grade?.toLowerCase()}`]]: hasTroops,
