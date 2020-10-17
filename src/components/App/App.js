@@ -40,6 +40,7 @@ const App = () => {
 
   return (
     <div className={s.app}>
+      {troopSelectionFormStatus && <div className={s.backdrop} />}
       <Header />
       <ShareFormation formation={formation} />
       <div className={s.formationShare}>
