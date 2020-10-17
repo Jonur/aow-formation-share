@@ -21,12 +21,21 @@ const TroopSelectionForm = ({
       onSubmit={handleFormSubmit}
       className={s.troopSelectionForm}
     >
-      <button className={s.close} onClick={handleCloseForm} type="button">
+      <button
+        title="Close the form"
+        className={s.close}
+        onClick={handleCloseForm}
+        type="button"
+      >
         &times;
       </button>
       <input type="hidden" name="square" value={selectedSquare} />
 
-      <select name="troop" defaultValue={lastTroopAdded.troop}>
+      <select
+        name="troop"
+        defaultValue={lastTroopAdded.troop}
+        title="Select troop"
+      >
         {troops.names.map((name) => (
           <option value={name} key={`troop-${name}`}>
             {name}
@@ -34,7 +43,11 @@ const TroopSelectionForm = ({
         ))}
       </select>
 
-      <select name="level" defaultValue={lastTroopAdded.level}>
+      <select
+        name="level"
+        defaultValue={lastTroopAdded.level}
+        title="Select troop level"
+      >
         {Array.from(new Array(MAX_TROOP_LEVEL))
           .map((lvl, index) => (
             <option value={index + 1} key={`lvl-${index + 1}`}>

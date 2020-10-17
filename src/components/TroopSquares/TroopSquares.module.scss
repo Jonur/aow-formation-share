@@ -47,6 +47,7 @@
     font-weight: 700;
     z-index: 2;
     background-color: gold;
+    border: 2px solid #313131;
     width: 20px;
     height: 20px;
     border-radius: 20px;
@@ -54,6 +55,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 1.1;
   }
 
   .troopImage {

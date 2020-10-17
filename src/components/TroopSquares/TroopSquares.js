@@ -22,8 +22,11 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
 
       return (
         <button
-          aria-label={hasTroops ?? `Square ${squareNum}`}
-          title={hasTroops ?? `Square ${squareNum}`}
+          title={
+            hasTroops
+              ? `${troop.name} level ${formation[`${squareNum}`].level}`
+              : `Square ${squareNum}`
+          }
           className={classNames(s.troopSquare, {
             [s[`${troop?.grade?.toLowerCase()}`]]: hasTroops,
           })}
