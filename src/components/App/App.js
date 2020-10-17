@@ -13,6 +13,7 @@ const App = () => {
   );
   const [selectedSquare, setSelectedSquare] = useState();
   const [formation, setFormation] = useState({});
+  const [lastTroopAdded, setLastTroopAdded] = useState({});
 
   const showTroopSelectionForm = useCallback((squareNum) => {
     setTroopSelectionFormStatus(true);
@@ -26,14 +27,17 @@ const App = () => {
   const handleFormSubmit = useCallback(
     (e) => {
       e.preventDefault();
+      const troopToAdd = {
+        troop: e.target.troop.value,
+        level: e.target.level.value,
+      };
+
       setFormation({
         ...formation,
-        [e.target.square.value]: {
-          troop: e.target.troop.value,
-          level: e.target.level.value,
-        },
+        [e.target.square.value]: troopToAdd,
       });
       setTroopSelectionFormStatus(false);
+      setLastTroopAdded(troopToAdd);
     },
     [formation]
   );
@@ -52,6 +56,7 @@ const App = () => {
             handleFormSubmit={handleFormSubmit}
             selectedSquare={selectedSquare}
             setTroopSelectionFormStatus={setTroopSelectionFormStatus}
+            lastTroopAdded={lastTroopAdded}
           />
         )}
         <div className={s.formationBoard}>

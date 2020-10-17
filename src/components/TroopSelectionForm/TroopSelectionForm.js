@@ -1,11 +1,12 @@
 import React, { useCallback } from "react";
-import { func, string } from "prop-types";
+import { func, shape, string } from "prop-types";
 import { MAX_TROOP_LEVEL } from "../../utils/constants";
 import { troops } from "../../data";
 import s from "./TroopSelectionForm.module.scss";
 
 const TroopSelectionForm = ({
   handleFormSubmit,
+  lastTroopAdded,
   selectedSquare,
   setTroopSelectionFormStatus,
 }) => {
@@ -25,7 +26,7 @@ const TroopSelectionForm = ({
       </button>
       <input type="hidden" name="square" value={selectedSquare} />
 
-      <select name="troop">
+      <select name="troop" defaultValue={lastTroopAdded.troop}>
         {troops.names.map((name) => (
           <option value={name} key={`troop-${name}`}>
             {name}
@@ -33,7 +34,7 @@ const TroopSelectionForm = ({
         ))}
       </select>
 
-      <select name="level">
+      <select name="level" defaultValue={lastTroopAdded.level}>
         {Array.from(new Array(MAX_TROOP_LEVEL))
           .map((lvl, index) => (
             <option value={index + 1} key={`lvl-${index + 1}`}>
@@ -50,6 +51,10 @@ const TroopSelectionForm = ({
 
 TroopSelectionForm.propTypes = {
   handleFormSubmit: func.isRequired,
+  lastTroopAdded: shape({
+    level: string,
+    troop: string,
+  }).isRequired,
   selectedSquare: string.isRequired,
   setTroopSelectionFormStatus: func.isRequired,
 };
