@@ -2,6 +2,17 @@
   "name": "aow-stats",
   "version": "0.1.0",
   "private": true,
+  "description": "AoW Legions Formation Share tool",
+  "author": {
+    "name": "Dimitris Damilos",
+    "email": "d.k.damilos@gmail.com",
+    "url": "https://github.com/Jonur"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jonur/aow-formation-share.git"
+  },
+  "license": "ISC",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -14,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "now-build": "npm run build && mv build dist"
   },
   "eslintConfig": {
     "extends": "react-app"

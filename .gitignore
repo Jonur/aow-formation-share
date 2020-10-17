@@ -25,3 +25,5 @@ yarn-error.log*
 # custom
 /data
 .vscode
+
+.vercel
