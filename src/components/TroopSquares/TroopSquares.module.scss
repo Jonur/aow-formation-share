@@ -9,4 +9,30 @@
   font-size: 18px;
   font-weight: bold;
   line-height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .troopLevel {
+    position: absolute;
+    color: #313131;
+    bottom: 4px;
+    font-weight: 900;
+    z-index: 2;
+    background-color: gold;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .troopImage {
+    width: 100%;
+    height: auto;
+  }
 }
