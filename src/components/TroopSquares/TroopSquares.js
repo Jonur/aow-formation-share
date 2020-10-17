@@ -7,18 +7,24 @@ import s from "./TroopSquares.module.scss";
 const TroopSquares = ({ formation, showTroopSelectionForm }) =>
   Array.from(new Array(SQUARES))
     .fill("square")
-    .map((name, i) => (
-      <button
-        data-hastroops={formation[`${i + 1}`]?.troop}
-        data-square={i + 1}
-        className={s.troopSquare}
-        key={`${name}-${i + 1}`}
-        id={`${name}-${i + 1}`}
-        onClick={showTroopSelectionForm}
-      >
-        {formation[`${i + 1}`]?.troop ? "YES" : i + 1}
-      </button>
-    ));
+    .map((name, i) => {
+      const squareNum = i + 1;
+      const hasTroops = formation[`${squareNum}`]?.troop;
+
+      return (
+        <button
+          aria-label={hasTroops ?? `Square ${squareNum}`}
+          title={hasTroops ?? `Square ${squareNum}`}
+          data-square={squareNum}
+          className={s.troopSquare}
+          key={`${name}-${squareNum}`}
+          id={`${name}-${squareNum}`}
+          onClick={showTroopSelectionForm}
+        >
+          {hasTroops ? formation[`${squareNum}`].level : squareNum}
+        </button>
+      );
+    });
 
 TroopSquares.propTypes = {
   formation: TYPE_FORMATION,
