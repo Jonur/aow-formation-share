@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import Header from "../Header";
+import ShareFormation from "../ShareFormation";
 import TroopSquares from "../TroopSquares";
 import TroopSelectionForm from "../TroopSelectionForm";
 import Footer from "../Footer";
@@ -35,6 +36,7 @@ const App = () => {
   return (
     <div className={s.app}>
       <Header />
+      <ShareFormation formation={formation} />
       <div className={s.formationShare}>
         {troopSelectionFormStatus && (
           <TroopSelectionForm
