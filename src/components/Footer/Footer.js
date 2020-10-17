@@ -11,7 +11,7 @@ const Footer = () => (
       href="https://github.com/Jonur"
       alt="Jonur on Github"
     >
-      Created by Jonur
+      Created by ROC Jonur
     </a>
     {` - `}
     <a
@@ -21,7 +21,7 @@ const Footer = () => (
       href="https://github.com/Jonur/aow-formation-share/blob/main/PrivacyPolicy.md"
       alt="Application Privacy Policy"
     >
-      Privacy Policy
+      Privacy
     </a>
     {` - `}
     <a
@@ -31,7 +31,7 @@ const Footer = () => (
       href="https://github.com/Jonur/aow-formation-share#credits"
       alt="Credits"
     >
-      Credit Info
+      Credits
     </a>
   </footer>
 );

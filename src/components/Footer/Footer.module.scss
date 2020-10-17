@@ -5,10 +5,16 @@
   font-size: 0.875rem;
   text-align: center;
   justify-self: flex-end;
+  width: 100%;
+  margin-top: 2rem;
 
   .link,
   .link:hover,
   .link:visited {
     color: white;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-top: 0;
   }
 }
