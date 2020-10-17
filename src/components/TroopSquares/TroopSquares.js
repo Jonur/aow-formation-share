@@ -16,7 +16,7 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
         id={`${name}-${i + 1}`}
         onClick={showTroopSelectionForm}
       >
-        {i + 1}
+        {formation[`${i + 1}`]?.troop ? "YES" : i + 1}
       </button>
     ));
 
