@@ -1,0 +1,37 @@
+import React from "react";
+import { func, string } from "prop-types";
+import { MAX_TROOP_LEVEL } from "../../utils/constants";
+import { troops } from "../../data";
+
+const TroopSelectionForm = ({ handleFormSubmit, selectedSquare }) => (
+  <form name="troopSelectionForm" onSubmit={handleFormSubmit}>
+    <input type="hidden" name="square" value={selectedSquare} />
+
+    <select name="troop">
+      {troops.names.map((name) => (
+        <option value={name} key={`troop-${name}`}>
+          {name}
+        </option>
+      ))}
+    </select>
+
+    <select name="level">
+      {Array.from(new Array(MAX_TROOP_LEVEL))
+        .map((lvl, index) => (
+          <option value={index + 1} key={`lvl-${index + 1}`}>
+            {index + 1}
+          </option>
+        ))
+        .reverse()}
+    </select>
+
+    <input type="submit" value="Add" />
+  </form>
+);
+
+TroopSelectionForm.propTypes = {
+  handleFormSubmit: func.isRequired,
+  selectedSquare: string.isRequired,
+};
+
+export default TroopSelectionForm;
