@@ -20,7 +20,7 @@
     &:last-child {
       background-color: #02152b;
       color: white;
-      font-weight: bold;
+      font-weight: 700;
     }
   }
 
@@ -36,7 +36,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: darkred;
+    background-color: #860b62;
+    color: white;
     cursor: pointer;
   }
 }
