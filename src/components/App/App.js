@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
+import Header from "../Header";
 import TroopSquares from "../TroopSquares";
 import TroopSelectionForm from "../TroopSelectionForm";
+import Footer from "../Footer";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -31,20 +33,24 @@ const App = () => {
   );
 
   return (
-    <div className={s.formationShare}>
-      {troopSelectionFormStatus && (
-        <TroopSelectionForm
-          handleFormSubmit={handleFormSubmit}
-          selectedSquare={selectedSquare}
-          setTroopSelectionFormStatus={setTroopSelectionFormStatus}
-        />
-      )}
-      <div className={s.formationBoard}>
-        <TroopSquares
-          formation={formation}
-          showTroopSelectionForm={showTroopSelectionForm}
-        />
+    <div className={s.app}>
+      <Header />
+      <div className={s.formationShare}>
+        {troopSelectionFormStatus && (
+          <TroopSelectionForm
+            handleFormSubmit={handleFormSubmit}
+            selectedSquare={selectedSquare}
+            setTroopSelectionFormStatus={setTroopSelectionFormStatus}
+          />
+        )}
+        <div className={s.formationBoard}>
+          <TroopSquares
+            formation={formation}
+            showTroopSelectionForm={showTroopSelectionForm}
+          />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

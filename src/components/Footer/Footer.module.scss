@@ -1,0 +1,14 @@
+.footer {
+  color: white;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.875rem;
+  text-align: center;
+  justify-self: flex-end;
+
+  .link,
+  .link:hover,
+  .link:visited {
+    color: white;
+  }
+}
