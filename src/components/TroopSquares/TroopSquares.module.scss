@@ -13,6 +13,7 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 4px;
   cursor: pointer;
 
@@ -30,6 +31,13 @@
 
   &.legendary {
     border: 2px solid #c59d2c;
+  }
+
+  &.common,
+  &.rare,
+  &.epic,
+  &.legendary {
+    align-items: flex-start;
   }
 
   .troopLevel {
