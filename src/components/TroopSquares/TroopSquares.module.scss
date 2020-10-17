@@ -17,6 +17,22 @@
   border-radius: 4px;
   cursor: pointer;
 
+  &.common {
+    border: 2px solid #3098bd;
+  }
+
+  &.rare {
+    border: 2px solid #3098bd;
+  }
+
+  &.epic {
+    border: 2px solid #9623d8;
+  }
+
+  &.legendary {
+    border: 2px solid #c59d2c;
+  }
+
   .troopLevel {
     position: absolute;
     color: #313131;

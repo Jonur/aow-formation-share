@@ -1,4 +1,9 @@
-const grades = ["Common", "Rare", "Epic", "Legendary"];
+const GRADES = {
+  COMMON: "COMMON",
+  RARE: "RARE",
+  EPIC: "EPIC",
+  LEGENDARY: "LEGENDARY",
+};
 
 const races = ["Human"];
 
@@ -46,7 +51,7 @@ const troops = {
   ],
   troops: [
     {
-      grade: "Common",
+      grade: GRADES.COMMON,
       image: "/img/aow-troops/infantry.png",
       motto: "Brave men from another time.",
       name: "Infantry",
@@ -136,7 +141,7 @@ const troops = {
       ],
     },
     {
-      grade: "",
+      grade: GRADES.COMMON,
       image: "/img/aow-troops/archers.png",
       motto: "",
       name: "Archers",
@@ -145,7 +150,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.COMMON,
       image: "/img/aow-troops/ironguards.png",
       motto: "",
       name: "Iron Guards",
@@ -154,7 +159,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.COMMON,
       image: "/img/aow-troops/bomber.png",
       motto: "",
       name: "Bomber",
@@ -163,7 +168,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.COMMON,
       image: "/img/aow-troops/catapult.png",
       motto: "",
       name: "Catapult",
@@ -172,7 +177,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.COMMON,
       image: "/img/aow-troops/helljailers.png",
       motto: "",
       name: "Hell Jailers",
@@ -181,7 +186,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/firemage.png",
       motto: "",
       name: "Fire Mage",
@@ -190,7 +195,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/bandits.png",
       motto: "",
       name: "Bandits",
@@ -199,7 +204,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/ogrewarrior.png",
       motto: "",
       name: "Ogre Warrior",
@@ -208,7 +213,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/ghostassassins.png",
       motto: "",
       name: "Ghost Assassin",
@@ -217,7 +222,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/magicapprentice.png",
       motto: "",
       name: "Magic Apprentice",
@@ -226,7 +231,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/vikingwarrior.png",
       motto: "",
       name: "Viking Warrior",
@@ -235,7 +240,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/icemage.png",
       motto: "",
       name: "Ice Mage",
@@ -244,7 +249,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/scholar.png",
       motto: "",
       name: "Scholar",
@@ -253,7 +258,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/inquisitor.png",
       motto: "",
       name: "Inquisitor",
@@ -262,7 +267,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/undeadsoldier.png",
       motto: "",
       name: "Undead Soldier",
@@ -271,7 +276,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/harbingeroffire.png",
       motto: "",
       name: "Harbinger of Fire",
@@ -280,7 +285,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/paladin.png",
       motto: "",
       name: "Paladin",
@@ -289,7 +294,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/ballista.png",
       motto: "",
       name: "Ballista",
@@ -298,7 +303,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/goblikazes.png",
       motto: "",
       name: "Goblikazes",
@@ -307,7 +312,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.RARE,
       image: "/img/aow-troops/cactus.png",
       motto: "",
       name: "Cactuses",
@@ -316,7 +321,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/necromancer.png",
       motto: "",
       name: "Necromancer",
@@ -325,7 +330,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/pilgrims.png",
       motto: "",
       name: "Pilgrims",
@@ -334,7 +339,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/yasha.png",
       motto: "",
       name: "Yasha",
@@ -343,7 +348,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/priestmage.png",
       motto: "",
       name: "Priest Mage",
@@ -352,7 +357,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/soulhunter.png",
       motto: "",
       name: "Soul Hunter",
@@ -361,7 +366,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/templarknight.png",
       motto: "",
       name: "Templar Knight",
@@ -370,7 +375,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/peltasts.png",
       motto: "",
       name: "Peltasts",
@@ -379,7 +384,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/brawlers.png",
       motto: "",
       name: "Brawlers",
@@ -388,7 +393,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/tauruswitcher.png",
       motto: "",
       name: "Taurus Witcher",
@@ -397,7 +402,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.EPIC,
       image: "/img/aow-troops/voodoodolls.png",
       motto: "",
       name: "Voodoo Dolls",
@@ -406,7 +411,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/demon.png",
       motto: "",
       name: "Demon",
@@ -415,7 +420,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/beastmaster.png",
       motto: "",
       name: "Beast Master",
@@ -424,7 +429,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/witchcrafttotem.png",
       motto: "",
       name: "Witchcraft Totem",
@@ -433,7 +438,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/meteorgolem.png",
       motto: "",
       name: "Meteor Golem",
@@ -442,7 +447,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/stonegolem.png",
       motto: "",
       name: "Stone Golem",
@@ -451,7 +456,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/frostarchers.png",
       motto: "",
       name: "Frost Archers",
@@ -460,7 +465,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/sacredswordsman.png",
       motto: "",
       name: "Sacred Swordsman",
@@ -469,7 +474,7 @@ const troops = {
       stats: [],
     },
     {
-      grade: "",
+      grade: GRADES.LEGENDARY,
       image: "/img/aow-troops/rhinoknight.png",
       motto: "",
       name: "Rhino Knight",
@@ -480,4 +485,4 @@ const troops = {
   ],
 };
 
-export { troops, races, grades };
+export { troops, races, GRADES };

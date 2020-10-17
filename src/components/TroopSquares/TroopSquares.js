@@ -1,5 +1,6 @@
 import React from "react";
 import { func } from "prop-types";
+import classNames from "classnames";
 import { TYPE_FORMATION } from "../../utils/propTypes";
 import { SQUARES } from "../../utils/constants";
 import { troops } from "../../data";
@@ -23,7 +24,9 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
         <button
           aria-label={hasTroops ?? `Square ${squareNum}`}
           title={hasTroops ?? `Square ${squareNum}`}
-          className={s.troopSquare}
+          className={classNames(s.troopSquare, {
+            [s[`${troop?.grade?.toLowerCase()}`]]: hasTroops,
+          })}
           key={`${name}-${squareNum}`}
           id={`${name}-${squareNum}`}
           onClick={() => showTroopSelectionForm(`${squareNum}`)}
