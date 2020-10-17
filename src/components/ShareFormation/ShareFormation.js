@@ -12,7 +12,7 @@ const ShareFormation = ({ formation }) => {
         `${acc}${index === 0 ? "?" : "&"}${square}=${formation[square].troop},${
           formation[square].level
         }`,
-      `${window.location.href}`
+      `${window.location.origin}`
     );
 
     const newTextarea = document.createElement("textarea");

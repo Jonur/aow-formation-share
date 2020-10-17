@@ -1,9 +1,10 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Header from "../Header";
 import ShareFormation from "../ShareFormation";
 import TroopSquares from "../TroopSquares";
 import TroopSelectionForm from "../TroopSelectionForm";
 import Footer from "../Footer";
+import getFormationFromURL from "../../utils/getFormationFromURL";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -16,6 +17,10 @@ const App = () => {
   const showTroopSelectionForm = useCallback((squareNum) => {
     setTroopSelectionFormStatus(true);
     setSelectedSquare(squareNum);
+  }, []);
+
+  useEffect(() => {
+    setFormation(getFormationFromURL());
   }, []);
 
   const handleFormSubmit = useCallback(
