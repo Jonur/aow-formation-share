@@ -36,6 +36,7 @@ const App = () => {
         <TroopSelectionForm
           handleFormSubmit={handleFormSubmit}
           selectedSquare={selectedSquare}
+          setTroopSelectionFormStatus={setTroopSelectionFormStatus}
         />
       )}
       <div className={s.formationBoard}>
