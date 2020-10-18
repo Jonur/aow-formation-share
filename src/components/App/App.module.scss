@@ -8,7 +8,7 @@
 
     .formationBoard {
       display: grid;
-      grid-template: repeat(7, 50px) / repeat(7, 50px);
+      grid-template: repeat(7, 45px) / repeat(7, 45px);
       grid-gap: 0.25rem;
 
       @media screen and (min-width: 1024px) {
