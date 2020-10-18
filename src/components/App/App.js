@@ -3,6 +3,7 @@ import Header from "../Header";
 import ShareFormation from "../ShareFormation";
 import TroopSquares from "../TroopSquares";
 import TroopSelectionForm from "../TroopSelectionForm";
+import ClearFormation from "../ClearFormation";
 import Footer from "../Footer";
 import getFormationFromURL from "../../utils/getFormationFromURL";
 import s from "./App.module.scss";
@@ -65,6 +66,7 @@ const App = () => {
             showTroopSelectionForm={showTroopSelectionForm}
           />
         </div>
+        <ClearFormation formation={formation} setFormation={setFormation} />
       </div>
       <Footer />
     </div>

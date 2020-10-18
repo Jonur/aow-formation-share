@@ -28,7 +28,7 @@ const ShareFormation = ({ formation }) => {
   }, [formation, troopsInFormation]);
 
   return (
-    <div className={s.shareFormation}>
+    <nav className={s.shareFormation}>
       <button
         className={s.shareBtn}
         disabled={!troopsInFormation.length}
@@ -39,7 +39,7 @@ const ShareFormation = ({ formation }) => {
       {copyNotification && (
         <span className={s.copyNotification}>Link copied!</span>
       )}
-    </div>
+    </nav>
   );
 };
 
