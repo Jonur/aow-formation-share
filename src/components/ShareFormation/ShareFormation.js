@@ -9,9 +9,9 @@ const ShareFormation = ({ formation }) => {
   const createShareableLink = useCallback(() => {
     const formationLink = troopsInFormation.reduce(
       (acc, square, index) =>
-        `${acc}${index === 0 ? "?" : "&"}${square}=${formation[square].troop},${
-          formation[square].level
-        }`,
+        `${acc}${index === 0 ? "?" : "&"}${square}=${escape(
+          formation[square].troop
+        )},${formation[square].level}`,
       `${window.location.origin}`
     );
 
