@@ -28,17 +28,29 @@ const App = () => {
   const handleFormSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      const troopToAdd = {
-        troop: e.target.troop.value,
-        level: e.target.level.value,
+
+      const newFormation = {
+        ...formation,
       };
 
-      setFormation({
-        ...formation,
-        [e.target.square.value]: troopToAdd,
-      });
+      if (!e.target.troop.value) {
+        delete newFormation[e.target.square.value];
+
+        setFormation(newFormation);
+      } else {
+        const troopToAdd = {
+          troop: e.target.troop.value,
+          level: e.target.level.value,
+        };
+
+        setFormation({
+          ...formation,
+          [e.target.square.value]: troopToAdd,
+        });
+        setLastTroopAdded(troopToAdd);
+      }
+
       setTroopSelectionFormStatus(false);
-      setLastTroopAdded(troopToAdd);
     },
     [formation]
   );

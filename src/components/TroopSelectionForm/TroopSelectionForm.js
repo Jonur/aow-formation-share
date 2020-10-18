@@ -31,11 +31,16 @@ const TroopSelectionForm = ({
       </button>
       <input type="hidden" name="square" value={selectedSquare} />
 
+      {/* <input type="button" value="Empty the square" /> */}
+
       <select
         name="troop"
-        defaultValue={lastTroopAdded.troop}
+        defaultValue={lastTroopAdded.troop || troops.names[0]}
         title="Select troop"
       >
+        <option value="" key="no-troop">
+          --- No troop ---
+        </option>
         {troops.names.map((name) => (
           <option value={name} key={`troop-${name}`}>
             {name}
