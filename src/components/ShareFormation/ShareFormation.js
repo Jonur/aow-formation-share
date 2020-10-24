@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { TYPE_FORMATION } from "../../utils/propTypes";
+import troopHashMap from "../../utils/getTroopHashMap";
 import s from "./ShareFormation.module.scss";
 
 const ShareFormation = ({ formation }) => {
@@ -8,11 +9,11 @@ const ShareFormation = ({ formation }) => {
 
   const createShareableLink = useCallback(() => {
     const formationLink = troopsInFormation.reduce(
-      (acc, square, index) =>
-        `${acc}${index === 0 ? "?" : "&"}${square}=${escape(
-          formation[square].troop
-        )},${formation[square].level}`,
-      `${window.location.origin}`
+      (acc, square) =>
+        `${acc}&${square}=${troopHashMap[formation[square].troop].id},${
+          formation[square].level
+        }`,
+      `${window.location.origin}?v=2`
     );
 
     const newTextarea = document.createElement("textarea");

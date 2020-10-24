@@ -6,6 +6,7 @@ import TroopSelectionForm from "../TroopSelectionForm";
 import ClearFormation from "../ClearFormation";
 import Footer from "../Footer";
 import getFormationFromURL from "../../utils/getFormationFromURL";
+import getTroopId from "../../utils/getTroopId";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
         const troopToAdd = {
           troop: e.target.troop.value,
           level: e.target.level.value,
+          id: getTroopId(e.target.troop.value),
         };
 
         setFormation({

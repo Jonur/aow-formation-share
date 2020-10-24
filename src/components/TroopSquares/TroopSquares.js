@@ -3,13 +3,8 @@ import { func } from "prop-types";
 import classNames from "classnames";
 import { TYPE_FORMATION } from "../../utils/propTypes";
 import { SQUARES } from "../../utils/constants";
-import { troops } from "../../data";
+import troopHashMap from "../../utils/getTroopHashMap";
 import s from "./TroopSquares.module.scss";
-
-const getTroopHashMap = troops.troops.reduce(
-  (acc, troop) => ({ ...acc, [troop.name]: troop }),
-  {}
-);
 
 const TroopSquares = ({ formation, showTroopSelectionForm }) =>
   Array.from(new Array(SQUARES))
@@ -17,8 +12,7 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
     .map((name, i) => {
       const squareNum = i + 1;
       const hasTroops = formation[`${squareNum}`]?.troop;
-      const troop =
-        hasTroops && getTroopHashMap[formation[`${squareNum}`].troop];
+      const troop = hasTroops && troopHashMap[formation[`${squareNum}`].troop];
 
       return (
         <button
