@@ -13,7 +13,7 @@ const getFormationFromURL = () => {
     let squareTroopData;
 
     const urlVersion = +urlParamHashes
-      .find((hash) => hash.split("=")[0] === "v")
+      .find((hash) => hash?.split("=")?.[0] === "v")
       ?.split("=")?.[1];
 
     for (var i = 0; i < urlParamHashes.length; i++) {
@@ -30,7 +30,7 @@ const getFormationFromURL = () => {
         troop = isValidTroop && troopHashMap[squareTroopData[0]].name;
       } else {
         isValidTroop = troops.names.includes(unescape(squareTroopData?.[0]));
-        troop = unescape(squareTroopData[0]);
+        troop = isValidTroop && unescape(squareTroopData[0]);
       }
 
       if (isValidSquareNumber && isValidTroopLevel && isValidTroop) {
