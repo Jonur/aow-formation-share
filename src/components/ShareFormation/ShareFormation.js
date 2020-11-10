@@ -35,10 +35,7 @@ const ShareFormation = ({ formation }) => {
   const screenshotAndDownload = useCallback(
     () =>
       htmlToImage
-        .toJpeg(document.getElementById("formation-board"), {
-          width: 800,
-          height: 800,
-        })
+        .toPng(document.getElementById("formation-board"))
         .then((dataUrl) => download(dataUrl, uuidv4())),
     []
   );

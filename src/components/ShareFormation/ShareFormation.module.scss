@@ -28,11 +28,18 @@
     }
 
     &.screenAndDl {
+      display: none;
       background-color: #b94b28;
+
+      @media screen and (min-width: 1024px) {
+        display: block;
+      }
     }
 
     &:first-child {
-      margin-right: 1rem;
+      @media screen and (min-width: 1024px) {
+        margin-right: 1rem;
+      }
     }
   }
 
