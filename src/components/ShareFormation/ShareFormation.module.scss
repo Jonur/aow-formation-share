@@ -6,8 +6,7 @@
   position: relative;
   margin-bottom: 2.5rem;
 
-  .shareBtn {
-    background-color: #338d46;
+  .btn {
     border: 2px solid white;
     color: white;
     font-weight: 700;
@@ -22,6 +21,18 @@
     &:disabled {
       opacity: 0.5;
       cursor: default;
+    }
+
+    &.shareBtn {
+      background-color: #338d46;
+    }
+
+    &.screenAndDl {
+      background-color: #b94b28;
+    }
+
+    &:first-child {
+      margin-right: 1rem;
     }
   }
 

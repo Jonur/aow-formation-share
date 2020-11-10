@@ -74,7 +74,7 @@ const App = () => {
             lastTroopAdded={lastTroopAdded}
           />
         )}
-        <div className={s.formationBoard}>
+        <div className={s.formationBoard} id="formation-board">
           <TroopSquares
             formation={formation}
             showTroopSelectionForm={showTroopSelectionForm}
