@@ -1,9 +1,7 @@
 import React, { useCallback, useState } from "react";
 import classNames from "classnames";
 import html2canvas from "html2canvas";
-// import * as htmlToImage from "html-to-image";
 import { v4 as uuidv4 } from "uuid";
-// import download from "downloadjs";
 import { TYPE_FORMATION } from "../../utils/propTypes";
 import troopHashMap from "../../utils/getTroopHashMap";
 import s from "./ShareFormation.module.scss";
