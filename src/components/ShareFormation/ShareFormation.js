@@ -30,7 +30,7 @@ const ShareFormation = ({ formation }) => {
     newTextarea.remove();
 
     setCopyNotification(true);
-    setTimeout(() => setCopyNotification(false), 3000);
+    setTimeout(() => setCopyNotification(false), 4000);
   }, [formation, troopsInFormation]);
 
   const screenshotAndDownload = () => {
@@ -63,7 +63,10 @@ const ShareFormation = ({ formation }) => {
         Screenshot &amp; Download
       </button>
       {copyNotification && (
-        <span className={s.copyNotification}>Link copied!</span>
+        <span className={s.copyNotification}>
+          The shareable link has been <strong>copied to your clipboard</strong>.
+          You can paste it anywhere to share it!
+        </span>
       )}
     </nav>
   );
