@@ -1,20 +1,21 @@
 .shareFormation {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 2.5rem;
+  display: grid;
+  padding: 0 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin: 0.5rem 0 2rem;
 
   .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 2px solid white;
     color: white;
     font-weight: 700;
-    height: 2rem;
     outline: 0;
     font-size: 1rem;
     line-height: 100%;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
 
@@ -28,18 +29,7 @@
     }
 
     &.screenAndDl {
-      display: none;
       background-color: #b94b28;
-
-      @media screen and (min-width: 1024px) {
-        display: block;
-      }
-    }
-
-    &:first-child {
-      @media screen and (min-width: 1024px) {
-        margin-right: 1rem;
-      }
     }
   }
 
@@ -53,7 +43,8 @@
     display: none;
   }
 
-  @media screen and (min-width: 1024px) {
-    margin-bottom: 0;
+  @media screen and (min-width: 768px) {
+    margin: 0.5rem auto 2rem;
+    max-width: 560px;
   }
 }

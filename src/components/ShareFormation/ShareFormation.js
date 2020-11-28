@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from "react";
 import classNames from "classnames";
-import * as htmlToImage from "html-to-image";
+import html2canvas from "html2canvas";
+// import * as htmlToImage from "html-to-image";
 import { v4 as uuidv4 } from "uuid";
-import download from "downloadjs";
+// import download from "downloadjs";
 import { TYPE_FORMATION } from "../../utils/propTypes";
 import troopHashMap from "../../utils/getTroopHashMap";
 import s from "./ShareFormation.module.scss";
@@ -32,13 +33,18 @@ const ShareFormation = ({ formation }) => {
     setTimeout(() => setCopyNotification(false), 3000);
   }, [formation, troopsInFormation]);
 
-  const screenshotAndDownload = useCallback(
-    () =>
-      htmlToImage
-        .toPng(document.getElementById("formation-board"))
-        .then((dataUrl) => download(dataUrl, uuidv4())),
-    []
-  );
+  const screenshotAndDownload = () => {
+    const myDiv = document.getElementById("formation-board");
+
+    html2canvas(myDiv).then((canvas) => {
+      var base64String = canvas.toDataURL();
+
+      const downloadLink = document.createElement("a");
+      downloadLink.href = base64String;
+      downloadLink.download = `${uuidv4()}.png`;
+      downloadLink.click();
+    });
+  };
 
   return (
     <nav className={s.shareFormation}>
