@@ -26,35 +26,33 @@ const App = () => {
     setFormation(getFormationFromURL());
   }, []);
 
-  const handleFormSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-
+  const addToFormation = useCallback(
+    ({ level, troop }) => {
       const newFormation = {
         ...formation,
       };
 
-      if (!e.target.troop.value) {
-        delete newFormation[e.target.square.value];
+      if (!troop) {
+        delete newFormation[selectedSquare];
 
         setFormation(newFormation);
       } else {
         const troopToAdd = {
-          troop: e.target.troop.value,
-          level: e.target.level.value,
-          id: getTroopId(e.target.troop.value),
+          troop: troop,
+          level: `${level}`,
+          id: getTroopId(troop),
         };
 
         setFormation({
           ...formation,
-          [e.target.square.value]: troopToAdd,
+          [selectedSquare]: troopToAdd,
         });
         setLastTroopAdded(troopToAdd);
       }
 
       setTroopSelectionFormStatus(false);
     },
-    [formation]
+    [formation, selectedSquare]
   );
 
   return (
@@ -68,8 +66,7 @@ const App = () => {
       <div className={s.formationShare}>
         {troopSelectionFormStatus && (
           <TroopSelectionForm
-            handleFormSubmit={handleFormSubmit}
-            selectedSquare={selectedSquare}
+            addToFormation={addToFormation}
             setTroopSelectionFormStatus={setTroopSelectionFormStatus}
             lastTroopAdded={lastTroopAdded}
           />

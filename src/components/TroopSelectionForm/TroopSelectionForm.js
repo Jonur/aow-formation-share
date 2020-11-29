@@ -1,22 +1,75 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { func, shape, string } from "prop-types";
-import { MAX_TROOP_LEVEL } from "../../utils/constants";
+import {
+  ENTER_KEY_CODE,
+  MAX_TROOP_LEVEL,
+  TAB_KEY_CODE,
+} from "../../utils/constants";
 import { troops } from "../../data";
 import s from "./TroopSelectionForm.module.scss";
 
 const TroopSelectionForm = ({
-  handleFormSubmit,
+  addToFormation,
   lastTroopAdded,
-  selectedSquare,
   setTroopSelectionFormStatus,
 }) => {
+  const troopSelectionRef = useRef();
+
+  const [currentlySelectedTroop, setCurrentlySelectedTroop] = useState(
+    lastTroopAdded.troop || troops.names[0]
+  );
+  const [
+    currentlySelectedTroopLevel,
+    setCurrentlySelectedTroopLevel,
+  ] = useState(lastTroopAdded.level || MAX_TROOP_LEVEL);
+
   const handleCloseForm = useCallback(
     () => setTroopSelectionFormStatus(false),
     [setTroopSelectionFormStatus]
   );
 
+  const handleFormSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      addToFormation({
+        troop: currentlySelectedTroop,
+        level: currentlySelectedTroopLevel,
+      });
+    },
+    [addToFormation, currentlySelectedTroop, currentlySelectedTroopLevel]
+  );
+
+  const handleSubmitWithEnter = (e) => {
+    if (e.keyCode === ENTER_KEY_CODE) {
+      e.preventDefault();
+
+      addToFormation({
+        troop: currentlySelectedTroop,
+        level: currentlySelectedTroopLevel,
+      });
+    }
+  };
+
+  const focusTroopSelection = useCallback((e) => {
+    if (e.keyCode === TAB_KEY_CODE) {
+      e.preventDefault();
+      troopSelectionRef.current.focus();
+    }
+  }, []);
+
+  const selectTroop = useCallback(
+    (e) => setCurrentlySelectedTroop(e.target.value),
+    []
+  );
+  const selectTroopLevel = useCallback(
+    (e) => setCurrentlySelectedTroopLevel(e.target.value),
+    []
+  );
+
   return (
     <form
+      id="troop-selection-form"
       name="troopSelectionForm"
       onSubmit={handleFormSubmit}
       className={s.troopSelectionForm}
@@ -26,17 +79,20 @@ const TroopSelectionForm = ({
         className={s.close}
         onClick={handleCloseForm}
         type="button"
+        tabIndex={-1}
       >
         &times;
       </button>
-      <input type="hidden" name="square" value={selectedSquare} />
-
-      {/* <input type="button" value="Empty the square" /> */}
 
       <select
         name="troop"
-        defaultValue={lastTroopAdded.troop || troops.names[0]}
+        defaultValue={currentlySelectedTroop}
         title="Select troop"
+        autoFocus
+        onKeyDown={handleSubmitWithEnter}
+        onChange={selectTroop}
+        tabIndex={1}
+        ref={troopSelectionRef}
       >
         <option value="" key="no-troop">
           --- No troop ---
@@ -50,8 +106,11 @@ const TroopSelectionForm = ({
 
       <select
         name="level"
-        defaultValue={lastTroopAdded.level}
+        defaultValue={currentlySelectedTroopLevel}
         title="Select troop level"
+        onKeyDown={handleSubmitWithEnter}
+        onChange={selectTroopLevel}
+        tabIndex={2}
       >
         {Array.from(new Array(MAX_TROOP_LEVEL))
           .map((lvl, index) => (
@@ -62,18 +121,19 @@ const TroopSelectionForm = ({
           .reverse()}
       </select>
 
-      <input type="submit" value="Add" />
+      <button type="submit" tabIndex={3} onKeyDown={focusTroopSelection}>
+        Add
+      </button>
     </form>
   );
 };
 
 TroopSelectionForm.propTypes = {
-  handleFormSubmit: func.isRequired,
+  addToFormation: func.isRequired,
   lastTroopAdded: shape({
     level: string,
     troop: string,
   }).isRequired,
-  selectedSquare: string.isRequired,
   setTroopSelectionFormStatus: func.isRequired,
 };
 
