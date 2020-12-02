@@ -1,30 +1,29 @@
 import React, { useCallback } from "react";
-import { func } from "prop-types";
-import { TYPE_FORMATION } from "../../utils/propTypes";
+import { useDispatch, useSelector } from "react-redux";
+import { formationActions, formationSelectors } from "../../redux/formation";
 import s from "./ClearFormation.module.scss";
 
-const ClearFormation = ({ formation, setFormation }) => {
-  const troopsInFormation = Object.keys(formation);
-  const handleClearFormation = useCallback(() => setFormation({}), [
-    setFormation,
-  ]);
+const ClearFormation = () => {
+  const dispatch = useDispatch();
+
+  const isFormationEmpty = useSelector(formationSelectors.getIsFormationEmpty);
+
+  const handleClearFormation = useCallback(
+    () => dispatch(formationActions.emptyFormationBoard()),
+    [dispatch]
+  );
 
   return (
     <nav className={s.clearFormation}>
       <button
         className={s.shareBtn}
-        disabled={!troopsInFormation.length}
+        disabled={isFormationEmpty}
         onClick={handleClearFormation}
       >
         Empty Formation
       </button>
     </nav>
   );
-};
-
-ClearFormation.propTypes = {
-  formation: TYPE_FORMATION,
-  setFormation: func.isRequired,
 };
 
 export default ClearFormation;

@@ -1,10 +1,12 @@
 import React from "react";
 import s from "./Footer.module.scss";
 
+const currentYear = new Date().getFullYear();
+
 const Footer = () => (
   <footer className={s.footer}>
     <p>
-      &copy;{`${new Date().getFullYear()} - `}
+      &copy;{`${currentYear} - `}
       <a
         className={s.link}
         rel="noopener noreferrer"

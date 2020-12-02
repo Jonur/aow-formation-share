@@ -1,8 +1,10 @@
 import { combineReducers, createStore } from "redux";
 
 import { gameDataReducer } from "./gameData";
+import { formationReducer } from "./formation";
 
 const rootReducer = combineReducers({
+  formation: formationReducer,
   gameData: gameDataReducer,
 });
 

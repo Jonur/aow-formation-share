@@ -3,12 +3,13 @@ import { func } from "prop-types";
 import classNames from "classnames";
 import { useSelector } from "react-redux";
 import { gameDataSelectors } from "../../redux/gameData";
-import { TYPE_FORMATION } from "../../utils/propTypes";
+import { formationSelectors } from "../../redux/formation";
 import troopHashMap from "../../utils/getTroopHashMap";
 import s from "./TroopSquares.module.scss";
 
-const TroopSquares = ({ formation, showTroopSelectionForm }) => {
+const TroopSquares = ({ showTroopSelectionForm }) => {
   const boardSquaresGrid = useSelector(gameDataSelectors.getBoardSquaresGrid);
+  const formation = useSelector(formationSelectors.getFormation);
 
   return boardSquaresGrid.map((squareNum) => {
     const hasTroops = formation[`${squareNum}`]?.troop;
@@ -46,7 +47,6 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) => {
 };
 
 TroopSquares.propTypes = {
-  formation: TYPE_FORMATION,
   showTroopSelectionForm: func.isRequired,
 };
 

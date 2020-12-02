@@ -2,23 +2,17 @@ import React, { useCallback, useState } from "react";
 import classNames from "classnames";
 import html2canvas from "html2canvas";
 import { v4 as uuidv4 } from "uuid";
-import { TYPE_FORMATION } from "../../utils/propTypes";
-import troopHashMap from "../../utils/getTroopHashMap";
+import { useSelector } from "react-redux";
+import { formationSelectors } from "../../redux/formation";
 import s from "./ShareFormation.module.scss";
 
-const ShareFormation = ({ formation }) => {
+const ShareFormation = () => {
   const [copyNotification, setCopyNotification] = useState(false);
-  const troopsInFormation = Object.keys(formation);
+
+  const isFormationEmpty = useSelector(formationSelectors.getIsFormationEmpty);
+  const formationLink = useSelector(formationSelectors.getFormationLink);
 
   const createShareableLink = useCallback(() => {
-    const formationLink = troopsInFormation.reduce(
-      (acc, square) =>
-        `${acc}&${square}=${troopHashMap[formation[square].troop].id},${
-          formation[square].level
-        }`,
-      `${window.location.origin}?v=2`
-    );
-
     const newTextarea = document.createElement("textarea");
     newTextarea.id = "formation-link";
     newTextarea.value = formationLink;
@@ -29,7 +23,7 @@ const ShareFormation = ({ formation }) => {
 
     setCopyNotification(true);
     setTimeout(() => setCopyNotification(false), 4000);
-  }, [formation, troopsInFormation]);
+  }, [formationLink]);
 
   const screenshotAndDownload = () => {
     const myDiv = document.getElementById("formation-board");
@@ -48,7 +42,7 @@ const ShareFormation = ({ formation }) => {
     <nav className={s.shareFormation}>
       <button
         className={classNames(s.btn, s.shareBtn)}
-        disabled={!troopsInFormation.length}
+        disabled={isFormationEmpty}
         onClick={createShareableLink}
       >
         Share Formation
@@ -56,7 +50,7 @@ const ShareFormation = ({ formation }) => {
       <button
         className={classNames(s.btn, s.screenAndDl)}
         onClick={screenshotAndDownload}
-        disabled={!troopsInFormation.length}
+        disabled={isFormationEmpty}
       >
         Screenshot &amp; Download
       </button>
@@ -69,10 +63,6 @@ const ShareFormation = ({ formation }) => {
       )}
     </nav>
   );
-};
-
-ShareFormation.propTypes = {
-  formation: TYPE_FORMATION,
 };
 
 export default ShareFormation;

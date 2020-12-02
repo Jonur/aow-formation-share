@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { formationActions } from "../../redux/formation";
 import Header from "../Header";
 import ShareFormation from "../ShareFormation";
 import TroopSquares from "../TroopSquares";
@@ -6,15 +8,15 @@ import TroopSelectionForm from "../TroopSelectionForm";
 import ClearFormation from "../ClearFormation";
 import Footer from "../Footer";
 import getFormationFromURL from "../../utils/getFormationFromURL";
-import getTroopId from "../../utils/getTroopId";
 import s from "./App.module.scss";
 
 const App = () => {
+  const dispatch = useDispatch();
+
   const [troopSelectionFormStatus, setTroopSelectionFormStatus] = useState(
     false
   );
   const [selectedSquare, setSelectedSquare] = useState();
-  const [formation, setFormation] = useState({});
   const [lastTroopAdded, setLastTroopAdded] = useState({});
 
   const showTroopSelectionForm = useCallback((squareNum) => {
@@ -23,46 +25,46 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    setFormation(getFormationFromURL());
+    const formationFromURL = getFormationFromURL();
+    if (Object.keys(formationFromURL).length) {
+      dispatch(formationActions.setFormation(formationFromURL));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addToFormation = useCallback(
     ({ level, troop }) => {
-      const newFormation = {
-        ...formation,
-      };
-
       if (!troop) {
-        delete newFormation[selectedSquare];
-
-        setFormation(newFormation);
+        dispatch(formationActions.removeTroopFromFormation(selectedSquare));
       } else {
         const troopToAdd = {
           troop: troop,
           level: `${level}`,
-          id: getTroopId(troop),
         };
 
-        setFormation({
-          ...formation,
-          [selectedSquare]: troopToAdd,
-        });
+        dispatch(
+          formationActions.addTroopToFormation(selectedSquare, troopToAdd)
+        );
         setLastTroopAdded(troopToAdd);
       }
 
       setTroopSelectionFormStatus(false);
     },
-    [formation, selectedSquare]
+    [dispatch, selectedSquare]
   );
 
   return (
     <div className={s.app}>
       {troopSelectionFormStatus && <div className={s.backdrop} />}
+
       <Header />
+
       <div role="alert" className={s.screenRotationNotification}>
         Please rotate your device
       </div>
-      <ShareFormation formation={formation} />
+
+      <ShareFormation />
+
       <div className={s.formationShare}>
         {troopSelectionFormStatus && (
           <TroopSelectionForm
@@ -71,14 +73,14 @@ const App = () => {
             lastTroopAdded={lastTroopAdded}
           />
         )}
+
         <div className={s.formationBoard} id="formation-board">
-          <TroopSquares
-            formation={formation}
-            showTroopSelectionForm={showTroopSelectionForm}
-          />
+          <TroopSquares showTroopSelectionForm={showTroopSelectionForm} />
         </div>
-        <ClearFormation formation={formation} setFormation={setFormation} />
+
+        <ClearFormation />
       </div>
+
       <Footer />
     </div>
   );

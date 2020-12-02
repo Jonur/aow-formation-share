@@ -4,6 +4,10 @@ export const getGameData = ({ gameData }) => gameData;
 
 export const getTroops = createSelector(getGameData, ({ troops }) => troops);
 
+export const getTroopHashMap = createSelector(getTroops, (troops) =>
+  troops.reduce((acc, troop) => ({ ...acc, [troop.name]: troop }), {})
+);
+
 export const getTroopNames = createSelector(getTroops, (troops) =>
   troops.map(({ name }) => name).sort()
 );
