@@ -14,17 +14,17 @@
     .link:visited {
       color: white;
     }
+  }
 
-    &.donateRow {
+  .donateRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .donateForm {
       display: flex;
-      justify-content: center;
       align-items: center;
-
-      .donateForm {
-        display: flex;
-        align-items: center;
-        margin-right: 0.25rem;
-      }
+      margin-right: 0.25rem;
     }
   }
 }

@@ -15,7 +15,7 @@ const Footer = () => (
         Created by GRL Jonur
       </a>
     </p>
-    <p className={s.donateRow}>
+    <div className={s.donateRow}>
       <form
         action="https://www.paypal.com/donate"
         method="post"
@@ -40,7 +40,7 @@ const Footer = () => (
         />
       </form>
       and help me pay for the server!
-    </p>
+    </div>
     <p>
       <a
         className={s.link}
