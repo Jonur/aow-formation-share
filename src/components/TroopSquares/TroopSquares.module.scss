@@ -17,6 +17,17 @@
   border-radius: 4px;
   cursor: pointer;
 
+  &.empty {
+    &:before {
+      position: absolute;
+      content: "+";
+      color: #96db5c;
+      font-size: 4rem;
+      z-index: 0;
+      opacity: 0.75;
+    }
+  }
+
   &.common {
     border: 2px solid #3098bd;
   }
@@ -38,6 +49,11 @@
   &.epic,
   &.legendary {
     align-items: flex-start;
+  }
+
+  .emptySquareNumber {
+    z-index: 1;
+    font-size: 1.25rem;
   }
 
   .troopLevel {

@@ -14,5 +14,17 @@
     .link:visited {
       color: white;
     }
+
+    &.donateRow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .donateForm {
+        display: flex;
+        align-items: center;
+        margin-right: 0.25rem;
+      }
+    }
   }
 }

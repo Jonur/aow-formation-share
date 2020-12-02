@@ -15,19 +15,32 @@ const Footer = () => (
         Created by GRL Jonur
       </a>
     </p>
-    <p>
-      <a
-        className={s.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://paypal.me/Damilos"
-        alt="Donate to Dimitris Damilos on PayPal"
+    <p className={s.donateRow}>
+      <form
+        action="https://www.paypal.com/donate"
+        method="post"
+        target="_top"
+        className={s.donateForm}
       >
-        Donate
-      </a>{" "}
+        <input type="hidden" name="hosted_button_id" value="Z9FMXSQ847WW4" />
+        <input
+          type="image"
+          src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif"
+          border="0"
+          name="submit"
+          title="PayPal - The safer, easier way to pay online!"
+          alt="Donate with PayPal button"
+        />
+        <img
+          alt=""
+          border="0"
+          src="https://www.paypal.com/en_GB/i/scr/pixel.gif"
+          width="1"
+          height="1"
+        />
+      </form>
       and help me pay for the server!
     </p>
-    <p>Made with &#10084; by the Greek Legends clan</p>
     <p>
       <a
         className={s.link}

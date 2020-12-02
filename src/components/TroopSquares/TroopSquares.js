@@ -23,6 +23,7 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
           }
           className={classNames(s.troopSquare, {
             [s[`${troop?.grade?.toLowerCase()}`]]: hasTroops,
+            [s.empty]: !hasTroops,
           })}
           key={`${name}-${squareNum}`}
           id={`${name}-${squareNum}`}
@@ -33,7 +34,7 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
               {formation[`${squareNum}`].level}
             </span>
           ) : (
-            squareNum
+            <span className={s.emptySquareNumber}>{squareNum}</span>
           )}
           {hasTroops && (
             <img className={s.troopImage} src={troop.image} alt={troop.name} />
