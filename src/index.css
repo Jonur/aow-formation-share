@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 html,
@@ -10,7 +12,4 @@ body {
   min-height: 100vh;
   background-color: #537895;
   overflow-x: hidden;
-
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
 }
