@@ -60,6 +60,7 @@ const ShareFormation = ({ formation }) => {
       >
         Screenshot &amp; Download
       </button>
+
       {copyNotification && (
         <span className={s.copyNotification}>
           The shareable link has been <strong>copied to your clipboard</strong>.

@@ -15,6 +15,18 @@ const Footer = () => (
         Created by GRL Jonur
       </a>
     </p>
+    <p>
+      <a
+        className={s.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://paypal.me/Damilos"
+        alt="Donate to Dimitris Damilos on PayPal"
+      >
+        Donate
+      </a>{" "}
+      and help me pay for the server!
+    </p>
     <p>Made with &#10084; by the Greek Legends clan</p>
     <p>
       <a

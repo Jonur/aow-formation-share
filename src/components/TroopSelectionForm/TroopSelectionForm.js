@@ -1,11 +1,12 @@
 import React, { useCallback, useRef, useState } from "react";
 import { func, shape, string } from "prop-types";
+import { useSelector } from "react-redux";
+import { gameDataSelectors } from "../../redux/gameData";
 import {
   ENTER_KEY_CODE,
-  MAX_TROOP_LEVEL,
   TAB_KEY_CODE,
+  ESCAPE_KEY_CODE,
 } from "../../utils/constants";
-import { troops } from "../../data";
 import s from "./TroopSelectionForm.module.scss";
 
 const TroopSelectionForm = ({
@@ -15,13 +16,16 @@ const TroopSelectionForm = ({
 }) => {
   const troopSelectionRef = useRef();
 
+  const troopNames = useSelector(gameDataSelectors.getTroopNames);
+  const troopLevels = useSelector(gameDataSelectors.getTroopLevelsReversed);
+
   const [currentlySelectedTroop, setCurrentlySelectedTroop] = useState(
-    lastTroopAdded.troop || troops.names[0]
+    lastTroopAdded.troop || troopNames[0]
   );
   const [
     currentlySelectedTroopLevel,
     setCurrentlySelectedTroopLevel,
-  ] = useState(lastTroopAdded.level || MAX_TROOP_LEVEL);
+  ] = useState(lastTroopAdded.level || troopLevels[0]);
 
   const handleCloseForm = useCallback(
     () => setTroopSelectionFormStatus(false),
@@ -51,6 +55,13 @@ const TroopSelectionForm = ({
     }
   };
 
+  const handleCloseFormWithEscape = (e) => {
+    if (e.keyCode === ESCAPE_KEY_CODE) {
+      e.preventDefault();
+      handleCloseForm();
+    }
+  };
+
   const focusTroopSelection = useCallback((e) => {
     if (e.keyCode === TAB_KEY_CODE) {
       e.preventDefault();
@@ -73,6 +84,7 @@ const TroopSelectionForm = ({
       name="troopSelectionForm"
       onSubmit={handleFormSubmit}
       className={s.troopSelectionForm}
+      onKeyDown={handleCloseFormWithEscape}
     >
       <button
         title="Close the form"
@@ -97,7 +109,7 @@ const TroopSelectionForm = ({
         <option value="" key="no-troop">
           --- No troop ---
         </option>
-        {troops.names.map((name) => (
+        {troopNames.map((name) => (
           <option value={name} key={`troop-${name}`}>
             {name}
           </option>
@@ -112,13 +124,11 @@ const TroopSelectionForm = ({
         onChange={selectTroopLevel}
         tabIndex={2}
       >
-        {Array.from(new Array(MAX_TROOP_LEVEL))
-          .map((lvl, index) => (
-            <option value={index + 1} key={`lvl-${index + 1}`}>
-              {index + 1}
-            </option>
-          ))
-          .reverse()}
+        {troopLevels.map((lvl) => (
+          <option value={lvl} key={`lvl-${lvl}`}>
+            {lvl}
+          </option>
+        ))}
       </select>
 
       <button type="submit" tabIndex={3} onKeyDown={focusTroopSelection}>
