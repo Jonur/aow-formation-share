@@ -23,19 +23,19 @@ const TroopSquares = ({ formation, showTroopSelectionForm }) =>
           }
           className={classNames(s.troopSquare, {
             [s[`${troop?.grade?.toLowerCase()}`]]: hasTroops,
-            [s.empty]: !hasTroops,
           })}
           key={`${name}-${squareNum}`}
           id={`${name}-${squareNum}`}
           onClick={() => showTroopSelectionForm(`${squareNum}`)}
         >
-          {hasTroops ? (
-            <span className={s.troopLevel}>
-              {formation[`${squareNum}`].level}
-            </span>
-          ) : (
-            <span className={s.emptySquareNumber}>{squareNum}</span>
-          )}
+          <span
+            className={classNames({
+              [s.troopLevel]: hasTroops,
+              [s.emptySquareNumber]: !hasTroops,
+            })}
+          >
+            {hasTroops ? formation[`${squareNum}`].level : squareNum}
+          </span>
           {hasTroops && (
             <img className={s.troopImage} src={troop.image} alt={troop.name} />
           )}
