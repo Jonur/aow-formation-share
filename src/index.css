@@ -1,7 +1,5 @@
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
 }
 
 html,
@@ -11,29 +9,8 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #537895;
-  background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
-}
+  overflow-x: hidden;
 
-#root {
-  width: 100%;
-}
-
-@media screen and (min-width: 1024px) {
-  #root {
-    height: 100%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  html,
-  body {
-    height: 100%;
-  }
-}
-
-@media screen and (min-width: 960px) and (max-width: 1244px) and (orientation: landscape) {
-  html,
-  body {
-    height: auto;
-  }
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
