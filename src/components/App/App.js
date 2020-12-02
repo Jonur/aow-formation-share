@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { appActions } from "../../redux/app";
 import { formationActions } from "../../redux/formation";
 import Header from "../Header";
 import ShareFormation from "../ShareFormation";
@@ -7,7 +8,6 @@ import TroopSquares from "../TroopSquares";
 import TroopSelectionForm from "../TroopSelectionForm";
 import ClearFormation from "../ClearFormation";
 import Footer from "../Footer";
-import getFormationFromURL from "../../utils/getFormationFromURL";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -25,10 +25,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const formationFromURL = getFormationFromURL();
-    if (Object.keys(formationFromURL).length) {
-      dispatch(formationActions.setFormation(formationFromURL));
-    }
+    dispatch(appActions.appInitialisation());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

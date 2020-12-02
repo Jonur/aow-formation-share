@@ -8,6 +8,10 @@ export const getTroopHashMap = createSelector(getTroops, (troops) =>
   troops.reduce((acc, troop) => ({ ...acc, [troop.name]: troop }), {})
 );
 
+export const getTroopIdHashMap = createSelector(getTroops, (troops) =>
+  troops.reduce((acc, troop) => ({ ...acc, [troop.id]: troop }), {})
+);
+
 export const getTroopNames = createSelector(getTroops, (troops) =>
   troops.map(({ name }) => name).sort()
 );

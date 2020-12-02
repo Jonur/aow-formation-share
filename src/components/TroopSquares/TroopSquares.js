@@ -4,10 +4,10 @@ import classNames from "classnames";
 import { useSelector } from "react-redux";
 import { gameDataSelectors } from "../../redux/gameData";
 import { formationSelectors } from "../../redux/formation";
-import troopHashMap from "../../utils/getTroopHashMap";
 import s from "./TroopSquares.module.scss";
 
 const TroopSquares = ({ showTroopSelectionForm }) => {
+  const troopHashMap = useSelector(gameDataSelectors.getTroopHashMap);
   const boardSquaresGrid = useSelector(gameDataSelectors.getBoardSquaresGrid);
   const formation = useSelector(formationSelectors.getFormation);
 

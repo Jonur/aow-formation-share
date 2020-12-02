@@ -1,8 +1,9 @@
-import { troops } from "../data";
-import troopHashMap from "./getTroopIdHashMap";
-import { MAX_TROOP_LEVEL, SQUARES } from "./constants";
-
-const getFormationFromURL = () => {
+const getFormationFromURL = (
+  troopNames,
+  troopHashMap,
+  maxTroopLevel,
+  boardSquares
+) => {
   const troopsFromURL = {};
   const urlParamHashes = window.location.href
     .slice(window.location.href.indexOf("?") + 1)
@@ -20,16 +21,17 @@ const getFormationFromURL = () => {
       hash = urlParamHashes[i]?.split("=");
       squareTroopData = hash?.[1]?.split(",");
 
-      const isValidSquareNumber = +hash?.[0] >= 0 && +hash?.[0] <= SQUARES;
+      const isValidSquareNumber = +hash?.[0] >= 0 && +hash?.[0] <= boardSquares;
       const isValidTroopLevel =
-        +squareTroopData?.[1] >= 1 && +squareTroopData?.[1] <= MAX_TROOP_LEVEL;
+        +squareTroopData?.[1] >= 1 && +squareTroopData?.[1] <= maxTroopLevel;
       let isValidTroop = false;
       let troop;
+
       if (urlVersion === 2) {
         isValidTroop = !!troopHashMap[squareTroopData?.[0]];
         troop = isValidTroop && troopHashMap[squareTroopData[0]].name;
       } else {
-        isValidTroop = troops.names.includes(unescape(squareTroopData?.[0]));
+        isValidTroop = troopNames.includes(unescape(squareTroopData?.[0]));
         troop = isValidTroop && unescape(squareTroopData[0]);
       }
 
