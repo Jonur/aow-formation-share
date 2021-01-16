@@ -25,10 +25,10 @@ const buildMiddleware = () => {
       autoPause: true,
     })(applyMiddleware(...middlewares));
   } else {
-    applyMiddleware(...middlewares);
+    return applyMiddleware(...middlewares);
   }
 };
 
-const store = createStore(rootReducer, buildMiddleware());
+const store = createStore(rootReducer, {}, buildMiddleware());
 
 export default store;
