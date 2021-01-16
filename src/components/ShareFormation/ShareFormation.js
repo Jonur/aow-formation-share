@@ -4,6 +4,7 @@ import classNames from "classnames";
 import html2canvas from "html2canvas";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
+import t from "../../i18n/en.json";
 import { formationSelectors } from "../../redux/formation";
 import s from "./ShareFormation.module.scss";
 
@@ -67,35 +68,36 @@ const ShareFormation = ({ troopBoardElement }) => {
 
   return (
     <nav className={s.shareFormation}>
-      <a
-        href={iOSImageURI}
-        ref={iOSImageURIRef}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={s.iOSImageURI}
-        aria-hidden="true"
-      >
-        Download Troop Formation for mobile iOS
-      </a>
+      {isIOSdevice && (
+        <a
+          href={iOSImageURI}
+          ref={iOSImageURIRef}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={s.iOSImageURI}
+          aria-hidden="true"
+        >
+          {t["button.label.iosImageDownload"]}
+        </a>
+      )}
       <button
         className={classNames(s.btn, s.shareBtn)}
         disabled={isFormationEmpty}
         onClick={createShareableLink}
       >
-        Share Formation
+        {t["button.label.formationShare"]}
       </button>
       <button
         className={classNames(s.btn, s.screenAndDl)}
         onClick={screenshotAndDownload}
         disabled={isFormationEmpty}
       >
-        Screenshot &amp; Download
+        {t["button.label.screenshotDownload"]}
       </button>
 
       {copyNotification && (
         <span className={s.copyNotification}>
-          The shareable link has been <strong>copied to your clipboard</strong>.
-          You can paste it anywhere to share it!
+          {t["app.alert.formationCopied"]}
         </span>
       )}
     </nav>

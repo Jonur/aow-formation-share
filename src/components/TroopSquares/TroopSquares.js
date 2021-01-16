@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
+import t from "../../i18n/en.json";
 import { appActions } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import { formationSelectors } from "../../redux/formation";
@@ -35,8 +36,10 @@ const TroopSquares = () => {
       <button
         title={
           hasTroops
-            ? `${troop.name} level ${formation[`${squareNum}`].level}`
-            : `Square ${squareNum}: Click to add troops!`
+            ? `${troop.name} ${t["game.level"]} ${
+                formation[`${squareNum}`].level
+              }`
+            : `${t["game.square"]} ${squareNum}: ${t["button.label.clickToAddTroops"]}`
         }
         className={classNames(s.troopSquare, {
           [s[troopGrade]]: hasTroops,

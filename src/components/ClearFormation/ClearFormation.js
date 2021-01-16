@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import t from "../../i18n/en.json";
 import { formationActions, formationSelectors } from "../../redux/formation";
 import s from "./ClearFormation.module.scss";
 
@@ -20,7 +21,7 @@ const ClearFormation = () => {
         disabled={isFormationEmpty}
         onClick={handleClearFormation}
       >
-        Empty Formation
+        {t["button.label.emptyFormation"]}
       </button>
     </nav>
   );

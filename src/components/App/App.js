@@ -1,7 +1,9 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { appActions, appSelectors } from "../../redux/app";
-import { formationActions } from "../../redux/formation";
+
+import t from "../../i18n/en.json";
+
 import Header from "../Header";
 import ShareFormation from "../ShareFormation";
 import TroopSquares from "../TroopSquares";
@@ -17,32 +19,9 @@ const App = () => {
   const troopSelectionFormStatus = useSelector(
     appSelectors.getTroopSelectionFormStatus
   );
-  const selectedSquare = useSelector(appSelectors.getSelectedSquared);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => dispatch(appActions.appInitialisation()), []);
-
-  const addToFormation = useCallback(
-    ({ level, troop }) => {
-      if (!troop) {
-        dispatch(formationActions.removeTroopFromFormation(selectedSquare));
-      } else {
-        const troopToAdd = {
-          troop: troop,
-          level: `${level}`,
-        };
-
-        dispatch(
-          formationActions.addTroopToFormation(selectedSquare, troopToAdd)
-        );
-        dispatch(appActions.setLastTroopAdded(troopToAdd));
-      }
-
-      dispatch(appActions.setTroopSelectionFormStatus(false));
-      dispatch(appActions.clearSelectedSquare());
-    },
-    [dispatch, selectedSquare]
-  );
 
   return (
     <div className={s.app}>
@@ -51,15 +30,13 @@ const App = () => {
       <Header />
 
       <div role="alert" className={s.screenRotationNotification}>
-        Please rotate your device
+        {t["app.alert.rotateDevice"]}
       </div>
 
       <ShareFormation troopBoardElement={troopBoardRef} />
 
       <div className={s.formationShare}>
-        {troopSelectionFormStatus && (
-          <TroopSelectionForm addToFormation={addToFormation} />
-        )}
+        {troopSelectionFormStatus && <TroopSelectionForm />}
 
         <div
           ref={troopBoardRef}

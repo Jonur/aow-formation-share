@@ -1,8 +1,9 @@
 import React, { useCallback, useRef, useState } from "react";
-import { func } from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
+import t from "../../i18n/en.json";
 import { appActions, appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
+import { formationActions } from "../../redux/formation";
 import {
   ENTER_KEY_CODE,
   TAB_KEY_CODE,
@@ -10,13 +11,36 @@ import {
 } from "../../utils/constants";
 import s from "./TroopSelectionForm.module.scss";
 
-const TroopSelectionForm = ({ addToFormation }) => {
+const TroopSelectionForm = () => {
   const dispatch = useDispatch();
   const troopSelectionRef = useRef();
 
   const troopNames = useSelector(gameDataSelectors.getTroopNames);
   const troopLevels = useSelector(gameDataSelectors.getTroopLevelsReversed);
   const lastTroopAdded = useSelector(appSelectors.getLastTroopAdded);
+  const selectedSquare = useSelector(appSelectors.getSelectedSquared);
+
+  const addToFormation = useCallback(
+    ({ level, troop }) => {
+      if (!troop) {
+        dispatch(formationActions.removeTroopFromFormation(selectedSquare));
+      } else {
+        const troopToAdd = {
+          troop: troop,
+          level: `${level}`,
+        };
+
+        dispatch(
+          formationActions.addTroopToFormation(selectedSquare, troopToAdd)
+        );
+        dispatch(appActions.setLastTroopAdded(troopToAdd));
+      }
+
+      dispatch(appActions.setTroopSelectionFormStatus(false));
+      dispatch(appActions.clearSelectedSquare());
+    },
+    [dispatch, selectedSquare]
+  );
 
   const [currentlySelectedTroop, setCurrentlySelectedTroop] = useState(
     lastTroopAdded.troop || troopNames[0]
@@ -88,7 +112,7 @@ const TroopSelectionForm = ({ addToFormation }) => {
       onKeyDown={handleCloseFormWithEscape}
     >
       <button
-        title="Close the form"
+        title={t["button.label.closeTroopSelectionForm"]}
         className={s.close}
         onClick={handleCloseForm}
         type="button"
@@ -100,7 +124,7 @@ const TroopSelectionForm = ({ addToFormation }) => {
       <select
         name="troop"
         defaultValue={currentlySelectedTroop}
-        title="Select troop"
+        title={t["select.label.troopName"]}
         autoFocus
         onKeyDown={handleSubmitWithEnter}
         onChange={selectTroop}
@@ -108,7 +132,7 @@ const TroopSelectionForm = ({ addToFormation }) => {
         ref={troopSelectionRef}
       >
         <option value="" key="no-troop">
-          --- No troop ---
+          {t["select.noValue.troopName"]}
         </option>
         {troopNames.map((name) => (
           <option value={name} key={`troop-${name}`}>
@@ -121,7 +145,7 @@ const TroopSelectionForm = ({ addToFormation }) => {
         <select
           name="level"
           defaultValue={currentlySelectedTroopLevel}
-          title="Select troop level"
+          title={t["select.label.troopLevel"]}
           onKeyDown={handleSubmitWithEnter}
           onChange={selectTroopLevel}
           tabIndex={2}
@@ -135,14 +159,12 @@ const TroopSelectionForm = ({ addToFormation }) => {
       )}
 
       <button type="submit" tabIndex={3} onKeyDown={focusTroopSelection}>
-        {displayTroopLevelSelect ? "Add" : "Set"}
+        {displayTroopLevelSelect
+          ? t["button.label.addTroop"]
+          : t["button.label.noTroop"]}
       </button>
     </form>
   );
-};
-
-TroopSelectionForm.propTypes = {
-  addToFormation: func.isRequired,
 };
 
 export default TroopSelectionForm;

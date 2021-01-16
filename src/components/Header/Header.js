@@ -1,10 +1,11 @@
 import React from "react";
+import t from "../../i18n/en.json";
 import s from "./Header.module.scss";
 
 const Header = () => (
   <header className={s.header}>
-    <h1>AoW Legions Formations</h1>
-    <h2>Formation feedback made easy</h2>
+    <h1>{t["header.title"]}</h1>
+    <h2>{t["header.subtitle"]}</h2>
   </header>
 );
 

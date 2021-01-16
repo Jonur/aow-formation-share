@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./Footer.module.scss";
+import t from "../../i18n/en.json";
 
 const currentYear = new Date().getFullYear();
 
@@ -12,9 +13,9 @@ const Footer = () => (
         rel="noopener noreferrer"
         target="_blank"
         href="https://github.com/Jonur"
-        alt="Jonur on Github"
+        alt={t["footer.creator.link.label"]}
       >
-        Created by GRL Jonur
+        {t["footer.creator.link.alt"]}
       </a>
     </p>
     <div className={s.donateRow}>
@@ -30,8 +31,8 @@ const Footer = () => (
           src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif"
           border="0"
           name="submit"
-          title="PayPal - The safer, easier way to pay online!"
-          alt="Donate with PayPal button"
+          title={t["footer.donate.title"]}
+          alt={t["footer.donate.alt"]}
         />
         <img
           alt=""
@@ -41,7 +42,7 @@ const Footer = () => (
           height="1"
         />
       </form>
-      and help me pay for the server!
+      {t["footer.donate.reason"]}
     </div>
     <p>
       <a
@@ -49,9 +50,9 @@ const Footer = () => (
         rel="noopener noreferrer"
         target="_blank"
         href="https://github.com/Jonur/aow-formation-share/blob/main/PrivacyPolicy.md"
-        alt="Application Privacy Policy"
+        alt={t["footer.privacy.alt"]}
       >
-        Privacy
+        {t["footer.privacy.title"]}
       </a>
       {` - `}
       <a
@@ -59,9 +60,9 @@ const Footer = () => (
         rel="noopener noreferrer"
         target="_blank"
         href="https://github.com/Jonur/aow-formation-share#credits"
-        alt="Credits"
+        alt={t["footer.credits.alt"]}
       >
-        Credits
+        {t["footer.credits.title"]}
       </a>
     </p>
   </footer>
