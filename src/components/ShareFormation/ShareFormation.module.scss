@@ -33,6 +33,11 @@
     }
   }
 
+  .iOSImageURI {
+    visibility: hidden;
+    position: absolute;
+  }
+
   .copyNotification {
     position: fixed;
     top: 0;

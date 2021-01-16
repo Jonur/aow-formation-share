@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { appActions, appSelectors } from "../../redux/app";
 import { formationActions } from "../../redux/formation";
@@ -12,6 +12,7 @@ import s from "./App.module.scss";
 
 const App = () => {
   const dispatch = useDispatch();
+  const troopBoardRef = useRef();
 
   const troopSelectionFormStatus = useSelector(
     appSelectors.getTroopSelectionFormStatus
@@ -53,14 +54,18 @@ const App = () => {
         Please rotate your device
       </div>
 
-      <ShareFormation />
+      <ShareFormation troopBoardElement={troopBoardRef} />
 
       <div className={s.formationShare}>
         {troopSelectionFormStatus && (
           <TroopSelectionForm addToFormation={addToFormation} />
         )}
 
-        <div className={s.formationBoard} id="formation-board">
+        <div
+          ref={troopBoardRef}
+          className={s.formationBoard}
+          id="formation-board"
+        >
           <TroopSquares />
         </div>
 
