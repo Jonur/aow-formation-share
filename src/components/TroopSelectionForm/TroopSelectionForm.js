@@ -68,10 +68,12 @@ const TroopSelectionForm = ({ addToFormation }) => {
     }
   }, []);
 
-  const selectTroop = useCallback(
-    (e) => setCurrentlySelectedTroop(e.target.value),
-    []
-  );
+  const [displayTroopLevelSelect, setDisplayTroolLevelSelect] = useState(true);
+  const selectTroop = useCallback((e) => {
+    const selectedTroop = e.target.value;
+    setDisplayTroolLevelSelect(!!selectedTroop);
+    setCurrentlySelectedTroop(selectedTroop);
+  }, []);
   const selectTroopLevel = useCallback(
     (e) => setCurrentlySelectedTroopLevel(e.target.value),
     []
@@ -115,23 +117,25 @@ const TroopSelectionForm = ({ addToFormation }) => {
         ))}
       </select>
 
-      <select
-        name="level"
-        defaultValue={currentlySelectedTroopLevel}
-        title="Select troop level"
-        onKeyDown={handleSubmitWithEnter}
-        onChange={selectTroopLevel}
-        tabIndex={2}
-      >
-        {troopLevels.map((lvl) => (
-          <option value={lvl} key={`lvl-${lvl}`}>
-            {lvl}
-          </option>
-        ))}
-      </select>
+      {displayTroopLevelSelect && (
+        <select
+          name="level"
+          defaultValue={currentlySelectedTroopLevel}
+          title="Select troop level"
+          onKeyDown={handleSubmitWithEnter}
+          onChange={selectTroopLevel}
+          tabIndex={2}
+        >
+          {troopLevels.map((lvl) => (
+            <option value={lvl} key={`lvl-${lvl}`}>
+              {lvl}
+            </option>
+          ))}
+        </select>
+      )}
 
       <button type="submit" tabIndex={3} onKeyDown={focusTroopSelection}>
-        Add
+        {displayTroopLevelSelect ? "Add" : "Set"}
       </button>
     </form>
   );
