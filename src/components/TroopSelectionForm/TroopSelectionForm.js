@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
-import { func, shape, string } from "prop-types";
-import { useSelector } from "react-redux";
+import { func } from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import { appActions, appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import {
   ENTER_KEY_CODE,
@@ -9,15 +10,13 @@ import {
 } from "../../utils/constants";
 import s from "./TroopSelectionForm.module.scss";
 
-const TroopSelectionForm = ({
-  addToFormation,
-  lastTroopAdded,
-  setTroopSelectionFormStatus,
-}) => {
+const TroopSelectionForm = ({ addToFormation }) => {
+  const dispatch = useDispatch();
   const troopSelectionRef = useRef();
 
   const troopNames = useSelector(gameDataSelectors.getTroopNames);
   const troopLevels = useSelector(gameDataSelectors.getTroopLevelsReversed);
+  const lastTroopAdded = useSelector(appSelectors.getLastTroopAdded);
 
   const [currentlySelectedTroop, setCurrentlySelectedTroop] = useState(
     lastTroopAdded.troop || troopNames[0]
@@ -27,10 +26,10 @@ const TroopSelectionForm = ({
     setCurrentlySelectedTroopLevel,
   ] = useState(lastTroopAdded.level || troopLevels[0]);
 
-  const handleCloseForm = useCallback(
-    () => setTroopSelectionFormStatus(false),
-    [setTroopSelectionFormStatus]
-  );
+  const handleCloseForm = useCallback(() => {
+    dispatch(appActions.setTroopSelectionFormStatus(false));
+    dispatch(appActions.clearSelectedSquare());
+  }, [dispatch]);
 
   const handleFormSubmit = useCallback(
     (e) => {
@@ -140,11 +139,6 @@ const TroopSelectionForm = ({
 
 TroopSelectionForm.propTypes = {
   addToFormation: func.isRequired,
-  lastTroopAdded: shape({
-    level: string,
-    troop: string,
-  }).isRequired,
-  setTroopSelectionFormStatus: func.isRequired,
 };
 
 export default TroopSelectionForm;

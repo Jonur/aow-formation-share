@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { appActions } from "../../redux/app";
+import React, { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { appActions, appSelectors } from "../../redux/app";
 import { formationActions } from "../../redux/formation";
 import Header from "../Header";
 import ShareFormation from "../ShareFormation";
@@ -13,21 +13,13 @@ import s from "./App.module.scss";
 const App = () => {
   const dispatch = useDispatch();
 
-  const [troopSelectionFormStatus, setTroopSelectionFormStatus] = useState(
-    false
+  const troopSelectionFormStatus = useSelector(
+    appSelectors.getTroopSelectionFormStatus
   );
-  const [selectedSquare, setSelectedSquare] = useState();
-  const [lastTroopAdded, setLastTroopAdded] = useState({});
+  const selectedSquare = useSelector(appSelectors.getSelectedSquared);
 
-  const showTroopSelectionForm = useCallback((squareNum) => {
-    setTroopSelectionFormStatus(true);
-    setSelectedSquare(squareNum);
-  }, []);
-
-  useEffect(() => {
-    dispatch(appActions.appInitialisation());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => dispatch(appActions.appInitialisation()), []);
 
   const addToFormation = useCallback(
     ({ level, troop }) => {
@@ -42,10 +34,11 @@ const App = () => {
         dispatch(
           formationActions.addTroopToFormation(selectedSquare, troopToAdd)
         );
-        setLastTroopAdded(troopToAdd);
+        dispatch(appActions.setLastTroopAdded(troopToAdd));
       }
 
-      setTroopSelectionFormStatus(false);
+      dispatch(appActions.setTroopSelectionFormStatus(false));
+      dispatch(appActions.clearSelectedSquare());
     },
     [dispatch, selectedSquare]
   );
@@ -64,15 +57,11 @@ const App = () => {
 
       <div className={s.formationShare}>
         {troopSelectionFormStatus && (
-          <TroopSelectionForm
-            addToFormation={addToFormation}
-            setTroopSelectionFormStatus={setTroopSelectionFormStatus}
-            lastTroopAdded={lastTroopAdded}
-          />
+          <TroopSelectionForm addToFormation={addToFormation} />
         )}
 
         <div className={s.formationBoard} id="formation-board">
-          <TroopSquares showTroopSelectionForm={showTroopSelectionForm} />
+          <TroopSquares />
         </div>
 
         <ClearFormation />

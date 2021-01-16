@@ -1,11 +1,13 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
+import { appReducer } from "./app";
 import { gameDataReducer } from "./gameData";
 import { formationReducer } from "./formation";
 import { appMiddleware } from "./app";
 
 const rootReducer = combineReducers({
+  app: appReducer,
   formation: formationReducer,
   gameData: gameDataReducer,
 });

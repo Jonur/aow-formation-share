@@ -1,15 +1,25 @@
-import React from "react";
-import { func } from "prop-types";
+import React, { useCallback } from "react";
 import classNames from "classnames";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { appActions } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import { formationSelectors } from "../../redux/formation";
 import s from "./TroopSquares.module.scss";
 
-const TroopSquares = ({ showTroopSelectionForm }) => {
+const TroopSquares = () => {
+  const dispatch = useDispatch();
+
   const troopHashMap = useSelector(gameDataSelectors.getTroopHashMap);
   const boardSquaresGrid = useSelector(gameDataSelectors.getBoardSquaresGrid);
   const formation = useSelector(formationSelectors.getFormation);
+
+  const handleTroopSquareClick = useCallback(
+    (squareNum) => {
+      dispatch(appActions.setTroopSelectionFormStatus(true));
+      dispatch(appActions.setSelectedSquare(`${squareNum}`));
+    },
+    [dispatch]
+  );
 
   return boardSquaresGrid.map((squareNum) => {
     const hasTroops = formation[`${squareNum}`]?.troop;
@@ -27,7 +37,7 @@ const TroopSquares = ({ showTroopSelectionForm }) => {
         })}
         key={`square-${squareNum}`}
         id={`square-${squareNum}`}
-        onClick={() => showTroopSelectionForm(`${squareNum}`)}
+        onClick={() => handleTroopSquareClick(squareNum)}
       >
         <span
           className={classNames({
@@ -44,10 +54,6 @@ const TroopSquares = ({ showTroopSelectionForm }) => {
       </button>
     );
   });
-};
-
-TroopSquares.propTypes = {
-  showTroopSelectionForm: func.isRequired,
 };
 
 export default TroopSquares;
