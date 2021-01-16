@@ -11,6 +11,9 @@ const TroopSquares = () => {
 
   const troopHashMap = useSelector(gameDataSelectors.getTroopHashMap);
   const boardSquaresGrid = useSelector(gameDataSelectors.getBoardSquaresGrid);
+  const troopGradesHashMap = useSelector(
+    gameDataSelectors.getTroopGradesHashMap
+  );
   const formation = useSelector(formationSelectors.getFormation);
 
   const handleTroopSquareClick = useCallback(
@@ -24,6 +27,9 @@ const TroopSquares = () => {
   return boardSquaresGrid.map((squareNum) => {
     const hasTroops = formation[`${squareNum}`]?.troop;
     const troop = hasTroops && troopHashMap[formation[`${squareNum}`].troop];
+    const troopGrade = hasTroops
+      ? troopGradesHashMap[troop.grade].title.toLowerCase()
+      : "";
 
     return (
       <button
@@ -33,7 +39,7 @@ const TroopSquares = () => {
             : `Square ${squareNum}: Click to add troops!`
         }
         className={classNames(s.troopSquare, {
-          [s[`${troop?.grade?.toLowerCase()}`]]: hasTroops,
+          [s[troopGrade]]: hasTroops,
         })}
         key={`square-${squareNum}`}
         id={`square-${squareNum}`}
