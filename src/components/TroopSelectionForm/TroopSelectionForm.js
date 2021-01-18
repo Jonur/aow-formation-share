@@ -15,7 +15,7 @@ const TroopSelectionForm = () => {
   const dispatch = useDispatch();
   const troopSelectionRef = useRef();
 
-  const troopNames = useSelector(gameDataSelectors.getTroopNames);
+  const localisedTroops = useSelector(gameDataSelectors.getLocalisedTroops);
   const troopLevels = useSelector(gameDataSelectors.getTroopLevelsReversed);
   const lastTroopAdded = useSelector(appSelectors.getLastTroopAdded);
   const selectedSquare = useSelector(appSelectors.getSelectedSquared);
@@ -43,7 +43,7 @@ const TroopSelectionForm = () => {
   );
 
   const [currentlySelectedTroop, setCurrentlySelectedTroop] = useState(
-    lastTroopAdded.troop || troopNames[0]
+    lastTroopAdded.troop || localisedTroops[0].id
   );
   const [
     currentlySelectedTroopLevel,
@@ -134,8 +134,8 @@ const TroopSelectionForm = () => {
         <option value="" key="no-troop">
           {t["select.noValue.troopName"]}
         </option>
-        {troopNames.map((name) => (
-          <option value={name} key={`troop-${name}`}>
+        {localisedTroops.map(({ id, name }, idx) => (
+          <option value={id} key={`troop-${id}-${idx}`}>
             {name}
           </option>
         ))}

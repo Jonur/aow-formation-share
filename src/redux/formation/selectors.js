@@ -10,7 +10,7 @@ export const getIsFormationEmpty = createSelector(
 
 export const getFormationLink = createSelector(
   getFormation,
-  gameDataSelectors.getTroopHashMap,
+  gameDataSelectors.getTroopIdHashMap,
   (formation, troopHashMap) =>
     Object.keys(formation).reduce(
       (acc, square) =>

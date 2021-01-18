@@ -356,14 +356,6 @@ const initialState = {
       race: "HVSp",
       count: 1,
     },
-    // {
-    //   grade: "fod3",
-    //   id: "3eVk",
-    //   image: "/img/aow-troops/nun.png",
-    //   name: "Nun",
-    //   race: "HVSp",
-    //   count: 9,
-    // },
   ],
   board: {
     squares: 49,

@@ -1,4 +1,5 @@
 import { createSelector } from "reselect";
+import t from "../../i18n/en.json";
 
 export const getGameData = ({ gameData }) => gameData;
 
@@ -19,6 +20,20 @@ export const getTroopIdHashMap = createSelector(getTroops, (troops) =>
 
 export const getTroopNames = createSelector(getTroops, (troops) =>
   troops.map(({ name }) => name).sort()
+);
+
+export const getLocalisedTroops = createSelector(getTroops, (troops) =>
+  troops
+    .map(({ id }) => ({ id, name: t.gameData.troops[id] }))
+    .sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    })
 );
 
 export const getMaxTroopLevel = createSelector(

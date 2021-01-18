@@ -10,7 +10,7 @@ import s from "./TroopSquares.module.scss";
 const TroopSquares = () => {
   const dispatch = useDispatch();
 
-  const troopHashMap = useSelector(gameDataSelectors.getTroopHashMap);
+  const troopHashMap = useSelector(gameDataSelectors.getTroopIdHashMap);
   const boardSquaresGrid = useSelector(gameDataSelectors.getBoardSquaresGrid);
   const troopGradesHashMap = useSelector(
     gameDataSelectors.getTroopGradesHashMap
@@ -28,21 +28,22 @@ const TroopSquares = () => {
   return boardSquaresGrid.map((squareNum) => {
     const hasTroops = formation[`${squareNum}`]?.troop;
     const troop = hasTroops && troopHashMap[formation[`${squareNum}`].troop];
-    const troopGrade = hasTroops
+    const troopGradeClass = hasTroops
       ? troopGradesHashMap[troop.grade].title.toLowerCase()
       : "";
+    const troopName = hasTroops ? t.gameData.troops[troop.id] : "";
 
     return (
       <button
         title={
           hasTroops
-            ? `${troop.name} ${t["game.level"]} ${
+            ? `${troopName} ${t["game.level"]} ${
                 formation[`${squareNum}`].level
               }`
             : `${t["game.square"]} ${squareNum}: ${t["button.label.clickToAddTroops"]}`
         }
         className={classNames(s.troopSquare, {
-          [s[troopGrade]]: hasTroops,
+          [s[troopGradeClass]]: hasTroops,
         })}
         key={`square-${squareNum}`}
         id={`square-${squareNum}`}
@@ -58,7 +59,7 @@ const TroopSquares = () => {
         </span>
 
         {hasTroops && (
-          <img className={s.troopImage} src={troop.image} alt={troop.name} />
+          <img className={s.troopImage} src={troop.image} alt={troopName} />
         )}
       </button>
     );

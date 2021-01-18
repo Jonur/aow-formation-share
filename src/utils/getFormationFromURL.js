@@ -29,7 +29,7 @@ const getFormationFromURL = (
 
       if (urlVersion === 2) {
         isValidTroop = !!troopHashMap[squareTroopData?.[0]];
-        troop = isValidTroop && troopHashMap[squareTroopData[0]].name;
+        troop = isValidTroop && troopHashMap[squareTroopData[0]].id;
       } else {
         isValidTroop = troopNames.includes(unescape(squareTroopData?.[0]));
         troop = isValidTroop && unescape(squareTroopData[0]);
