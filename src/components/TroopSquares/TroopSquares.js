@@ -1,8 +1,7 @@
 import React, { useCallback } from "react";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import t from "../../i18n/en.json";
-import { appActions } from "../../redux/app";
+import { appActions, appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import { formationSelectors } from "../../redux/formation";
 import s from "./TroopSquares.module.scss";
@@ -16,6 +15,7 @@ const TroopSquares = () => {
     gameDataSelectors.getTroopGradesHashMap
   );
   const formation = useSelector(formationSelectors.getFormation);
+  const content = useSelector(appSelectors.getLocalisedContent);
 
   const handleTroopSquareClick = useCallback(
     (squareNum) => {
@@ -31,16 +31,16 @@ const TroopSquares = () => {
     const troopGradeClass = hasTroops
       ? troopGradesHashMap[troop.grade].title.toLowerCase()
       : "";
-    const troopName = hasTroops ? t.gameData.troops[troop.id] : "";
+    const troopName = hasTroops ? content.gameData.troops[troop.id] : "";
 
     return (
       <button
         title={
           hasTroops
-            ? `${troopName} ${t["game.level"]} ${
+            ? `${troopName} ${content["game.level"]} ${
                 formation[`${squareNum}`].level
               }`
-            : `${t["game.square"]} ${squareNum}: ${t["button.label.clickToAddTroops"]}`
+            : `${content["game.square"]} ${squareNum}: ${content["button.label.clickToAddTroops"]}`
         }
         className={classNames(s.troopSquare, {
           [s[troopGradeClass]]: hasTroops,

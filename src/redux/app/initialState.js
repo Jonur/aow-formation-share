@@ -1,4 +1,5 @@
 const initialState = {
+  language: "en",
   userInteractions: {
     lastTroopAdded: {},
     selectedSquare: 0,

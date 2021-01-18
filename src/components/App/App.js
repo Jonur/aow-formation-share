@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { appActions, appSelectors } from "../../redux/app";
 
-import t from "../../i18n/en.json";
-
 import Header from "../Header";
 import ShareFormation from "../ShareFormation";
 import TroopSquares from "../TroopSquares";
@@ -19,6 +17,7 @@ const App = () => {
   const troopSelectionFormStatus = useSelector(
     appSelectors.getTroopSelectionFormStatus
   );
+  const content = useSelector(appSelectors.getLocalisedContent);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => dispatch(appActions.appInitialisation()), []);
@@ -30,7 +29,7 @@ const App = () => {
       <Header />
 
       <div role="alert" className={s.screenRotationNotification}>
-        {t["app.alert.rotateDevice"]}
+        {content["app.alert.rotateDevice"]}
       </div>
 
       <ShareFormation troopBoardElement={troopBoardRef} />

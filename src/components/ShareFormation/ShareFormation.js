@@ -4,7 +4,7 @@ import classNames from "classnames";
 import html2canvas from "html2canvas";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
-import t from "../../i18n/en.json";
+import { appSelectors } from "../../redux/app";
 import { formationSelectors } from "../../redux/formation";
 import s from "./ShareFormation.module.scss";
 
@@ -18,6 +18,7 @@ const ShareFormation = ({ troopBoardElement }) => {
 
   const isFormationEmpty = useSelector(formationSelectors.getIsFormationEmpty);
   const formationLink = useSelector(formationSelectors.getFormationLink);
+  const content = useSelector(appSelectors.getLocalisedContent);
 
   const createShareableLink = useCallback(() => {
     const newTextarea = document.createElement("textarea");
@@ -77,7 +78,7 @@ const ShareFormation = ({ troopBoardElement }) => {
           className={s.iOSImageURI}
           aria-hidden="true"
         >
-          {t["button.label.iosImageDownload"]}
+          {content["button.label.iosImageDownload"]}
         </a>
       )}
       <button
@@ -85,19 +86,19 @@ const ShareFormation = ({ troopBoardElement }) => {
         disabled={isFormationEmpty}
         onClick={createShareableLink}
       >
-        {t["button.label.formationShare"]}
+        {content["button.label.formationShare"]}
       </button>
       <button
         className={classNames(s.btn, s.screenAndDl)}
         onClick={screenshotAndDownload}
         disabled={isFormationEmpty}
       >
-        {t["button.label.screenshotDownload"]}
+        {content["button.label.screenshotDownload"]}
       </button>
 
       {copyNotification && (
         <span className={s.copyNotification}>
-          {t["app.alert.formationCopied"]}
+          {content["app.alert.formationCopied"]}
         </span>
       )}
     </nav>

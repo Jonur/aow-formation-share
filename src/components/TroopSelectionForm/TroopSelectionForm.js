@@ -1,6 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import t from "../../i18n/en.json";
 import { appActions, appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import { formationActions } from "../../redux/formation";
@@ -19,6 +18,7 @@ const TroopSelectionForm = () => {
   const troopLevels = useSelector(gameDataSelectors.getTroopLevelsReversed);
   const lastTroopAdded = useSelector(appSelectors.getLastTroopAdded);
   const selectedSquare = useSelector(appSelectors.getSelectedSquared);
+  const content = useSelector(appSelectors.getLocalisedContent);
 
   const addToFormation = useCallback(
     ({ level, troop }) => {
@@ -112,7 +112,7 @@ const TroopSelectionForm = () => {
       onKeyDown={handleCloseFormWithEscape}
     >
       <button
-        title={t["button.label.closeTroopSelectionForm"]}
+        title={content["button.label.closeTroopSelectionForm"]}
         className={s.close}
         onClick={handleCloseForm}
         type="button"
@@ -124,7 +124,7 @@ const TroopSelectionForm = () => {
       <select
         name="troop"
         defaultValue={currentlySelectedTroop}
-        title={t["select.label.troopName"]}
+        title={content["select.label.troopName"]}
         autoFocus
         onKeyDown={handleSubmitWithEnter}
         onChange={selectTroop}
@@ -132,7 +132,7 @@ const TroopSelectionForm = () => {
         ref={troopSelectionRef}
       >
         <option value="" key="no-troop">
-          {t["select.noValue.troopName"]}
+          {content["select.noValue.troopName"]}
         </option>
         {localisedTroops.map(({ id, name }, idx) => (
           <option value={id} key={`troop-${id}-${idx}`}>
@@ -145,7 +145,7 @@ const TroopSelectionForm = () => {
         <select
           name="level"
           defaultValue={currentlySelectedTroopLevel}
-          title={t["select.label.troopLevel"]}
+          title={content["select.label.troopLevel"]}
           onKeyDown={handleSubmitWithEnter}
           onChange={selectTroopLevel}
           tabIndex={2}
@@ -160,8 +160,8 @@ const TroopSelectionForm = () => {
 
       <button type="submit" tabIndex={3} onKeyDown={focusTroopSelection}>
         {displayTroopLevelSelect
-          ? t["button.label.addTroop"]
-          : t["button.label.noTroop"]}
+          ? content["button.label.addTroop"]
+          : content["button.label.noTroop"]}
       </button>
     </form>
   );
