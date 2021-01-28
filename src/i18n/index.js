@@ -1,3 +1,3 @@
 import en from "./en.json";
-
-export default { en };
+import ko from "./ko.json";
+export default { en, ko };
