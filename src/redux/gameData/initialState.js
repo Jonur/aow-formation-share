@@ -14,6 +14,14 @@ const initialState = {
   troops: [
     {
       grade: "fod3",
+      id: "5Lj1",
+      image: "/img/aow-troops/pirateship.png",
+      name: "Pirate Ship",
+      race: "HVSp",
+      count: 1,
+    },
+    {
+      grade: "fod3",
       id: "aPHf",
       image: "/img/aow-troops/nun.png",
       name: "Nun",
