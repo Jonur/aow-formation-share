@@ -1,0 +1,23 @@
+.languagePicker {
+  padding: 0 1rem;
+
+  .title {
+    color: white;
+  }
+
+  .languages {
+    display: flex;
+    flex-direction: column;
+
+    .language {
+      background: none;
+      border: 0;
+      outline: 0;
+      color: white;
+      text-align: left;
+      font-size: 1rem;
+      text-decoration: underline;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

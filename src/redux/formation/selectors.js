@@ -17,6 +17,6 @@ export const getFormationLink = createSelector(
         `${acc}&${square}=${troopHashMap[formation[square].troop].id},${
           formation[square].level
         }`,
-      `${window.location.origin}?v=2`
+      `${window.location.origin}${window.location.pathname}?v=2`
     )
 );

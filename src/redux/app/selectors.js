@@ -23,9 +23,19 @@ export const getTroopSelectionFormStatus = createSelector(
   ({ troopSelectionFormStatus }) => troopSelectionFormStatus
 );
 
+export const getBarracksFormStatus = createSelector(
+  getUserInteractions,
+  ({ barracksFormStatus }) => barracksFormStatus
+);
+
 export const getAppLanguage = createSelector(
   getApp,
-  ({ language }) => language || "en"
+  ({ language }) => language
+);
+
+export const getSelectedTab = createSelector(
+  getUserInteractions,
+  ({ tab }) => tab
 );
 
 export const getLocalisedContent = createSelector(

@@ -4,6 +4,13 @@ import { appActions } from "./";
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
+    case appActions.SET_BARRACKS_FORM_STATUS: {
+      return update(state, {
+        userInteractions: {
+          barracksFormStatus: { $set: action.payload.status },
+        },
+      });
+    }
     case appActions.SET_TROOP_SELECTION_FORM_STATUS: {
       return update(state, {
         userInteractions: {
@@ -29,6 +36,18 @@ const appReducer = (state = initialState, action) => {
           selectedSquare: {
             $set: initialState.userInteractions.selectedSquare,
           },
+        },
+      });
+    }
+    case appActions.APP_CHANGE_LANGUAGE: {
+      return update(state, {
+        language: { $set: action.payload.language },
+      });
+    }
+    case appActions.SELECT_TAB: {
+      return update(state, {
+        userInteractions: {
+          tab: { $set: action.payload.tab },
         },
       });
     }

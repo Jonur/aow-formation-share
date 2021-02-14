@@ -18,6 +18,8 @@
     padding: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
+    height: 3rem;
+    transition: all 500ms;
 
     &:disabled {
       opacity: 0.5;

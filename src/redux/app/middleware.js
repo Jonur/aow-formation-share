@@ -22,6 +22,15 @@ export default (store) => (next) => (action) => {
     if (formationExistsInURL) {
       store.dispatch(formationActions.setFormation(formationFromURL));
     }
+
+    const { languageInURL } = action.payload;
+    if (languageInURL) {
+      store.dispatch(
+        appActions.appChangeLanguage({
+          language: languageInURL,
+        })
+      );
+    }
   }
 
   next(action);
