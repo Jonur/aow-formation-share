@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     .formationBoard {
       display: grid;
@@ -22,6 +23,10 @@
         height: auto;
         padding: 0;
       }
+    }
+
+    @media screen and (min-width: 768px) {
+      order: 5;
     }
 
     @media screen and (max-width: 960px) and (orientation: landscape) {
@@ -48,12 +53,16 @@
     justify-content: center;
     align-items: center;
 
+    @media screen and (min-width: 768px) {
+      order: 2;
+    }
+
     @media screen and (max-width: 960px) and (orientation: landscape) {
       display: flex;
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
     height: 100%;

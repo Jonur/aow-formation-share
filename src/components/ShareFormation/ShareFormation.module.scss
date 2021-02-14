@@ -58,7 +58,12 @@
   }
 
   @media screen and (min-width: 768px) {
+    order: 4;
     margin: 0.5rem auto 2rem;
     max-width: 560px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
   }
 }

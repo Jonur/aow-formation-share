@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
+  top: 0;
 
   & > *:not(.close) {
     height: 3rem;
