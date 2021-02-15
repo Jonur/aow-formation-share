@@ -17,9 +17,12 @@ const ShareFormation = ({ troopBoardElement }) => {
   const [iOSImageURI, setIOSImageURI] = useState("");
 
   const isFormationEmpty = useSelector(formationSelectors.getIsFormationEmpty);
-  const formationLink = useSelector(formationSelectors.getFormationLink);
+  const formationLinkParams = useSelector(
+    formationSelectors.getFormationLinkParams
+  );
   const content = useSelector(appSelectors.getLocalisedContent);
 
+  const formationLink = `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}`;
   const createShareableLink = useCallback(() => {
     const newTextarea = document.createElement("textarea");
     newTextarea.id = "formation-link";

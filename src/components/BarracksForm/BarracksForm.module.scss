@@ -61,4 +61,8 @@
     justify-self: center;
     left: auto;
   }
+
+  @media screen and (max-width: 960px) and (orientation: landscape) {
+    display: none;
+  }
 }

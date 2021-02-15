@@ -8,7 +8,7 @@ export const getIsFormationEmpty = createSelector(
   (formation) => !Object.keys(formation).length
 );
 
-export const getFormationLink = createSelector(
+export const getFormationLinkParams = createSelector(
   getFormation,
   gameDataSelectors.getTroopIdHashMap,
   (formation, troopHashMap) =>
@@ -17,6 +17,6 @@ export const getFormationLink = createSelector(
         `${acc}&${square}=${troopHashMap[formation[square].troop].id},${
           formation[square].level
         }`,
-      `${window.location.origin}${window.location.pathname}?v=2`
+      ""
     )
 );
