@@ -64,6 +64,21 @@ const Barracks = () => {
                   <img className={s.image} src={troop.image} alt={troopName} />
                   <span className={s.level}>{level}</span>
                 </div>
+                <button
+                  title={content["button.label.removeTroopFromBarracks"]}
+                  className={s.removeTroop}
+                  onClick={() =>
+                    dispatch(
+                      barracksActions.removeTroopsFromBarracks({
+                        troop: troopId,
+                        level,
+                      })
+                    )
+                  }
+                  type="button"
+                >
+                  &times;
+                </button>
               </div>
             );
           })}

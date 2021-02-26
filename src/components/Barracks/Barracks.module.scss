@@ -4,7 +4,7 @@
 
   .barracksTools {
     padding-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
 
@@ -42,9 +42,10 @@
   .barracksTroops {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0.5rem;
+    grid-gap: 1.5rem 0.5rem;
 
     .troop {
+      position: relative;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -55,6 +56,10 @@
         font-weight: bold;
         display: flex;
         align-items: center;
+
+        @media screen and (min-width: 768px) {
+          padding-right: 0.5rem;
+        }
       }
 
       .imageContainer {
@@ -107,8 +112,28 @@
         }
       }
 
+      .removeTroop {
+        border-radius: 25px;
+        width: 1.5rem;
+        height: 1.5rem;
+        border: 0;
+        outline: 0;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        color: #ff4122;
+        cursor: pointer;
+        position: absolute;
+        top: -0.75rem;
+        right: -0.75rem;
+      }
+
       @media screen and (min-width: 768px) {
-        justify-content: space-evenly;
+        justify-content: flex-end;
       }
     }
 

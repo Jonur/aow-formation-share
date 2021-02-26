@@ -17,6 +17,14 @@ const barracksReducer = (state = initialState, action) => {
     case barracksActions.EMPTY_BARRACKS: {
       return initialState;
     }
+    case barracksActions.REMOVE_TROOPS_FROM_BARRACKS: {
+      const { troop, level } = action.payload;
+      const key = [troop, level].toString();
+
+      return update(state, {
+        $remove: [key],
+      });
+    }
     default: {
       return state;
     }

@@ -94,5 +94,6 @@
   "app.tabs.formation": "Σχηματισμός",
   "app.tabs.barracks": "Στρατώνας",
   "app.tabs.settings": "Ρυθμίσεις",
-  "languages.title": "Επιλογή γλώσσας"
+  "languages.title": "Επιλογή γλώσσας",
+  "button.label.removeTroopFromBarracks": "Αφαίρεση μονάδας από το στρατώνα"
 }

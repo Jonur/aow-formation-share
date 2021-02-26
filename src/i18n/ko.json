@@ -94,5 +94,6 @@
   "app.tabs.formation": "Formation",
   "app.tabs.barracks": "Barracks",
   "app.tabs.settings": "Settings",
-  "languages.title": "Select language"
+  "languages.title": "Select language",
+  "button.label.removeTroopFromBarracks": "Remove troop from Barracks"
 }
