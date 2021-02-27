@@ -146,5 +146,10 @@
   "languages.title": "Select language",
   "button.label.removeTroopFromBarracks": "Remove troop from Barracks",
   "languages.asteriskNotes": "Game data is not translated, as the game does not support this language.",
-  "button.label.formationAndBarracksShare": "Share Formation & Barracks"
+  "button.label.formationAndBarracksShare": "Share Formation & Barracks",
+  "button.label.setHero": "Set hero",
+  "select.label.heroName": "Select hero",
+  "button.label.closeHeroForm": "Close the form",
+  "select.label.heroLevel": "Select hero level",
+  "select.label.noHero": "--- No hero ---"
 }

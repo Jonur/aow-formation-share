@@ -10,6 +10,14 @@ export const getTroopGrades = createSelector(
   ({ grades }) => grades
 );
 
+export const getClasses = createSelector(getGameData, ({ classes }) => classes);
+
+export const getHeroes = createSelector(getGameData, ({ heroes }) => heroes);
+
+export const getHeroesIdHashMap = createSelector(getHeroes, (heroes) =>
+  heroes.reduce((acc, hero) => ({ ...acc, [hero.id]: hero }), {})
+);
+
 export const getTroopHashMap = createSelector(getTroops, (troops) =>
   troops.reduce((acc, troop) => ({ ...acc, [troop.name]: troop }), {})
 );
@@ -39,9 +47,31 @@ export const getLocalisedTroops = createSelector(
       })
 );
 
+export const getLocalisedHeroes = createSelector(
+  getHeroes,
+  appSelectors.getLocalisedContent,
+  (heroes, content) =>
+    heroes
+      .map(({ id }) => ({ id, name: content.gameData.heroes[id] }))
+      .sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      })
+);
+
 export const getMaxTroopLevel = createSelector(
   getGameData,
   ({ board }) => board.maxLevel
+);
+
+export const getMaxHeroLevel = createSelector(
+  getGameData,
+  ({ board }) => board.maxHeroLevel
 );
 
 export const getBoardSquares = createSelector(
@@ -51,6 +81,14 @@ export const getBoardSquares = createSelector(
 
 export const getTroopLevelsReversed = createSelector(
   getMaxTroopLevel,
+  (maxLevel) =>
+    Array.from(new Array(maxLevel))
+      .map((num, index) => index + 1)
+      .reverse()
+);
+
+export const getHeroLevelsReversed = createSelector(
+  getMaxHeroLevel,
   (maxLevel) =>
     Array.from(new Array(maxLevel))
       .map((num, index) => index + 1)

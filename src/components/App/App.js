@@ -11,6 +11,8 @@ import TroopSelectionForm from "../TroopSelectionForm";
 import Barracks from "../Barracks";
 import Tabs from "../Tabs";
 import Settings from "../Settings";
+import Hero from "../Hero";
+import HeroForm from "../HeroForm";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -21,6 +23,7 @@ const App = () => {
     appSelectors.getTroopSelectionFormStatus
   );
   const barracksFormStatus = useSelector(appSelectors.getBarracksFormStatus);
+  const heroFormStatus = useSelector(appSelectors.getHeroFormStatus);
   const content = useSelector(appSelectors.getLocalisedContent);
   const selectedTab = useSelector(appSelectors.getSelectedTab);
   const notificationMessage = useSelector(appSelectors.getNotificationMessage);
@@ -45,7 +48,8 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const shouldDisplayBackdrop = troopSelectionFormStatus || barracksFormStatus;
+  const shouldDisplayBackdrop =
+    troopSelectionFormStatus || barracksFormStatus || heroFormStatus;
 
   return (
     <div className={s.app}>
@@ -74,6 +78,9 @@ const App = () => {
             >
               <TroopSquares />
             </div>
+
+            {heroFormStatus && <HeroForm />}
+            <Hero />
           </div>
         </>
       )}

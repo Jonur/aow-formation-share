@@ -436,7 +436,7 @@ const initialState = {
       grade: "fod3",
       race: "z18Y",
       class: "8ZOV",
-      image: "/img/aow-heroes/pirateship.png",
+      image: "/img/aow-heroes/moshe.png",
     },
     {
       id: "9bv9",

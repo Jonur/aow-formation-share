@@ -33,6 +33,11 @@ export const getBarracksFormStatus = createSelector(
   ({ barracksFormStatus }) => barracksFormStatus
 );
 
+export const getHeroFormStatus = createSelector(
+  getUserInteractions,
+  ({ heroFormStatus }) => heroFormStatus
+);
+
 export const getAppLanguage = createSelector(
   getApp,
   ({ language }) => language

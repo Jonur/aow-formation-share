@@ -146,5 +146,10 @@
   "languages.title": "Επιλογή γλώσσας",
   "button.label.removeTroopFromBarracks": "Αφαίρεση μονάδας από το στρατώνα",
   "languages.asteriskNotes": "Τα δεδομένα του παιχνιδιού δεν έχουν μεταφραστεί, καθώς δεν υπάρχει επίσημη υποστήριξη της γλώσσας από το παιχνίδι.",
-  "button.label.formationAndBarracksShare": "Σύνδεσμος σχηματισμού και στρατώνα"
+  "button.label.formationAndBarracksShare": "Σύνδεσμος σχηματισμού και στρατώνα",
+  "button.label.setHero": "Προσθήκη ήρωα",
+  "select.label.heroName": "Επιλογή ήρωα",
+  "button.label.closeHeroForm": "Κλείσιμο φόρμας ήρωα",
+  "select.label.heroLevel": "Επιλογή επιπέδου ήρωα",
+  "select.label.noHero": "--- Κανένας ήρωας ---"
 }

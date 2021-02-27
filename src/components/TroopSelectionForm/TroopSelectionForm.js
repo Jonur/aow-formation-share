@@ -92,10 +92,10 @@ const TroopSelectionForm = () => {
     }
   }, []);
 
-  const [displayTroopLevelSelect, setDisplayTroolLevelSelect] = useState(true);
+  const [displayTroopLevelSelect, setDisplayTroopLevelSelect] = useState(true);
   const selectTroop = useCallback((e) => {
     const selectedTroop = e.target.value;
-    setDisplayTroolLevelSelect(!!selectedTroop);
+    setDisplayTroopLevelSelect(!!selectedTroop);
     setCurrentlySelectedTroop(selectedTroop);
   }, []);
   const selectTroopLevel = useCallback(

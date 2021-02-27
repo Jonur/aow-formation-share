@@ -1,0 +1,70 @@
+.heroForm {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  left: 0;
+  top: 0;
+  height: 100%;
+  justify-content: flex-start;
+
+  & > *:not(.close) {
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    outline: 0;
+    padding: 0 1rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    border: 2px solid #338d46;
+    cursor: pointer;
+
+    &:last-child {
+      background-color: #338d46;
+      border: 2px solid white;
+      color: white;
+      font-weight: 700;
+    }
+  }
+
+  & > :focus {
+    outline: 2px solid pink;
+  }
+
+  .close {
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    outline: 0;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #313131;
+    cursor: pointer;
+  }
+
+  .label {
+    color: white;
+    height: auto;
+    border: none;
+    padding: 0;
+    margin: 0.25rem 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    align-self: center;
+    justify-self: center;
+    left: auto;
+  }
+
+  @media screen and (max-width: 960px) and (orientation: landscape) {
+    display: none;
+  }
+}
