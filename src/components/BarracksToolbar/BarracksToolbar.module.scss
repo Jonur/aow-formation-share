@@ -1,0 +1,43 @@
+.barracksToolbar {
+  padding-top: 0.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  .primaryTools,
+  .secondaryTools {
+    *:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+
+  .btn {
+    border: 2px solid white;
+    color: white;
+    outline: 0;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    transition: all 500ms;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    &.shareBtn {
+      background-color: #338d46;
+    }
+
+    &.addBtn {
+      background-color: #222f8c;
+    }
+
+    &.clearBtn {
+      background-color: #c9d3de;
+      color: #4a4a4a;
+    }
+  }
+}
