@@ -1,4 +1,5 @@
 import update from "immutability-helper";
+import { MAX_BARRACKS_ENTRIES } from "../../utils/constants";
 import { barracksActions } from "./";
 
 const initialState = new Map();
@@ -9,6 +10,12 @@ const barracksReducer = (state = initialState, action) => {
     case barracksActions.ADD_TROOP_TO_BARRACKS: {
       const { troop, level, count } = action.payload;
       const key = [troop, level].toString();
+
+      const isBarracksMaxedOut = state.size >= MAX_BARRACKS_ENTRIES;
+      const isNotUpdatingEntry = !state.has(key);
+      if (isBarracksMaxedOut && isNotUpdatingEntry) {
+        return state;
+      }
 
       return update(state, {
         $add: [[key, count]],
@@ -24,6 +31,9 @@ const barracksReducer = (state = initialState, action) => {
       return update(state, {
         $remove: [key],
       });
+    }
+    case barracksActions.SET_BARRACKS: {
+      return action.payload.barracks;
     }
     default: {
       return state;

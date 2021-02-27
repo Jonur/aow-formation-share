@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
 import { appSelectors } from "../../redux/app";
 import { formationSelectors } from "../../redux/formation";
+import { barracksSelectors } from "../../redux/barracks";
 import s from "./ShareFormation.module.scss";
 
 const ShareFormation = ({ troopBoardElement }) => {
@@ -20,9 +21,13 @@ const ShareFormation = ({ troopBoardElement }) => {
   const formationLinkParams = useSelector(
     formationSelectors.getFormationLinkParams
   );
+  const barracksLinkParams = useSelector(
+    barracksSelectors.getBarracksLinkParams
+  );
+
   const content = useSelector(appSelectors.getLocalisedContent);
 
-  const formationLink = `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}`;
+  const formationLink = `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}${barracksLinkParams}`;
   const createShareableLink = useCallback(() => {
     const newTextarea = document.createElement("textarea");
     newTextarea.id = "formation-link";
@@ -89,7 +94,7 @@ const ShareFormation = ({ troopBoardElement }) => {
         disabled={isFormationEmpty}
         onClick={createShareableLink}
       >
-        {content["button.label.formationShare"]}
+        {content["button.label.formationAndBarracksShare"]}
       </button>
       <button
         className={classNames(s.btn, s.screenAndDl)}

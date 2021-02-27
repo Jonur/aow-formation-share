@@ -1,7 +1,9 @@
 import { appActions } from "./";
 import { formationActions } from "../../redux/formation";
 import { gameDataSelectors } from "../../redux/gameData";
+import { barracksActions } from "../../redux/barracks";
 import getFormationFromURL from "../../utils/getFormationFromURL";
+import getBarracksFromURL from "../../utils/getBarracksFromURL";
 
 export default (store) => (next) => (action) => {
   if (action.type === appActions.APP_INIT) {
@@ -17,10 +19,17 @@ export default (store) => (next) => (action) => {
       maxTroopLevel,
       boardSquares
     );
+    const barracksFromURL = getBarracksFromURL(troopHashMap, maxTroopLevel);
 
     const formationExistsInURL = !!Object.keys(formationFromURL).length;
     if (formationExistsInURL) {
       store.dispatch(formationActions.setFormation(formationFromURL));
+    }
+
+    if (barracksFromURL.size) {
+      store.dispatch(
+        barracksActions.setBarracks({ barracks: barracksFromURL })
+      );
     }
 
     const { languageInURL } = action.payload;
