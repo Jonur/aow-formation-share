@@ -1,7 +1,7 @@
-import { appActions } from "./";
-import { formationActions } from "../../redux/formation";
+import { appActions, appSelectors } from "./";
+import { formationActions, formationSelectors } from "../../redux/formation";
 import { gameDataSelectors } from "../../redux/gameData";
-import { barracksActions } from "../../redux/barracks";
+import { barracksActions, barracksSelectors } from "../../redux/barracks";
 import getFormationFromURL from "../../utils/getFormationFromURL";
 import getBarracksFromURL from "../../utils/getBarracksFromURL";
 
@@ -40,6 +40,36 @@ export default (store) => (next) => (action) => {
         })
       );
     }
+  }
+
+  if (action.type === appActions.CREATE_SHAREABLE_LINK) {
+    const state = store.getState();
+
+    const formationLinkParams = formationSelectors.getFormationLinkParams(
+      state
+    );
+    const barracksLinkParams = barracksSelectors.getBarracksLinkParams(state);
+    const content = appSelectors.getLocalisedContent(state);
+
+    const formationLink = `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}${barracksLinkParams}`;
+
+    const newTextarea = document.createElement("textarea");
+    newTextarea.id = "formation-link";
+    newTextarea.value = formationLink;
+    document.body.appendChild(newTextarea);
+    newTextarea.select();
+    document.execCommand("copy");
+    newTextarea.remove();
+
+    store.dispatch(
+      appActions.setNotificationMessage({
+        message: content["app.alert.formationCopied"],
+      })
+    );
+    setTimeout(
+      () => store.dispatch(appActions.setNotificationMessage({ message: "" })),
+      4000
+    );
   }
 
   next(action);

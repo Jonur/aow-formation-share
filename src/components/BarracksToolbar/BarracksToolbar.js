@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import { barracksActions, barracksSelectors } from "../../redux/barracks";
 import { appActions, appSelectors } from "../../redux/app";
+import { formationSelectors } from "../../redux/formation";
 
 import s from "./BarracksToolbar.module.scss";
 
@@ -15,10 +16,19 @@ const BarracksToolbar = () => {
   const isBarracksMaxedOut = useSelector(
     barracksSelectors.getIsBarracksMaxedOut
   );
+  const isFormationEmpty = useSelector(formationSelectors.getIsFormationEmpty);
 
   return (
     <nav className={s.barracksToolbar}>
       <div className={s.primaryTools}>
+        <button
+          aria-label={content["button.label.formationAndBarracksShare"]}
+          className={classNames(s.btn, s.shareBtn)}
+          disabled={isFormationEmpty && !barracksTroops.length}
+          onClick={() => dispatch(appActions.createShareableLink())}
+        >
+          <i className="fas fa-share-square"></i>
+        </button>
         <button
           aria-label={content["button.label.addToBarracks"]}
           className={classNames(s.btn, s.addBtn)}

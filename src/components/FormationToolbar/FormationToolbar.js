@@ -4,9 +4,9 @@ import classNames from "classnames";
 import html2canvas from "html2canvas";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
+import { barracksSelectors } from "../../redux/barracks";
 import { appActions, appSelectors } from "../../redux/app";
 import { formationActions, formationSelectors } from "../../redux/formation";
-import { barracksSelectors } from "../../redux/barracks";
 import s from "./FormationToolbar.module.scss";
 
 const FormationToolbar = ({ troopBoardElement }) => {
@@ -17,35 +17,8 @@ const FormationToolbar = ({ troopBoardElement }) => {
   const [iOSImageURI, setIOSImageURI] = useState("");
 
   const isFormationEmpty = useSelector(formationSelectors.getIsFormationEmpty);
-  const formationLinkParams = useSelector(
-    formationSelectors.getFormationLinkParams
-  );
-  const barracksLinkParams = useSelector(
-    barracksSelectors.getBarracksLinkParams
-  );
-
   const content = useSelector(appSelectors.getLocalisedContent);
-
-  const formationLink = `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}${barracksLinkParams}`;
-  const createShareableLink = useCallback(() => {
-    const newTextarea = document.createElement("textarea");
-    newTextarea.id = "formation-link";
-    newTextarea.value = formationLink;
-    document.body.appendChild(newTextarea);
-    newTextarea.select();
-    document.execCommand("copy");
-    newTextarea.remove();
-
-    dispatch(
-      appActions.setNotificationMessage({
-        message: content["app.alert.formationCopied"],
-      })
-    );
-    setTimeout(
-      () => dispatch(appActions.setNotificationMessage({ message: "" })),
-      4000
-    );
-  }, [content, dispatch, formationLink]);
+  const barracksTroops = useSelector(barracksSelectors.getBarracksTroops);
 
   const screenshotAndDownload = () => {
     if (troopBoardElement?.current) {
@@ -105,8 +78,8 @@ const FormationToolbar = ({ troopBoardElement }) => {
         <button
           aria-label={content["button.label.formationAndBarracksShare"]}
           className={classNames(s.btn, s.shareBtn)}
-          disabled={isFormationEmpty}
-          onClick={createShareableLink}
+          disabled={isFormationEmpty && !barracksTroops.length}
+          onClick={() => dispatch(appActions.createShareableLink())}
         >
           <i className="fas fa-share-square"></i>
         </button>
