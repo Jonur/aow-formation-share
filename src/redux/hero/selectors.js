@@ -19,3 +19,7 @@ export const getHeroData = createSelector(
         }
       : {}
 );
+
+export const getHeroLinkParams = createSelector(getHero, (hero) =>
+  hero.id ? `&h=${hero.id}-${hero.level}` : ""
+);
