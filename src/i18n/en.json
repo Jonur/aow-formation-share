@@ -95,5 +95,6 @@
   "app.tabs.barracks": "Barracks",
   "app.tabs.settings": "Settings",
   "languages.title": "Select language",
-  "button.label.removeTroopFromBarracks": "Remove troop from Barracks"
+  "button.label.removeTroopFromBarracks": "Remove troop from Barracks",
+  "languages.asteriskNotes": "Game data is not translated, as the game does not support this language."
 }

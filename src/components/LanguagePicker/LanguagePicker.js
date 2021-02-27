@@ -37,6 +37,10 @@ const LanguagePicker = () => {
           </button>
         ))}
       </nav>
+
+      <span className={s.langNotes}>
+        * {content["languages.asteriskNotes"]}
+      </span>
     </div>
   );
 };

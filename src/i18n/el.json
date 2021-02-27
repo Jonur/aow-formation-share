@@ -1,6 +1,6 @@
 {
   "iso-639-1": "el",
-  "language": "Ελληνικά",
+  "language": "Ελληνικά*",
   "app.alert.rotateDevice": "Παρακαλούμε περιστρέψτε τη συσκευή σας",
   "app.alert.formationCopied": "Ο σύνδεσμος έχει αντιγραφή στο Πρόχειρο. Κάντε επικόλληση όπου θέλετε να μοιραστείτε το σχηματισμό σας!",
   "game.level": "Επίπεδο",
@@ -95,5 +95,6 @@
   "app.tabs.barracks": "Στρατώνας",
   "app.tabs.settings": "Ρυθμίσεις",
   "languages.title": "Επιλογή γλώσσας",
-  "button.label.removeTroopFromBarracks": "Αφαίρεση μονάδας από το στρατώνα"
+  "button.label.removeTroopFromBarracks": "Αφαίρεση μονάδας από το στρατώνα",
+  "languages.asteriskNotes": "Τα δεδομένα του παιχνιδιού δεν έχουν μεταφραστεί, καθώς δεν υπάρχει επίσημη υποστήριξη της γλώσσας από το παιχνίδι."
 }
