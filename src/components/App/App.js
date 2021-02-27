@@ -23,6 +23,7 @@ const App = () => {
   const barracksFormStatus = useSelector(appSelectors.getBarracksFormStatus);
   const content = useSelector(appSelectors.getLocalisedContent);
   const selectedTab = useSelector(appSelectors.getSelectedTab);
+  const notificationMessage = useSelector(appSelectors.getNotificationMessage);
 
   useEffect(() => {
     const languageInURL = getIsValidLanguage(
@@ -49,6 +50,9 @@ const App = () => {
   return (
     <div className={s.app}>
       {shouldDisplayBackdrop && <div className={s.backdrop} />}
+      {notificationMessage && (
+        <span className={s.notificaitonMessage}>{notificationMessage}</span>
+      )}
 
       <Header />
 

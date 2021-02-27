@@ -8,6 +8,7 @@ const initialState = {
     troopSelectionFormStatus: false,
     barracksFormStatus: false,
     tab: APP_TABS.FORMATION,
+    notificationMessage: "",
   },
 };
 

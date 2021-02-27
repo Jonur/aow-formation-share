@@ -7,6 +7,7 @@ export const CLEAR_SELECTED_SQUARE = "CLEAR_SELECTED_SQUARE";
 export const SET_LAST_TROOP_ADDED = "SET_LAST_TROOP_ADDED";
 export const SELECT_TAB = "SELECT_TAB";
 export const SET_BARRACKS_FORM_STATUS = "SET_BARRACKS_FORM_STATUS";
+export const SET_NOTIFICATION_MESSAGE = "SET_NOTIFICATION_MESSAGE";
 
 export const appInitialisation = ({ languageInURL }) => ({
   type: APP_INIT,
@@ -45,4 +46,9 @@ export const setLastTroopAdded = (troopData) => ({
 export const selectTab = ({ tab }) => ({
   type: SELECT_TAB,
   payload: { tab },
+});
+
+export const setNotificationMessage = ({ message }) => ({
+  type: SET_NOTIFICATION_MESSAGE,
+  payload: { message },
 });

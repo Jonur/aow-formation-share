@@ -13,6 +13,11 @@ export const getLastTroopAdded = createSelector(
   ({ lastTroopAdded }) => lastTroopAdded
 );
 
+export const getNotificationMessage = createSelector(
+  getUserInteractions,
+  ({ notificationMessage }) => notificationMessage
+);
+
 export const getSelectedSquared = createSelector(
   getUserInteractions,
   ({ selectedSquare }) => selectedSquare

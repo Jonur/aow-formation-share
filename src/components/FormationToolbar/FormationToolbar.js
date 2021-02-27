@@ -4,7 +4,7 @@ import classNames from "classnames";
 import html2canvas from "html2canvas";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { appSelectors } from "../../redux/app";
+import { appActions, appSelectors } from "../../redux/app";
 import { formationActions, formationSelectors } from "../../redux/formation";
 import { barracksSelectors } from "../../redux/barracks";
 import s from "./FormationToolbar.module.scss";
@@ -13,8 +13,6 @@ const FormationToolbar = ({ troopBoardElement }) => {
   const dispatch = useDispatch();
   const iOSImageURIRef = useRef();
   const isIOSdevice = /^iP(hone|[ao]d)/.test(navigator.platform);
-
-  const [copyNotification, setCopyNotification] = useState(false);
 
   const [iOSImageURI, setIOSImageURI] = useState("");
 
@@ -38,9 +36,16 @@ const FormationToolbar = ({ troopBoardElement }) => {
     document.execCommand("copy");
     newTextarea.remove();
 
-    setCopyNotification(true);
-    setTimeout(() => setCopyNotification(false), 4000);
-  }, [formationLink]);
+    dispatch(
+      appActions.setNotificationMessage({
+        message: content["app.alert.formationCopied"],
+      })
+    );
+    setTimeout(
+      () => dispatch(appActions.setNotificationMessage({ message: "" })),
+      4000
+    );
+  }, [content, dispatch, formationLink]);
 
   const screenshotAndDownload = () => {
     if (troopBoardElement?.current) {
@@ -125,12 +130,6 @@ const FormationToolbar = ({ troopBoardElement }) => {
           <i className="fas fa-trash-alt"></i>
         </button>
       </div>
-
-      {copyNotification && (
-        <span className={s.copyNotification}>
-          {content["app.alert.formationCopied"]}
-        </span>
-      )}
     </nav>
   );
 };

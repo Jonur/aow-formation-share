@@ -30,6 +30,13 @@ const appReducer = (state = initialState, action) => {
         userInteractions: { selectedSquare: { $set: action.payload.square } },
       });
     }
+    case appActions.SET_NOTIFICATION_MESSAGE: {
+      return update(state, {
+        userInteractions: {
+          notificationMessage: { $set: action.payload.message },
+        },
+      });
+    }
     case appActions.CLEAR_SELECTED_SQUARE: {
       return update(state, {
         userInteractions: {
