@@ -5,10 +5,9 @@ import { appActions, appSelectors } from "../../redux/app";
 import { APP_TABS, DEFAULT_LANGUAGE } from "../../utils/constants";
 import getIsValidLanguage from "../../i18n/utils/getIsValidLanguage";
 import Header from "../Header";
-import ShareFormation from "../ShareFormation";
+import FormationToolbar from "../FormationToolbar";
 import TroopSquares from "../TroopSquares";
 import TroopSelectionForm from "../TroopSelectionForm";
-import ClearFormation from "../ClearFormation";
 import Barracks from "../Barracks";
 import Tabs from "../Tabs";
 import Settings from "../Settings";
@@ -59,7 +58,7 @@ const App = () => {
 
       {selectedTab === APP_TABS.FORMATION && (
         <>
-          <ShareFormation troopBoardElement={troopBoardRef} />
+          <FormationToolbar troopBoardElement={troopBoardRef} />
 
           <div className={s.formationShare}>
             {troopSelectionFormStatus && <TroopSelectionForm />}
@@ -71,8 +70,6 @@ const App = () => {
             >
               <TroopSquares />
             </div>
-
-            <ClearFormation />
           </div>
         </>
       )}

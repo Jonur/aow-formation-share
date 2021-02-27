@@ -1,24 +1,25 @@
-.shareFormation {
-  display: grid;
+.formationToolbar {
   padding: 0 1rem;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
   margin: 0.5rem 0 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  .primaryTools,
+  .secondaryTools {
+    *:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
 
   .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 2px solid white;
     color: white;
-    font-weight: 700;
     outline: 0;
     font-size: 1rem;
-    line-height: 100%;
-    padding: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
     height: 3rem;
+    width: 3rem;
     transition: all 500ms;
 
     &:disabled {
@@ -32,6 +33,11 @@
 
     &.screenAndDl {
       background-color: #b94b28;
+    }
+
+    &.emptyFormation {
+      background-color: #c9d3de;
+      color: #4a4a4a;
     }
   }
 

@@ -3,13 +3,14 @@ import { shape } from "prop-types";
 import classNames from "classnames";
 import html2canvas from "html2canvas";
 import { v4 as uuidv4 } from "uuid";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { appSelectors } from "../../redux/app";
-import { formationSelectors } from "../../redux/formation";
+import { formationActions, formationSelectors } from "../../redux/formation";
 import { barracksSelectors } from "../../redux/barracks";
-import s from "./ShareFormation.module.scss";
+import s from "./FormationToolbar.module.scss";
 
-const ShareFormation = ({ troopBoardElement }) => {
+const FormationToolbar = ({ troopBoardElement }) => {
+  const dispatch = useDispatch();
   const iOSImageURIRef = useRef();
   const isIOSdevice = /^iP(hone|[ao]d)/.test(navigator.platform);
 
@@ -75,8 +76,13 @@ const ShareFormation = ({ troopBoardElement }) => {
     }
   };
 
+  const handleClearFormation = useCallback(
+    () => dispatch(formationActions.emptyFormationBoard()),
+    [dispatch]
+  );
+
   return (
-    <nav className={s.shareFormation}>
+    <nav className={s.formationToolbar}>
       {isIOSdevice && (
         <a
           href={iOSImageURI}
@@ -89,20 +95,36 @@ const ShareFormation = ({ troopBoardElement }) => {
           {content["button.label.iosImageDownload"]}
         </a>
       )}
-      <button
-        className={classNames(s.btn, s.shareBtn)}
-        disabled={isFormationEmpty}
-        onClick={createShareableLink}
-      >
-        {content["button.label.formationAndBarracksShare"]}
-      </button>
-      <button
-        className={classNames(s.btn, s.screenAndDl)}
-        onClick={screenshotAndDownload}
-        disabled={isFormationEmpty}
-      >
-        {content["button.label.screenshotDownload"]}
-      </button>
+
+      <div className={s.primaryTools}>
+        <button
+          aria-label={content["button.label.formationAndBarracksShare"]}
+          className={classNames(s.btn, s.shareBtn)}
+          disabled={isFormationEmpty}
+          onClick={createShareableLink}
+        >
+          <i className="fas fa-share-square"></i>
+        </button>
+        <button
+          aria-label={content["button.label.screenshotDownload"]}
+          className={classNames(s.btn, s.screenAndDl)}
+          onClick={screenshotAndDownload}
+          disabled={isFormationEmpty}
+        >
+          <i className="fas fa-download"></i>
+        </button>
+      </div>
+
+      <div className={s.secondaryTools}>
+        <button
+          aria-label={content["button.label.emptyFormation"]}
+          className={classNames(s.btn, s.emptyFormation)}
+          disabled={isFormationEmpty}
+          onClick={handleClearFormation}
+        >
+          <i className="fas fa-trash-alt"></i>
+        </button>
+      </div>
 
       {copyNotification && (
         <span className={s.copyNotification}>
@@ -113,8 +135,8 @@ const ShareFormation = ({ troopBoardElement }) => {
   );
 };
 
-ShareFormation.propTypes = {
+FormationToolbar.propTypes = {
   troopBoardElement: shape().isRequired,
 };
 
-export default ShareFormation;
+export default FormationToolbar;
