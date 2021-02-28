@@ -34,16 +34,6 @@ const Tabs = () => {
         {content["app.tabs.barracks"]}
       </button>
 
-      {/* <button
-        aria-label={content["app.tabs.statistics"]}
-        className={classNames(s.tab, s.icon, {
-          [s.selected]: selectedTab === APP_TABS.STATS,
-        })}
-        onClick={() => dispatch(appActions.selectTab({ tab: APP_TABS.STATS }))}
-      >
-        <i className="fas fa-chart-line"></i>
-      </button> */}
-
       <button
         aria-label={content["app.tabs.settings"]}
         className={classNames(s.tab, s.icon, {
