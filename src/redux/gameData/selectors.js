@@ -14,6 +14,8 @@ export const getClasses = createSelector(getGameData, ({ classes }) => classes);
 
 export const getHeroes = createSelector(getGameData, ({ heroes }) => heroes);
 
+export const getPower = createSelector(getGameData, ({ power }) => power);
+
 export const getHeroesIdHashMap = createSelector(getHeroes, (heroes) =>
   heroes.reduce((acc, hero) => ({ ...acc, [hero.id]: hero }), {})
 );

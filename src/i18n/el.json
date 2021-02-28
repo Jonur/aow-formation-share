@@ -151,5 +151,6 @@
   "select.label.heroName": "Επιλογή ήρωα",
   "button.label.closeHeroForm": "Κλείσιμο φόρμας ήρωα",
   "select.label.heroLevel": "Επιλογή επιπέδου ήρωα",
-  "select.label.noHero": "--- Κανένας ήρωας ---"
+  "select.label.noHero": "--- Κανένας ήρωας ---",
+  "app.tabs.statistics": "Στατιστικά"
 }

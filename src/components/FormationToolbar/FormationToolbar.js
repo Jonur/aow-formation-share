@@ -19,6 +19,8 @@ const FormationToolbar = ({ troopBoardElement }) => {
   const isFormationEmpty = useSelector(formationSelectors.getIsFormationEmpty);
   const content = useSelector(appSelectors.getLocalisedContent);
   const barracksTroops = useSelector(barracksSelectors.getBarracksTroops);
+  const formationPower = useSelector(formationSelectors.getFormationPower);
+  const formationCount = useSelector(formationSelectors.getFormationCount);
 
   const screenshotAndDownload = () => {
     if (troopBoardElement?.current) {
@@ -91,6 +93,16 @@ const FormationToolbar = ({ troopBoardElement }) => {
         >
           <i className="fas fa-download"></i>
         </button>
+
+        <div className={s.formationPower}>
+          <i className="fas fa-fist-raised"></i>
+          <span className={s.number}>{formationPower}</span>
+        </div>
+
+        <div className={s.formationCount}>
+          <i className="fas fa-users"></i>
+          <span className={s.number}>{formationCount}</span>
+        </div>
       </div>
 
       <div className={s.secondaryTools}>

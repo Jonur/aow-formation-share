@@ -11,6 +11,24 @@
     }
   }
 
+  .primaryTools {
+    display: flex;
+    align-items: center;
+
+    .formationPower,
+    .formationCount {
+      color: white;
+
+      .number {
+        margin-left: 0;
+
+        @media screen and (min-width: 375px) {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+
   .btn {
     border: 2px solid white;
     color: white;

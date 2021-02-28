@@ -12,4 +12,5 @@ export const APP_TABS = {
   BARRACKS: "barracks",
   FORMATION: "formation",
   SETTINGS: "settings",
+  STATS: "statistics",
 };
