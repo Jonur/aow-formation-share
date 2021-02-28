@@ -1,9 +1,8 @@
 import { MAX_BARRACKS_ENTRIES } from "./constants";
+import getUrlParamHashes from "./getUrlParamHashes";
 
 const getBarracksFromURL = (troopHashMap, maxTroopLevel) => {
-  const urlParamHashes = window.location.href
-    .slice(window.location.href.indexOf("?") + 1)
-    ?.split("&");
+  const urlParamHashes = getUrlParamHashes();
 
   const barracksInURL = urlParamHashes
     .find((hash) => hash?.split("=")?.[0] === "b")

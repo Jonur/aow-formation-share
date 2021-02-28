@@ -1,7 +1,7 @@
+import getUrlParamHashes from "./getUrlParamHashes";
+
 const getHeroFromURL = (heroesIdHashMap, maxHeroLevel) => {
-  const urlParamHashes = window.location.href
-    .slice(window.location.href.indexOf("?") + 1)
-    ?.split("&");
+  const urlParamHashes = getUrlParamHashes();
 
   const heroInURL = urlParamHashes
     .find((hash) => hash?.split("=")?.[0] === "h")
