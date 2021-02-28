@@ -1,11 +1,14 @@
 import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
+import classNames from "classnames";
+
 import { appSelectors } from "../../redux/app";
 import { formationSelectors } from "../../redux/formation";
 import languages from "../../i18n";
 import s from "./LanguagePicker.module.scss";
 
 const LanguagePicker = () => {
+  const appLanguage = useSelector(appSelectors.getAppLanguage);
   const content = useSelector(appSelectors.getLocalisedContent);
   const formationLinkParams = useSelector(
     formationSelectors.getFormationLinkParams
@@ -23,25 +26,28 @@ const LanguagePicker = () => {
   );
 
   return (
-    <div className={s.languagePicker}>
+    <section className={s.languagePicker}>
       <h3 className={s.title}>{content["languages.title"]}</h3>
 
-      <nav className={s.languages}>
+      <ul className={s.languages}>
         {Object.keys(languages).map((langCode) => (
-          <button
-            className={s.language}
-            onClick={() => changeLanguage(langCode)}
-            key={langCode}
-          >
-            {languages[langCode].language}
-          </button>
+          <li className={s.languageItem} key={langCode}>
+            <button
+              className={classNames(s.language, {
+                [s.selected]: appLanguage === langCode,
+              })}
+              onClick={() => changeLanguage(langCode)}
+            >
+              {languages[langCode].language}
+            </button>
+          </li>
         ))}
-      </nav>
+      </ul>
 
       <span className={s.langNotes}>
         * {content["languages.asteriskNotes"]}
       </span>
-    </div>
+    </section>
   );
 };
 
