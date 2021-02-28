@@ -151,6 +151,5 @@
   "select.label.heroName": "Select hero",
   "button.label.closeHeroForm": "Close the form",
   "select.label.heroLevel": "Select hero level",
-  "select.label.noHero": "--- No hero ---",
-  "app.tabs.statistics": "Statistics"
+  "select.label.noHero": "--- No hero ---"
 }
