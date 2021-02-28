@@ -1,5 +1,6 @@
 {
   "iso-639-1": "ko",
+  "dir": "ltr",
   "language": "한국어",
   "app.alert.rotateDevice": "기기를 회전 시켜 주세요.",
   "app.alert.formationCopied": "공유 가능한 링크가 복사되었습니다. 원하는 곳에 붙여넣기 하세요!",

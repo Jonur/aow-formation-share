@@ -43,6 +43,11 @@ export const getAppLanguage = createSelector(
   ({ language }) => language
 );
 
+export const getSelectedLanguageHTMLAttributes = createSelector(
+  getAppLanguage,
+  (language) => ({ language, dir: i18n[language].dir })
+);
+
 export const getSelectedTab = createSelector(
   getUserInteractions,
   ({ tab }) => tab

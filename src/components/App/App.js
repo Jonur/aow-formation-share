@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { appActions, appSelectors } from "../../redux/app";
+import { Helmet } from "react-helmet-async";
 
+import { appActions, appSelectors } from "../../redux/app";
 import { APP_TABS, DEFAULT_LANGUAGE } from "../../utils/constants";
 import getIsValidLanguage from "../../i18n/utils/getIsValidLanguage";
 import Header from "../Header";
@@ -27,6 +28,9 @@ const App = () => {
   const content = useSelector(appSelectors.getLocalisedContent);
   const selectedTab = useSelector(appSelectors.getSelectedTab);
   const notificationMessage = useSelector(appSelectors.getNotificationMessage);
+  const { language, dir } = useSelector(
+    appSelectors.getSelectedLanguageHTMLAttributes
+  );
 
   useEffect(() => {
     const languageInURL = getIsValidLanguage(
@@ -53,6 +57,8 @@ const App = () => {
 
   return (
     <div className={s.app}>
+      <Helmet htmlAttributes={{ lang: language, dir }} />
+
       {shouldDisplayBackdrop && <div className={s.backdrop} />}
       {notificationMessage && (
         <span className={s.notificaitonMessage}>{notificationMessage}</span>

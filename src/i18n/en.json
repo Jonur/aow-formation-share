@@ -1,5 +1,6 @@
 {
   "iso-639-1": "en",
+  "dir": "ltr",
   "language": "English",
   "app.alert.rotateDevice": "Please rotate your device",
   "app.alert.formationCopied": "The shareable link has been copied to your clipboard. You can paste it anywhere to share it!",
