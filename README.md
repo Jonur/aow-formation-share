@@ -17,6 +17,8 @@ SeungWon Lee - [GitHub](https://github.com/lsw6684), [LinkedIn](https://www.link
 
 Phasecast - [YouTube](https://www.youtube.com/phasecast), Game content
 
+infinite is typing loop - Troop and Hero power data
+
 # Tech
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
