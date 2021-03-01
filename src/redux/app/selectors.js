@@ -57,3 +57,8 @@ export const getLocalisedContent = createSelector(
   getAppLanguage,
   (language) => i18n[language]
 );
+
+export const getSelectedView = createSelector(
+  getUserInteractions,
+  ({ view }) => view
+);

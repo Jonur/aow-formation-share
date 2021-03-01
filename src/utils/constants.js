@@ -14,3 +14,8 @@ export const APP_TABS = {
   SETTINGS: "settings",
   STATS: "statistics",
 };
+
+export const APP_VIEWS = {
+  CARD: "card",
+  GAME: "game",
+};

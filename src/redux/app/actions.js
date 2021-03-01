@@ -10,6 +10,7 @@ export const SET_BARRACKS_FORM_STATUS = "SET_BARRACKS_FORM_STATUS";
 export const SET_NOTIFICATION_MESSAGE = "SET_NOTIFICATION_MESSAGE";
 export const CREATE_SHAREABLE_LINK = "CREATE_SHAREABLE_LINK";
 export const SET_HERO_FORM_STATUS = "SET_HERO_FORM_STATUS";
+export const SELECT_VIEW = "SELECT_VIEW";
 
 export const appInitialisation = ({ languageInURL }) => ({
   type: APP_INIT,
@@ -53,6 +54,11 @@ export const setLastTroopAdded = (troopData) => ({
 export const selectTab = ({ tab }) => ({
   type: SELECT_TAB,
   payload: { tab },
+});
+
+export const selectView = ({ view }) => ({
+  type: SELECT_VIEW,
+  payload: { view },
 });
 
 export const setNotificationMessage = ({ message }) => ({

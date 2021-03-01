@@ -1,9 +1,11 @@
 import React, { useCallback } from "react";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
+
 import { appActions, appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import { formationSelectors } from "../../redux/formation";
+import { APP_VIEWS } from "../../utils/constants";
 import s from "./TroopSquares.module.scss";
 
 const TroopSquares = () => {
@@ -16,6 +18,7 @@ const TroopSquares = () => {
   );
   const formation = useSelector(formationSelectors.getFormation);
   const content = useSelector(appSelectors.getLocalisedContent);
+  const selectedView = useSelector(appSelectors.getSelectedView);
 
   const handleTroopSquareClick = useCallback(
     (squareNum) => {
@@ -23,6 +26,19 @@ const TroopSquares = () => {
       dispatch(appActions.setSelectedSquare(`${squareNum}`));
     },
     [dispatch]
+  );
+
+  const getTroopImage = useCallback(
+    (troop) => {
+      if (selectedView === APP_VIEWS.CARD) {
+        return troop.image;
+      } else if (selectedView === APP_VIEWS.GAME) {
+        return troop.boardImage;
+      }
+
+      return "";
+    },
+    [selectedView]
   );
 
   return boardSquaresGrid.map((squareNum) => {
@@ -59,7 +75,11 @@ const TroopSquares = () => {
         </span>
 
         {hasTroops && (
-          <img className={s.troopImage} src={troop.image} alt={troopName} />
+          <img
+            className={s.troopImage}
+            src={getTroopImage(troop)}
+            alt={troopName}
+          />
         )}
       </button>
     );

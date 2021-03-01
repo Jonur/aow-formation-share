@@ -152,5 +152,8 @@
   "select.label.heroName": "Επιλογή ήρωα",
   "button.label.closeHeroForm": "Κλείσιμο φόρμας ήρωα",
   "select.label.heroLevel": "Επιλογή επιπέδου ήρωα",
-  "select.label.noHero": "--- Κανένας ήρωας ---"
+  "select.label.noHero": "--- Κανένας ήρωας ---",
+  "views.title": "Επιλογή προβολής",
+  "views.view.game": "Στυλ παιχνιδού",
+  "views.view.card": "Στυλ καρτών"
 }

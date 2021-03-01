@@ -1,4 +1,4 @@
-import { APP_TABS, DEFAULT_LANGUAGE } from "../../utils/constants";
+import { APP_VIEWS, APP_TABS, DEFAULT_LANGUAGE } from "../../utils/constants";
 
 const initialState = {
   language: DEFAULT_LANGUAGE,
@@ -10,6 +10,7 @@ const initialState = {
     heroFormStatus: false,
     tab: APP_TABS.FORMATION,
     notificationMessage: "",
+    view: localStorage.getItem("view") || APP_VIEWS.GAME,
   },
 };
 

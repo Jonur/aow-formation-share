@@ -152,5 +152,8 @@
   "select.label.heroName": "Select hero",
   "button.label.closeHeroForm": "Close the form",
   "select.label.heroLevel": "Select hero level",
-  "select.label.noHero": "--- No hero ---"
+  "select.label.noHero": "--- No hero ---",
+  "views.title": "Select view",
+  "views.view.game": "In-game style",
+  "views.view.card": "Card style"
 }

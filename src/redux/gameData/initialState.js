@@ -24,6 +24,7 @@ const initialState = {
       grade: "fod3",
       id: "5Lj1",
       image: "/img/aow-troops/pirateship.png",
+      boardImage: "/img/aow-troops-igv/pirateship.png",
       name: "Pirate Ship",
       race: "HVSp",
       count: 1,
@@ -86,6 +87,7 @@ const initialState = {
       grade: "XyDE",
       id: "duED",
       image: "/img/aow-troops/helljailers.png",
+      boardImage: "/img/aow-troops-igv/helljailers.png",
       name: "Hell Jailers",
       race: "T1WD",
       count: 9,
@@ -805,9 +807,5 @@ const initialState = {
     },
   },
 };
-
-initialState.troops.forEach((troop) =>
-  !troop.boardImage ? console.log(troop) : ""
-);
 
 export default initialState;

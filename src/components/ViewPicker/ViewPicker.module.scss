@@ -1,0 +1,47 @@
+.viewPicker {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 1.25rem 1rem 1rem;
+  position: relative;
+  margin-bottom: 3rem;
+
+  .title {
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: -0.75rem;
+    background: #537895;
+    padding: 0 1rem;
+  }
+
+  .views {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    .viewItem {
+      margin-bottom: 0.25rem;
+
+      .view {
+        background: none;
+        border: 0;
+        outline: 0;
+        color: white;
+        text-align: left;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+
+        cursor: pointer;
+        transition: all 500ms;
+
+        &.selected,
+        &:hover {
+          background-color: #395469;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}

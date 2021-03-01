@@ -66,6 +66,13 @@ const appReducer = (state = initialState, action) => {
         },
       });
     }
+    case appActions.SELECT_VIEW: {
+      return update(state, {
+        userInteractions: {
+          view: { $set: action.payload.view },
+        },
+      });
+    }
     case heroActions.UPDATE_HERO: {
       return update(state, {
         userInteractions: {
