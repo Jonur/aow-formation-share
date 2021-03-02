@@ -4,9 +4,10 @@ import classNames from "classnames";
 
 import { barracksActions, barracksSelectors } from "../../redux/barracks";
 import { gameDataSelectors } from "../../redux/gameData";
-import { appActions, appSelectors } from "../../redux/app";
+import { appSelectors } from "../../redux/app";
 
 import BarracksForm from "../BarracksForm";
+import BarracksToolbar from "../BarracksToolbar";
 import s from "./Barracks.module.scss";
 
 const Barracks = () => {
@@ -22,24 +23,7 @@ const Barracks = () => {
 
   return (
     <section className={s.barracks}>
-      <nav className={s.barracksTools}>
-        <button
-          className={classNames(s.btn, s.addBtn)}
-          onClick={() =>
-            dispatch(appActions.setBarracksFormStatus({ status: true }))
-          }
-        >
-          {content["button.label.addToBarracks"]}
-        </button>
-
-        <button
-          className={classNames(s.btn, s.clearBtn)}
-          disabled={!barracksTroops.length}
-          onClick={() => dispatch(barracksActions.emptyBarracks())}
-        >
-          {content["button.label.emptyBarracks"]}
-        </button>
-      </nav>
+      <BarracksToolbar />
 
       {barracksFormStatus && <BarracksForm />}
 
@@ -64,6 +48,21 @@ const Barracks = () => {
                   <img className={s.image} src={troop.image} alt={troopName} />
                   <span className={s.level}>{level}</span>
                 </div>
+                <button
+                  title={content["button.label.removeTroopFromBarracks"]}
+                  className={s.removeTroop}
+                  onClick={() =>
+                    dispatch(
+                      barracksActions.removeTroopsFromBarracks({
+                        troop: troopId,
+                        level,
+                      })
+                    )
+                  }
+                  type="button"
+                >
+                  &times;
+                </button>
               </div>
             );
           })}

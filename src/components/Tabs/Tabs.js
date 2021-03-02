@@ -42,8 +42,9 @@ const Tabs = () => {
         onClick={() =>
           dispatch(appActions.selectTab({ tab: APP_TABS.SETTINGS }))
         }
-        dangerouslySetInnerHTML={{ __html: "&#9881;" }}
-      />
+      >
+        <i className="fas fa-cog"></i>
+      </button>
     </nav>
   );
 };

@@ -1,17 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { appActions, appSelectors } from "../../redux/app";
+import { Helmet } from "react-helmet-async";
 
+import { appActions, appSelectors } from "../../redux/app";
 import { APP_TABS, DEFAULT_LANGUAGE } from "../../utils/constants";
 import getIsValidLanguage from "../../i18n/utils/getIsValidLanguage";
 import Header from "../Header";
-import ShareFormation from "../ShareFormation";
+import FormationToolbar from "../FormationToolbar";
 import TroopSquares from "../TroopSquares";
 import TroopSelectionForm from "../TroopSelectionForm";
-import ClearFormation from "../ClearFormation";
 import Barracks from "../Barracks";
 import Tabs from "../Tabs";
 import Settings from "../Settings";
+import Hero from "../Hero";
+import HeroForm from "../HeroForm";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -22,8 +24,13 @@ const App = () => {
     appSelectors.getTroopSelectionFormStatus
   );
   const barracksFormStatus = useSelector(appSelectors.getBarracksFormStatus);
+  const heroFormStatus = useSelector(appSelectors.getHeroFormStatus);
   const content = useSelector(appSelectors.getLocalisedContent);
   const selectedTab = useSelector(appSelectors.getSelectedTab);
+  const notificationMessage = useSelector(appSelectors.getNotificationMessage);
+  const { language, dir } = useSelector(
+    appSelectors.getSelectedLanguageHTMLAttributes
+  );
 
   useEffect(() => {
     const languageInURL = getIsValidLanguage(
@@ -45,11 +52,17 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const shouldDisplayBackdrop = troopSelectionFormStatus || barracksFormStatus;
+  const shouldDisplayBackdrop =
+    troopSelectionFormStatus || barracksFormStatus || heroFormStatus;
 
   return (
     <div className={s.app}>
+      <Helmet htmlAttributes={{ lang: language, dir }} />
+
       {shouldDisplayBackdrop && <div className={s.backdrop} />}
+      {notificationMessage && (
+        <span className={s.notificaitonMessage}>{notificationMessage}</span>
+      )}
 
       <Header />
 
@@ -59,7 +72,7 @@ const App = () => {
 
       {selectedTab === APP_TABS.FORMATION && (
         <>
-          <ShareFormation troopBoardElement={troopBoardRef} />
+          <FormationToolbar troopBoardElement={troopBoardRef} />
 
           <div className={s.formationShare}>
             {troopSelectionFormStatus && <TroopSelectionForm />}
@@ -72,7 +85,8 @@ const App = () => {
               <TroopSquares />
             </div>
 
-            <ClearFormation />
+            {heroFormStatus && <HeroForm />}
+            <Hero />
           </div>
         </>
       )}

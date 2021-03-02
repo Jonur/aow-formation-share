@@ -13,6 +13,11 @@ export const getLastTroopAdded = createSelector(
   ({ lastTroopAdded }) => lastTroopAdded
 );
 
+export const getNotificationMessage = createSelector(
+  getUserInteractions,
+  ({ notificationMessage }) => notificationMessage
+);
+
 export const getSelectedSquared = createSelector(
   getUserInteractions,
   ({ selectedSquare }) => selectedSquare
@@ -28,9 +33,19 @@ export const getBarracksFormStatus = createSelector(
   ({ barracksFormStatus }) => barracksFormStatus
 );
 
+export const getHeroFormStatus = createSelector(
+  getUserInteractions,
+  ({ heroFormStatus }) => heroFormStatus
+);
+
 export const getAppLanguage = createSelector(
   getApp,
   ({ language }) => language
+);
+
+export const getSelectedLanguageHTMLAttributes = createSelector(
+  getAppLanguage,
+  (language) => ({ language, dir: i18n[language].dir })
 );
 
 export const getSelectedTab = createSelector(
@@ -41,4 +56,9 @@ export const getSelectedTab = createSelector(
 export const getLocalisedContent = createSelector(
   getAppLanguage,
   (language) => i18n[language]
+);
+
+export const getSelectedView = createSelector(
+  getUserInteractions,
+  ({ view }) => view
 );

@@ -1,3 +1,5 @@
+import getUrlParamHashes from "./getUrlParamHashes";
+
 const getFormationFromURL = (
   troopNames,
   troopHashMap,
@@ -5,10 +7,8 @@ const getFormationFromURL = (
   boardSquares
 ) => {
   const troopsFromURL = {};
-  const urlParamHashes = window.location.href
-    .slice(window.location.href.indexOf("?") + 1)
-    ?.split("&");
 
+  const urlParamHashes = getUrlParamHashes();
   if (urlParamHashes.length) {
     let hash;
     let squareTroopData;

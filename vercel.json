@@ -16,6 +16,14 @@
       "dest": "/img/aow-troops/$1"
     },
     {
+      "src": "^/img/aow-troops-igv/(.*)",
+      "dest": "/img/aow-troops-igv/$1"
+    },
+    {
+      "src": "^/img/aow-heroes/(.*)",
+      "dest": "/img/aow-heroes/$1"
+    },
+    {
       "src": ".*",
       "dest": "/index.html"
     }

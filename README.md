@@ -9,6 +9,16 @@ The AoW Troops images are a copyright of Fastone Games HK. Download and find mor
 [Google Play](https://play.google.com/store/apps/details?id=com.addictive.strategy.army&hl=en) or
 [Apple AppStore](https://itunes.apple.com/us/app/id1484362191).
 
+## Contributors
+
+Dimitris Damilos - [GitHub](https://github.com/Jonur), [LinkedIn](https://www.linkedin.com/in/dimitrisdamilos/)
+
+SeungWon Lee - [GitHub](https://github.com/lsw6684), [LinkedIn](https://www.linkedin.com/in/%EC%8A%B9%EC%9B%90-%EC%9D%B4-2181a0201), Korean and English content
+
+Phasecast - [YouTube](https://www.youtube.com/phasecast), Game content
+
+infinite is typing loop - Troop and Hero power data
+
 # Tech
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

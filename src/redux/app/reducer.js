@@ -1,6 +1,7 @@
 import update from "immutability-helper";
 import initialState from "./initialState";
 import { appActions } from "./";
+import { heroActions } from "../hero";
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,6 +9,13 @@ const appReducer = (state = initialState, action) => {
       return update(state, {
         userInteractions: {
           barracksFormStatus: { $set: action.payload.status },
+        },
+      });
+    }
+    case appActions.SET_HERO_FORM_STATUS: {
+      return update(state, {
+        userInteractions: {
+          heroFormStatus: { $set: action.payload.status },
         },
       });
     }
@@ -30,6 +38,13 @@ const appReducer = (state = initialState, action) => {
         userInteractions: { selectedSquare: { $set: action.payload.square } },
       });
     }
+    case appActions.SET_NOTIFICATION_MESSAGE: {
+      return update(state, {
+        userInteractions: {
+          notificationMessage: { $set: action.payload.message },
+        },
+      });
+    }
     case appActions.CLEAR_SELECTED_SQUARE: {
       return update(state, {
         userInteractions: {
@@ -48,6 +63,20 @@ const appReducer = (state = initialState, action) => {
       return update(state, {
         userInteractions: {
           tab: { $set: action.payload.tab },
+        },
+      });
+    }
+    case appActions.SELECT_VIEW: {
+      return update(state, {
+        userInteractions: {
+          view: { $set: action.payload.view },
+        },
+      });
+    }
+    case heroActions.UPDATE_HERO: {
+      return update(state, {
+        userInteractions: {
+          heroFormStatus: { $set: false },
         },
       });
     }

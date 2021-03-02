@@ -5,10 +5,12 @@ import { appReducer } from "./app";
 import { gameDataReducer } from "./gameData";
 import { formationReducer } from "./formation";
 import { barracksReducer } from "./barracks";
+import { heroReducer } from "./hero";
 import { appMiddleware } from "./app";
 
 const rootReducer = combineReducers({
   app: appReducer,
+  hero: heroReducer,
   formation: formationReducer,
   barracks: barracksReducer,
   gameData: gameDataReducer,

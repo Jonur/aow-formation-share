@@ -1,24 +1,52 @@
 .languagePicker {
-  padding: 0 1rem;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 1.25rem 1rem 1rem;
+  position: relative;
 
   .title {
     color: white;
+    margin: 0;
+    position: absolute;
+    top: -0.75rem;
+    background: #537895;
+    padding: 0 1rem;
   }
 
   .languages {
     display: flex;
     flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 
-    .language {
-      background: none;
-      border: 0;
-      outline: 0;
-      color: white;
-      text-align: left;
-      font-size: 1rem;
-      text-decoration: underline;
-      margin-bottom: 0.5rem;
-      cursor: pointer;
+    .languageItem {
+      margin-bottom: 0.25rem;
+
+      .language {
+        background: none;
+        border: 0;
+        outline: 0;
+        color: white;
+        text-align: left;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+
+        cursor: pointer;
+        transition: all 500ms;
+
+        &.selected,
+        &:hover {
+          background-color: #395469;
+          border-radius: 4px;
+        }
+      }
     }
+  }
+
+  .langNotes {
+    color: white;
+    margin-top: 1.25rem;
+    display: block;
   }
 }
