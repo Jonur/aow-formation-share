@@ -1,4 +1,4 @@
-import bg from "./ko.json";
+import bg from "./bg.json";
 import en from "./en.json";
 import el from "./el.json";
 import ko from "./ko.json";
