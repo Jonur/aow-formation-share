@@ -19,9 +19,9 @@ infinite is typing loop - Troop and Hero power data
 
 ### Translations
 
-SeungWon Lee - [GitHub](https://github.com/lsw6684), [LinkedIn](https://www.linkedin.com/in/%EC%8A%B9%EC%9B%90-%EC%9D%B4-2181a0201) - Korean
+**Korean**: SeungWon Lee - [GitHub](https://github.com/lsw6684), [LinkedIn](https://www.linkedin.com/in/%EC%8A%B9%EC%9B%90-%EC%9D%B4-2181a0201)
 
-🇧🇬 BUL B.O.R.N - [Business Trip To Hell](https://businesstriptohell.blogspot.com/) - Bulgarian
+**Bulgarian**: BUL B.O.R.N - [Business Trip To Hell](https://businesstriptohell.blogspot.com/)
 
 # Tech
 
