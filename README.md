@@ -23,6 +23,10 @@ infinite is typing loop - Troop and Hero power data
 
 **Bulgarian**: BUL B.O.R.N - [Business Trip To Hell](https://businesstriptohell.blogspot.com/)
 
+**Portuguese**: [Augusto Oliveira Cabral](https://www.facebook.com/augusto.oliveiracabral/)
+
+**Czech**: CSR Onk Ar - [Onk Ar](https://www.youtube.com/channel/UCCOxIztLvcS6OASkGi07_Bw)
+
 # Tech
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
