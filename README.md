@@ -27,6 +27,10 @@ infinite is typing loop - Troop and Hero power data
 
 **Czech**: CSR Onk Ar - [Onk Ar](https://www.youtube.com/channel/UCCOxIztLvcS6OASkGi07_Bw)
 
+**French**: Charbel
+
+**German**: GER Pinky
+
 # Tech
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
