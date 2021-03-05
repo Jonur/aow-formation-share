@@ -31,6 +31,8 @@ infinite is typing loop - Troop and Hero power data
 
 **German**: GER Pinky
 
+**Arabic**: Ahmed Hadi
+
 # Tech
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
