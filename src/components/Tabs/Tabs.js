@@ -13,7 +13,7 @@ const Tabs = () => {
   return (
     <nav className={s.tabs}>
       <button
-        className={classNames(s.tab, {
+        className={classNames(s.tab, s.formation, {
           [s.selected]: selectedTab === APP_TABS.FORMATION,
         })}
         onClick={() =>
@@ -24,7 +24,7 @@ const Tabs = () => {
       </button>
 
       <button
-        className={classNames(s.tab, {
+        className={classNames(s.tab, s.barracks, {
           [s.selected]: selectedTab === APP_TABS.BARRACKS,
         })}
         onClick={() =>
@@ -36,7 +36,7 @@ const Tabs = () => {
 
       <button
         aria-label={content["app.tabs.settings"]}
-        className={classNames(s.tab, s.icon, {
+        className={classNames(s.tab, s.icon, s.settings, {
           [s.selected]: selectedTab === APP_TABS.SETTINGS,
         })}
         onClick={() =>

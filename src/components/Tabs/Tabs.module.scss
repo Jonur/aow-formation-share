@@ -20,10 +20,6 @@
     transition: all 500ms;
     cursor: pointer;
 
-    &:not(:last-child) {
-      border-right: 2px solid white;
-    }
-
     &.icon {
       flex: 1 1;
       font-size: 1.25rem;
@@ -45,5 +41,19 @@
 
   @media screen and (max-width: 960px) and (orientation: landscape) {
     display: none;
+  }
+}
+
+html {
+  &[dir="rtl"] {
+    .tab:not(:last-child) {
+      border-left: 2px solid white;
+    }
+  }
+
+  &[dir="ltr"] {
+    .tab:not(:last-child) {
+      border-right: 2px solid white;
+    }
   }
 }
