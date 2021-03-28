@@ -155,5 +155,8 @@
   "select.label.noHero": "--- Kein Held ---",
   "views.title": "Wähle Ansicht",
   "views.view.game": "Spielansicht",
-  "views.view.card": "Kartenansicht"
+  "views.view.card": "Kartenansicht",
+  "troopSelectionForm.tabs.data": "Spieldaten",
+  "troopSelectionForm.tabs.barracks": "Kaserne",
+  "troopSelectionForm.tabs.barracks.notification": "Das Hinzufügen einer Einheit aus der Kaserne zur Formation entfernt diese aus der Kaserne. Sollte auf dem gewählten Zielfeld bereits eine Einheit stehen, so wird diese in die Kaserne verschoben."
 }

@@ -155,5 +155,8 @@
   "select.label.noHero": "--- Няма герой ---",
   "views.title": "Изберете изглед",
   "views.view.game": "Стил от играта",
-  "views.view.card": "Стил карти"
+  "views.view.card": "Стил карти",
+  "troopSelectionForm.tabs.data": "анни от играта",
+  "troopSelectionForm.tabs.barracks": "Казарми",
+  "troopSelectionForm.tabs.barracks.notification": "Добавянето на войски от казармата към формацията ще премахне тази единица от казармата, а ако на въпросното поле преди това е имало друга единица, тя ще бъде преместена в казармата."
 }

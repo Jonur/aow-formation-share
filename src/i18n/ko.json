@@ -155,5 +155,8 @@
   "select.label.noHero": "--- 영웅이 없습니다. ---",
   "views.title": "테마 선택",
   "views.view.game": "인게임 스타일",
-  "views.view.card": "카드 스타일"
+  "views.view.card": "카드 스타일",
+  "troopSelectionForm.tabs.data": "Game data",
+  "troopSelectionForm.tabs.barracks": "배럭",
+  "troopSelectionForm.tabs.barracks.notification": "Adding a troop from Barracks to the Formation will remove it from Barracks and if a troop existed previously in the selected square will be moved to Barracks."
 }

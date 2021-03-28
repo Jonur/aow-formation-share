@@ -155,5 +155,8 @@
   "select.label.noHero": "--- Κανένας ήρωας ---",
   "views.title": "Επιλογή προβολής",
   "views.view.game": "Στυλ παιχνιδού",
-  "views.view.card": "Στυλ καρτών"
+  "views.view.card": "Στυλ καρτών",
+  "troopSelectionForm.tabs.data": "Δεδομένα παιχνιδιού",
+  "troopSelectionForm.tabs.barracks": "Στρατώνας",
+  "troopSelectionForm.tabs.barracks.notification": "Η προσθήκη μονάδας από το Στρατώνα στο Σχηματισμό, θα αφαιρέσει τη μονάδα από το Στρατώνα και αν το επιλεγμένο τετράγωνο είχε κάποια μονάδα, αυτή θα μεταφερθεί στο Στρατώνα."
 }

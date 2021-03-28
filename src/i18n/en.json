@@ -155,5 +155,8 @@
   "select.label.noHero": "--- No hero ---",
   "views.title": "Select view",
   "views.view.game": "In-game style",
-  "views.view.card": "Card style"
+  "views.view.card": "Card style",
+  "troopSelectionForm.tabs.data": "Game data",
+  "troopSelectionForm.tabs.barracks": "Barracks",
+  "troopSelectionForm.tabs.barracks.notification": "Adding a troop from Barracks to the Formation will remove it from Barracks and if a troop existed previously in the selected square will be moved to Barracks."
 }

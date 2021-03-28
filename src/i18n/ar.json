@@ -155,5 +155,8 @@
   "select.label.noHero": "--- فراغ ---",
   "views.title": "اختيار طريقة العرض",
   "views.view.game": "النمط الحقيقي",
-  "views.view.card": "نمط البطاقات"
+  "views.view.card": "نمط البطاقات",
+  "troopSelectionForm.tabs.data": "Game data",
+  "troopSelectionForm.tabs.barracks": "الثكنات العسكرية",
+  "troopSelectionForm.tabs.barracks.notification": "Adding a troop from Barracks to the Formation will remove it from Barracks and if a troop existed previously in the selected square will be moved to Barracks."
 }

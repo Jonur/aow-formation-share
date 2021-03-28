@@ -155,5 +155,8 @@
   "select.label.noHero": "--- Žádný hrdina ---",
   "views.title": "Vybrat pohled",
   "views.view.game": "Herní styl",
-  "views.view.card": "Karetní styl"
+  "views.view.card": "Karetní styl",
+  "troopSelectionForm.tabs.data": "Game data",
+  "troopSelectionForm.tabs.barracks": "Kasárny",
+  "troopSelectionForm.tabs.barracks.notification": "Adding a troop from Barracks to the Formation will remove it from Barracks and if a troop existed previously in the selected square will be moved to Barracks."
 }

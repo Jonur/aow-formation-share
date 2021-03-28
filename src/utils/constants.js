@@ -24,3 +24,8 @@ export const ITEM_TYPES = {
   HERO: "HERO",
   TROOP: "TROOP",
 };
+
+export const TROOP_SOURCES = {
+  BARRACKS: "barracks",
+  DATA: "data",
+};

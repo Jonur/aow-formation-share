@@ -155,5 +155,8 @@
   "select.label.noHero": "--- Nenhum Herói ---",
   "views.title": "Selecione o Estilo",
   "views.view.game": "Estilo de jogo",
-  "views.view.card": "Estilo de imagem"
+  "views.view.card": "Estilo de imagem",
+  "troopSelectionForm.tabs.data": "Dados do jogo",
+  "troopSelectionForm.tabs.barracks": "Quartel",
+  "troopSelectionForm.tabs.barracks.notification": "Ao adicionar uma tropa do Quartel para a Formação irá removê-la do Quartel e se a tropa existia anteriormente no campo selecionado será movida para o Quartel."
 }

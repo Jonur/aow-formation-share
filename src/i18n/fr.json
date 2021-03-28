@@ -155,5 +155,8 @@
   "select.label.noHero": "--- Pas de héros ---",
   "views.title": "Sélectionner l'esthétique",
   "views.view.game": "Style en jeu",
-  "views.view.card": "Style Cartes"
+  "views.view.card": "Style Cartes",
+  "troopSelectionForm.tabs.data": "Données de jeu",
+  "troopSelectionForm.tabs.barracks": "Caserne",
+  "troopSelectionForm.tabs.barracks.notification": "Ajouter à la formation une troupe depuis la Caserne supprimera cette même troupe de la Caserne; et s'il y avait déjà une troupe dans la case selectionnée celle-ci sera automatiquement déplacée dans la caserne."
 }

@@ -8,7 +8,7 @@
   padding: 0 1rem;
   top: 0;
 
-  & > *:not(.close) {
+  & > *:not(.close):not(.troopSelectionFormTabs):not(.notification) {
     height: 3rem;
     margin-bottom: 0.25rem;
     outline: 0;
@@ -45,5 +45,61 @@
     background-color: white;
     color: #313131;
     cursor: pointer;
+  }
+
+  .troopSelectionFormTabs {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    margin: 0 0 0.5rem;
+
+    .tab {
+      flex: 1 1;
+      outline: 0;
+      background: #313131;
+      color: white;
+      font-size: 1rem;
+      border: 0;
+      border-top: 2px solid white;
+      border-bottom: 2px solid white;
+      padding: 0;
+      transition: all 500ms;
+      cursor: pointer;
+      padding: 0.25rem 0;
+
+      &.selected,
+      &:hover {
+        background: #1b1818;
+      }
+    }
+  }
+
+  .notification {
+    height: auto;
+    background: white;
+    padding: 0.75rem;
+    margin-bottom: 0.25rem;
+    outline: 0;
+    font-size: 0.9rem;
+    border: 2px solid #338d46;
+    cursor: pointer;
+
+    .notificationIcon {
+      margin-right: 0.25rem;
+    }
+  }
+}
+
+html {
+  &[dir="rtl"] {
+    .tab:not(:last-child) {
+      border-left: 2px solid white;
+    }
+  }
+
+  &[dir="ltr"] {
+    .tab:not(:last-child) {
+      border-right: 2px solid white;
+    }
   }
 }
