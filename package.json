@@ -38,7 +38,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "now-build": "npm run build && mv build dist"
+    "now-build": "npm run build && mv build dist",
+    "i18n": "node ./scripts/addNewTranslations.js"
   },
   "eslintConfig": {
     "extends": "react-app"
