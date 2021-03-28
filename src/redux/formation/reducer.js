@@ -13,6 +13,22 @@ const formationReducer = (state = {}, action) => {
         $unset: [action.payload.square],
       });
     }
+    case formationActions.SWAP_TROOP_SQUARES: {
+      const { squareDrag, squareDrop } = action.payload;
+
+      return update(state, {
+        [squareDrag]: { $set: state[squareDrop] },
+        [squareDrop]: { $set: state[squareDrag] },
+      });
+    }
+    case formationActions.MOVE_TROOP_TO_EMPTY_SQUARE: {
+      const { squareDrag, squareDrop } = action.payload;
+
+      return update(state, {
+        [squareDrop]: { $set: state[squareDrag] },
+        $unset: [squareDrag],
+      });
+    }
     case formationActions.SET_FORMATION: {
       return action.payload.formation;
     }

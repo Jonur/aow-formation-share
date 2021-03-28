@@ -1,16 +1,13 @@
-import React, { useCallback } from "react";
-import classNames from "classnames";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
-import { appActions, appSelectors } from "../../redux/app";
+import { appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import { formationSelectors } from "../../redux/formation";
-import { APP_VIEWS } from "../../utils/constants";
-import s from "./TroopSquares.module.scss";
+
+import TroopSquare from "./TroopSquare";
 
 const TroopSquares = () => {
-  const dispatch = useDispatch();
-
   const troopHashMap = useSelector(gameDataSelectors.getTroopIdHashMap);
   const boardSquaresGrid = useSelector(gameDataSelectors.getBoardSquaresGrid);
   const troopGradesHashMap = useSelector(
@@ -18,28 +15,6 @@ const TroopSquares = () => {
   );
   const formation = useSelector(formationSelectors.getFormation);
   const content = useSelector(appSelectors.getLocalisedContent);
-  const selectedView = useSelector(appSelectors.getSelectedView);
-
-  const handleTroopSquareClick = useCallback(
-    (squareNum) => {
-      dispatch(appActions.setTroopSelectionFormStatus(true));
-      dispatch(appActions.setSelectedSquare(`${squareNum}`));
-    },
-    [dispatch]
-  );
-
-  const getTroopImage = useCallback(
-    (troop) => {
-      if (selectedView === APP_VIEWS.CARD) {
-        return troop.image;
-      } else if (selectedView === APP_VIEWS.GAME) {
-        return troop.boardImage;
-      }
-
-      return "";
-    },
-    [selectedView]
-  );
 
   return boardSquaresGrid.map((squareNum) => {
     const hasTroops = formation[`${squareNum}`]?.troop;
@@ -50,38 +25,14 @@ const TroopSquares = () => {
     const troopName = hasTroops ? content.gameData.troops[troop.id] : "";
 
     return (
-      <button
-        title={
-          hasTroops
-            ? `${troopName} ${content["game.level"]} ${
-                formation[`${squareNum}`].level
-              }`
-            : `${content["game.square"]} ${squareNum}: ${content["button.label.clickToAddTroops"]}`
-        }
-        className={classNames(s.troopSquare, {
-          [s[troopGradeClass]]: hasTroops,
-        })}
+      <TroopSquare
         key={`square-${squareNum}`}
-        id={`square-${squareNum}`}
-        onClick={() => handleTroopSquareClick(squareNum)}
-      >
-        <span
-          className={classNames({
-            [s.troopLevel]: hasTroops,
-            [s.emptySquareNumber]: !hasTroops,
-          })}
-        >
-          {hasTroops ? formation[`${squareNum}`].level : squareNum}
-        </span>
-
-        {hasTroops && (
-          <img
-            className={s.troopImage}
-            src={getTroopImage(troop)}
-            alt={troopName}
-          />
-        )}
-      </button>
+        hasTroops={!!hasTroops}
+        squareNum={squareNum}
+        troop={troop}
+        troopName={troopName}
+        troopGradeClass={troopGradeClass}
+      />
     );
   });
 };

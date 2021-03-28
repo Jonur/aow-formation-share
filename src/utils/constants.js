@@ -19,3 +19,8 @@ export const APP_VIEWS = {
   CARD: "card",
   GAME: "game",
 };
+
+export const ITEM_TYPES = {
+  HERO: "HERO",
+  TROOP: "TROOP",
+};
