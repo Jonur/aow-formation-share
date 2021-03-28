@@ -8,4 +8,6 @@ import fr from "./fr.json";
 import ko from "./ko.json";
 import pt from "./pt.json";
 
-export default { ar, bg, cs, de, en, el, fr, ko, pt };
+const supportedLanguage = { ar, bg, cs, de, en, el, fr, ko, pt };
+
+export default supportedLanguage;

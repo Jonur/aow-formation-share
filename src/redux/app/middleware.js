@@ -7,7 +7,7 @@ import getFormationFromURL from "../../utils/getFormationFromURL";
 import getBarracksFromURL from "../../utils/getBarracksFromURL";
 import getHeroFromURL from "../../utils/getHeroFromURL";
 
-export default (store) => (next) => (action) => {
+const appMiddleware = (store) => (next) => (action) => {
   if (action.type === appActions.APP_INIT) {
     const state = store.getState();
     const troopHashMap = gameDataSelectors.getTroopIdHashMap(state);
@@ -84,3 +84,5 @@ export default (store) => (next) => (action) => {
 
   next(action);
 };
+
+export default appMiddleware;
