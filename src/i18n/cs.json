@@ -156,7 +156,7 @@
   "views.title": "Vybrat pohled",
   "views.view.game": "Herní styl",
   "views.view.card": "Karetní styl",
-  "troopSelectionForm.tabs.data": "Game data",
+  "troopSelectionForm.tabs.data": "Herní data",
   "troopSelectionForm.tabs.barracks": "Kasárny",
-  "troopSelectionForm.tabs.barracks.notification": "Adding a troop from Barracks to the Formation will remove it from Barracks and if a troop existed previously in the selected square will be moved to Barracks."
+  "troopSelectionForm.tabs.barracks.notification": "Přidání jednotky z Kasáren do Formace ji odstraní z Kasáren a pokud byla ve vybraném políčku jiná jednotka, bude přesunuta do Kasáren."
 }
