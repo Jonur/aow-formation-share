@@ -9,6 +9,14 @@ const Tabs = () => {
   const dispatch = useDispatch();
   const content = useSelector(appSelectors.getLocalisedContent);
   const selectedTab = useSelector(appSelectors.getSelectedTab);
+  const troopSelectionFormStatus = useSelector(
+    appSelectors.getTroopSelectionFormStatus
+  );
+  const barracksFormStatus = useSelector(appSelectors.getBarracksFormStatus);
+  const heroFormStatus = useSelector(appSelectors.getHeroFormStatus);
+
+  const shouldDisableTabs =
+    troopSelectionFormStatus || barracksFormStatus || heroFormStatus;
 
   return (
     <nav className={s.tabs}>
@@ -19,6 +27,7 @@ const Tabs = () => {
         onClick={() =>
           dispatch(appActions.selectTab({ tab: APP_TABS.FORMATION }))
         }
+        disabled={shouldDisableTabs}
       >
         {content["app.tabs.formation"]}
       </button>
@@ -30,6 +39,7 @@ const Tabs = () => {
         onClick={() =>
           dispatch(appActions.selectTab({ tab: APP_TABS.BARRACKS }))
         }
+        disabled={shouldDisableTabs}
       >
         {content["app.tabs.barracks"]}
       </button>
@@ -42,6 +52,7 @@ const Tabs = () => {
         onClick={() =>
           dispatch(appActions.selectTab({ tab: APP_TABS.SETTINGS }))
         }
+        disabled={shouldDisableTabs}
       >
         <i className="fas fa-cog"></i>
       </button>
