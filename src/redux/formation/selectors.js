@@ -48,11 +48,15 @@ export const getFormationCount = createSelector(
   getFormation,
   heroSelectors.getHeroData,
   gameDataSelectors.getTroopIdHashMap,
-  (formation, hero, troopIdHashMap) => {
+  gameDataSelectors.getIncreasableTroopCounts,
+  (formation, hero, troopIdHashMap, increasableTroopCounts) => {
     const heroNumber = hero.id ? 1 : 0;
 
     const troopsNumber = Object.values(formation).reduce((acc, troop) => {
-      return acc + troopIdHashMap[troop.troop].count;
+      const maxTroopCount = troopIdHashMap[troop.troop].count;
+      const troopCount = increasableTroopCounts[maxTroopCount][troop.level - 1];
+
+      return acc + troopCount;
     }, 0);
 
     return heroNumber + troopsNumber;

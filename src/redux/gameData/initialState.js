@@ -418,6 +418,10 @@ const initialState = {
       count: 1,
     },
   ],
+  increasableTroopCounts: {
+    1: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    9: [3, 5, 7, 9, 9, 9, 9, 9, 9, 9],
+  },
   heroes: [
     {
       id: "Xfwz",
