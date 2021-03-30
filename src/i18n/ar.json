@@ -156,7 +156,7 @@
   "views.title": "اختيار طريقة العرض",
   "views.view.game": "النمط الحقيقي",
   "views.view.card": "نمط البطاقات",
-  "troopSelectionForm.tabs.data": "Game data",
+  "troopSelectionForm.tabs.data": "بيانات اللعبة",
   "troopSelectionForm.tabs.barracks": "الثكنات العسكرية",
-  "troopSelectionForm.tabs.barracks.notification": "Adding a troop from Barracks to the Formation will remove it from Barracks and if a troop existed previously in the selected square will be moved to Barracks."
+  "troopSelectionForm.tabs.barracks.notification": "اضافة وحدات من الثكنات العسكرية إلى التشكيلة سيحذفها من الثكنات و اذا كانت هناك وحدة في المربع المقصود فإن هذه الوحدة سوف تنتقل الثكنات العسكرية"
 }
