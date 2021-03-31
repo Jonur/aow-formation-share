@@ -28,6 +28,25 @@ const initialState = {
       name: "Pirate Ship",
       race: "HVSp",
       count: 1,
+      summon: {
+        id: "ea85",
+        name: "Pirate",
+        race: "HVSp",
+        count: 7,
+        hp: [
+          7000,
+          8750,
+          12250,
+          19600,
+          26250,
+          35000,
+          50750,
+          63000,
+          110250,
+          157500,
+        ],
+      },
+      hp: [2000, 4000, 7000, 11000, 15000, 20000, 25000, 30000, 52500, 75000],
     },
     {
       grade: "fod3",
@@ -37,6 +56,18 @@ const initialState = {
       name: "Nun",
       race: "HVSp",
       count: 9,
+      hp: [
+        2100,
+        6000,
+        15400,
+        31500,
+        43200,
+        55800,
+        68400,
+        81000,
+        141750,
+        202500,
+      ],
     },
     {
       grade: "XyDE",
@@ -46,6 +77,7 @@ const initialState = {
       name: "Archers",
       race: "HVSp",
       count: 9,
+      hp: [1800, 3500, 6650, 13500, 25200, 36900, 48600, 61200, 107100, 153000],
     },
     {
       grade: "XyDE",
@@ -55,6 +87,7 @@ const initialState = {
       name: "Infantry",
       race: "HVSp",
       count: 9,
+      hp: [2400, 4500, 8400, 16200, 28800, 41400, 54000, 66600, 116550, 166500],
     },
     {
       grade: "XyDE",
@@ -64,6 +97,18 @@ const initialState = {
       name: "Iron Guards",
       race: "HVSp",
       count: 9,
+      hp: [
+        3000,
+        6000,
+        10500,
+        19800,
+        34200,
+        46800,
+        59400,
+        72000,
+        126000,
+        180000,
+      ],
     },
     {
       grade: "XyDE",
@@ -73,6 +118,7 @@ const initialState = {
       name: "Bomber",
       race: "HVSp",
       count: 1,
+      hp: [500, 1000, 1600, 2400, 3200, 4200, 5200, 6200, 10850, 15500],
     },
     {
       grade: "XyDE",
@@ -82,6 +128,7 @@ const initialState = {
       name: "Catapult",
       race: "HVSp",
       count: 1,
+      hp: [1000, 1800, 2400, 3200, 4000, 5000, 6000, 7000, 12250, 17500],
     },
     {
       grade: "XyDE",
@@ -91,6 +138,7 @@ const initialState = {
       name: "Hell Jailers",
       race: "T1WD",
       count: 9,
+      hp: [2400, 4500, 8400, 16200, 28800, 41400, 54000, 66600, 116550, 166500],
     },
     {
       grade: "3XE9",
@@ -100,6 +148,7 @@ const initialState = {
       name: "Fire Mage",
       race: "HVSp",
       count: 1,
+      hp: [600, 1200, 2000, 3200, 4400, 5600, 6800, 8000, 14000, 20000],
     },
     {
       grade: "3XE9",
@@ -109,6 +158,7 @@ const initialState = {
       name: "Bandits",
       race: "HVSp",
       count: 9,
+      hp: [2400, 4500, 8400, 16200, 28800, 41400, 54000, 66600, 116550, 166500],
     },
     {
       grade: "3XE9",
@@ -118,6 +168,7 @@ const initialState = {
       name: "Ogre Warrior",
       race: "u2TP",
       count: 1,
+      hp: [2000, 4000, 7500, 12000, 16500, 21000, 25500, 30000, 52500, 75000],
     },
     {
       grade: "3XE9",
@@ -127,6 +178,7 @@ const initialState = {
       name: "Ghost Assassin",
       race: "T1WD",
       count: 9,
+      hp: [2100, 4000, 7000, 13500, 25200, 36000, 49500, 63000, 110250, 157500],
     },
     {
       grade: "3XE9",
@@ -136,6 +188,7 @@ const initialState = {
       name: "Magic Apprentice",
       race: "HVSp",
       count: 9,
+      hp: [1500, 4000, 8400, 16200, 21600, 27000, 32400, 37800, 66150, 94500],
     },
     {
       grade: "3XE9",
@@ -145,6 +198,7 @@ const initialState = {
       name: "Viking Warrior",
       race: "HVSp",
       count: 1,
+      hp: [2000, 4000, 7000, 10000, 14000, 18000, 22000, 26000, 45500, 65000],
     },
     {
       grade: "3XE9",
@@ -154,6 +208,7 @@ const initialState = {
       name: "Ice Mage",
       race: "HVSp",
       count: 1,
+      hp: [600, 1100, 2000, 3000, 4250, 5500, 6750, 8000, 14000, 20000],
     },
     {
       grade: "3XE9",
@@ -163,6 +218,7 @@ const initialState = {
       name: "Scholar",
       race: "z18Y",
       count: 1,
+      hp: [600, 1100, 2000, 3000, 4250, 5500, 6750, 8000, 14000, 20000],
     },
     {
       grade: "3XE9",
@@ -172,6 +228,7 @@ const initialState = {
       name: "Inquisitor",
       race: "z18Y",
       count: 9,
+      hp: [2700, 5000, 9100, 17100, 29700, 42300, 54900, 67500, 118125, 168750],
     },
     {
       grade: "3XE9",
@@ -181,6 +238,7 @@ const initialState = {
       name: "Undead Soldier",
       race: "T1WD",
       count: 9,
+      hp: [2400, 4500, 8400, 16200, 28800, 41400, 54000, 66600, 116550, 166500],
     },
     {
       grade: "3XE9",
@@ -191,6 +249,18 @@ const initialState = {
       name: "Harbinger of Fire",
       race: "z18Y",
       count: 9,
+      hp: [
+        3000,
+        6250,
+        12250,
+        25200,
+        33750,
+        45000,
+        65250,
+        81000,
+        141750,
+        202500,
+      ],
     },
     {
       grade: "3XE9",
@@ -200,6 +270,18 @@ const initialState = {
       name: "Paladin",
       race: "z18Y",
       count: 9,
+      hp: [
+        3600,
+        7500,
+        15400,
+        31500,
+        48600,
+        65700,
+        82800,
+        99900,
+        174825,
+        249750,
+      ],
     },
     {
       grade: "3XE9",
@@ -209,6 +291,7 @@ const initialState = {
       name: "Ballista",
       race: "HVSp",
       count: 1,
+      hp: [1100, 1800, 2500, 3300, 4200, 5100, 6200, 7200, 12600, 18000],
     },
     {
       grade: "3XE9",
@@ -218,6 +301,7 @@ const initialState = {
       name: "Goblikazes",
       race: "u2TP",
       count: 9,
+      hp: [1350, 4500, 8400, 16200, 21600, 34200, 42300, 49500, 86625, 123750],
     },
     {
       grade: "3XE9",
@@ -227,6 +311,18 @@ const initialState = {
       name: "Cactuses",
       race: "u2TP",
       count: 9,
+      hp: [
+        2700,
+        5500,
+        10500,
+        18000,
+        30600,
+        43200,
+        56700,
+        69300,
+        121275,
+        173250,
+      ],
     },
     {
       grade: "fod3",
@@ -236,6 +332,14 @@ const initialState = {
       name: "Necromancer",
       race: "T1WD",
       count: 1,
+      summon: {
+        id: "p09b",
+        name: "Skeleton",
+        race: "T1WD",
+        count: 0,
+        hp: [600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 3850, 5500],
+      },
+      hp: [1000, 1800, 2600, 3800, 5000, 6200, 7400, 8600, 15050, 21500],
     },
     {
       grade: "fod3",
@@ -245,6 +349,18 @@ const initialState = {
       name: "Pilgrims",
       race: "z18Y",
       count: 9,
+      hp: [
+        3600,
+        7500,
+        15400,
+        31500,
+        48600,
+        65700,
+        82800,
+        99900,
+        174825,
+        249750,
+      ],
     },
     {
       grade: "fod3",
@@ -254,6 +370,7 @@ const initialState = {
       name: "Pumpkin Guard",
       race: "T1WD",
       count: 1,
+      hp: [2000, 4000, 7500, 12000, 17000, 22500, 29000, 36000, 63000, 90000],
     },
     {
       grade: "fod3",
@@ -263,6 +380,7 @@ const initialState = {
       name: "Dark Witch",
       race: "T1WD",
       count: 1,
+      hp: [700, 1200, 2200, 3500, 4800, 6200, 7600, 9000, 15750, 22500],
     },
     {
       grade: "fod3",
@@ -272,6 +390,7 @@ const initialState = {
       name: "Yasha",
       race: "T1WD",
       count: 1,
+      hp: [2000, 4000, 7000, 11000, 15000, 20000, 25000, 30000, 52500, 75000],
     },
     {
       grade: "fod3",
@@ -281,6 +400,7 @@ const initialState = {
       name: "Priest Mage",
       race: "z18Y",
       count: 1,
+      hp: [700, 1200, 2200, 3500, 4800, 6200, 7600, 9000, 15750, 22500],
     },
     {
       grade: "fod3",
@@ -290,6 +410,7 @@ const initialState = {
       name: "Soul Hunter",
       race: "T1WD",
       count: 1,
+      hp: [2000, 4000, 7500, 12000, 16500, 21000, 27500, 35000, 52500, 75000],
     },
     {
       grade: "fod3",
@@ -299,6 +420,7 @@ const initialState = {
       name: "Templar Knight",
       race: "z18Y",
       count: 1,
+      hp: [3000, 5000, 8000, 12500, 17000, 21500, 26000, 30500, 53375, 76250],
     },
     {
       grade: "fod3",
@@ -308,6 +430,7 @@ const initialState = {
       name: "Peltasts",
       race: "HVSp",
       count: 9,
+      hp: [2400, 4500, 8400, 16200, 28800, 41400, 54000, 66600, 116550, 166500],
     },
     {
       grade: "fod3",
@@ -317,6 +440,18 @@ const initialState = {
       name: "Brawlers",
       race: "HVSp",
       count: 9,
+      hp: [
+        3600,
+        7500,
+        15400,
+        31500,
+        48600,
+        65700,
+        82800,
+        99900,
+        174825,
+        249750,
+      ],
     },
     {
       grade: "fod3",
@@ -326,6 +461,7 @@ const initialState = {
       name: "Taurus Witcher",
       race: "u2TP",
       count: 9,
+      hp: [1800, 3500, 6650, 13500, 25200, 36900, 48600, 61200, 107100, 153000],
     },
     {
       grade: "fod3",
@@ -335,6 +471,7 @@ const initialState = {
       name: "Voodoo Dolls",
       race: "T1WD",
       count: 9,
+      hp: [1800, 3500, 5600, 9900, 11700, 14400, 18000, 22500, 39375, 56250],
     },
     {
       grade: "BB4h",
@@ -344,6 +481,7 @@ const initialState = {
       name: "Demon",
       race: "T1WD",
       count: 1,
+      hp: [2000, 4000, 7500, 12000, 16500, 21000, 27500, 34000, 59500, 85000],
     },
     {
       grade: "BB4h",
@@ -353,6 +491,14 @@ const initialState = {
       name: "Beast Master",
       race: "z18Y",
       count: 1,
+      summon: {
+        id: "upNF",
+        name: "The Best Partner",
+        race: "u2TP",
+        count: 1,
+        hp: [2500, 5000, 8750, 12500, 17500, 22500, 27500, 32500, 56875, 81250],
+      },
+      hp: [2000, 4000, 7000, 10000, 14000, 18000, 22000, 26000, 45500, 65000],
     },
     {
       grade: "BB4h",
@@ -362,6 +508,7 @@ const initialState = {
       name: "Witchcraft Totem",
       race: "u2TP",
       count: 1,
+      hp: [2000, 4000, 7000, 12000, 16000, 20000, 25000, 31000, 54250, 77500],
     },
     {
       grade: "BB4h",
@@ -371,6 +518,7 @@ const initialState = {
       name: "Meteor Golem",
       race: "T1WD",
       count: 1,
+      hp: [2000, 4000, 7500, 12000, 16500, 21000, 27500, 34000, 59500, 85000],
     },
     {
       grade: "BB4h",
@@ -380,6 +528,7 @@ const initialState = {
       name: "Stone Golem",
       race: "u2TP",
       count: 1,
+      hp: [2000, 4000, 7500, 12000, 17000, 22500, 29000, 36000, 63000, 90000],
     },
     {
       grade: "BB4h",
@@ -389,6 +538,7 @@ const initialState = {
       name: "Frost Archers",
       race: "z18Y",
       count: 9,
+      hp: [2400, 4500, 8400, 16200, 28800, 41400, 54000, 66600, 116550, 166500],
     },
     {
       grade: "BB4h",
@@ -398,6 +548,7 @@ const initialState = {
       name: "Sacred Swordsman",
       race: "z18Y",
       count: 1,
+      hp: [2000, 4000, 7000, 12000, 16000, 20000, 25000, 31000, 54250, 77500],
     },
     {
       grade: "BB4h",
@@ -407,6 +558,7 @@ const initialState = {
       name: "Rhino Knight",
       race: "u2TP",
       count: 1,
+      hp: [2000, 4000, 7500, 12000, 16500, 21000, 25500, 30000, 52500, 75000],
     },
     {
       grade: "BB4h",
@@ -416,10 +568,12 @@ const initialState = {
       name: "Pharaoh",
       race: "HVSp",
       count: 1,
+      hp: [750, 1250, 2250, 3600, 4900, 6300, 7750, 9500, 17000, 23750],
     },
   ],
   increasableTroopCounts: {
     1: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    7: [7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
     9: [3, 5, 7, 9, 9, 9, 9, 9, 9, 9],
   },
   heroes: [
