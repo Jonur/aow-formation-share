@@ -62,8 +62,9 @@ const Statistics = () => {
             <span className={s.data}>
               {formationRaceData[race].count}{" "}
               {formationRaceData[race].count > 0
-                ? `(
-              ${parseFloat(formationRaceData[race].percentage.toFixed(2))}%)`
+                ? `(${parseFloat(
+                    formationRaceData[race].percentage.toFixed(2)
+                  )}%)`
                 : ""}
             </span>
           </li>
@@ -78,8 +79,9 @@ const Statistics = () => {
             <span className={s.data}>
               {formationGradeData[grade].count}{" "}
               {formationGradeData[grade].count > 0
-                ? `(
-              ${parseFloat(formationGradeData[grade].percentage.toFixed(2))}%)`
+                ? `(${parseFloat(
+                    formationGradeData[grade].percentage.toFixed(2)
+                  )}%)`
                 : ""}
             </span>
           </li>
