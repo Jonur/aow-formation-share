@@ -159,11 +159,11 @@
   "troopSelectionForm.tabs.data": "Dados do jogo",
   "troopSelectionForm.tabs.barracks": "Quartel",
   "troopSelectionForm.tabs.barracks.notification": "Ao adicionar uma tropa do Quartel para a Formação irá removê-la do Quartel e se a tropa existia anteriormente no campo selecionado será movida para o Quartel.",
-  "app.tabs.statistics": "Formation statistics",
-  "statistics.header.totalHP": "Total formation HP",
-  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the formation, as well as fixed-number summons, like the Pirates of a Pirate Ship and the Beast Master's Best Partner. But it does not include the HP of Necromancer's Skeletons, as their number changes during battle.",
-  "statistics.header.formation.count": "Troop and Hero count",
-  "statistics.header.formation.analysis": "Troop formation analysis",
-  "statistics.header.formation.races": "Races in the formation",
-  "statistics.header.formation.grades": "Grades in the formation"
+  "app.tabs.statistics": "Estatísticas da formação",
+  "statistics.header.totalHP": "Total da Saúde da formação",
+  "statistics.details.totalHP": "O número acima inclui o total de saúde do herói e das tropas na formação, bem como o seu número fixo: como os Piratas do Navio Pirata e o melhor parceiro do Mestre das Feras. Mas não inclui a quantidade de saúde dos esqueletos dos Necromantes, pois seu número muda durante a batalha.",
+  "statistics.header.formation.count": "Contagem de Tropas e Heróis",
+  "statistics.header.formation.analysis": "Análise da formação das Tropas",
+  "statistics.header.formation.races": "Raças na formação",
+  "statistics.header.formation.grades": "Tipos na formação"
 }
