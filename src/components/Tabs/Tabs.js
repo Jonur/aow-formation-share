@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 import { appActions, appSelectors } from "../../redux/app";
+import { formationSelectors } from "../../redux/formation";
 import { APP_TABS } from "../../utils/constants";
 import s from "./Tabs.module.scss";
 
@@ -14,6 +15,7 @@ const Tabs = () => {
   );
   const barracksFormStatus = useSelector(appSelectors.getBarracksFormStatus);
   const heroFormStatus = useSelector(appSelectors.getHeroFormStatus);
+  const formationCount = useSelector(formationSelectors.getFormationCount);
 
   const shouldDisableTabs =
     troopSelectionFormStatus || barracksFormStatus || heroFormStatus;
@@ -21,7 +23,7 @@ const Tabs = () => {
   return (
     <nav className={s.tabs}>
       <button
-        className={classNames(s.tab, s.formation, {
+        className={classNames(s.tab, {
           [s.selected]: selectedTab === APP_TABS.FORMATION,
         })}
         onClick={() =>
@@ -33,7 +35,7 @@ const Tabs = () => {
       </button>
 
       <button
-        className={classNames(s.tab, s.barracks, {
+        className={classNames(s.tab, {
           [s.selected]: selectedTab === APP_TABS.BARRACKS,
         })}
         onClick={() =>
@@ -45,8 +47,19 @@ const Tabs = () => {
       </button>
 
       <button
+        aria-label={content["app.tabs.statistics"]}
+        className={classNames(s.tab, s.icon, {
+          [s.selected]: selectedTab === APP_TABS.STATS,
+        })}
+        onClick={() => dispatch(appActions.selectTab({ tab: APP_TABS.STATS }))}
+        disabled={shouldDisableTabs || !formationCount}
+      >
+        <i className="fas fa-chart-bar"></i>
+      </button>
+
+      <button
         aria-label={content["app.tabs.settings"]}
-        className={classNames(s.tab, s.icon, s.settings, {
+        className={classNames(s.tab, s.icon, {
           [s.selected]: selectedTab === APP_TABS.SETTINGS,
         })}
         onClick={() =>

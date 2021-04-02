@@ -12,6 +12,7 @@ import TroopSelectionForm from "../TroopSelectionForm";
 import Barracks from "../Barracks";
 import Tabs from "../Tabs";
 import Settings from "../Settings";
+import Statistics from "../Statistics";
 import Hero from "../Hero";
 import HeroForm from "../HeroForm";
 import s from "./App.module.scss";
@@ -92,6 +93,7 @@ const App = () => {
       )}
 
       {selectedTab === APP_TABS.BARRACKS && <Barracks />}
+      {selectedTab === APP_TABS.STATS && <Statistics />}
       {selectedTab === APP_TABS.SETTINGS && <Settings />}
 
       <Tabs />

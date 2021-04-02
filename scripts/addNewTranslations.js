@@ -4,7 +4,16 @@ const path = require("path");
 const dirPath = path.resolve(__dirname, "../src/i18n");
 
 const newTranslations = {
-  keyName: "key value",
+  "app.tabs.statistics": "Formation statistics",
+  "statistics.header.totalHP": "Total formation HP",
+  "statistics.details.totalHP": `The number above includes the total HP of the hero and troops in the
+  formation, as well as fixed-number summons, like the Pirates of a Pirate
+  Ship and the Beast Master's Best Partner. But it does not include the HP
+  of Necromancer's Skeletons, as their number changes during battle.`,
+  "statistics.header.formation.count": "Troop and Hero count",
+  "statistics.header.formation.analysis": "Troop formation analysis",
+  "statistics.header.formation.races": "Races in the formation",
+  "statistics.header.formation.grades": "Grades in the formation",
 };
 
 const languages = ["ar", "bg", "cs", "de", "en", "el", "fr", "ko", "pt"];

@@ -158,5 +158,12 @@
   "views.view.card": "Στυλ καρτών",
   "troopSelectionForm.tabs.data": "Δεδομένα παιχνιδιού",
   "troopSelectionForm.tabs.barracks": "Στρατώνας",
-  "troopSelectionForm.tabs.barracks.notification": "Η προσθήκη μονάδας από το Στρατώνα στο Σχηματισμό, θα αφαιρέσει τη μονάδα από το Στρατώνα και αν το επιλεγμένο τετράγωνο είχε κάποια μονάδα, αυτή θα μεταφερθεί στο Στρατώνα."
+  "troopSelectionForm.tabs.barracks.notification": "Η προσθήκη μονάδας από το Στρατώνα στο Σχηματισμό, θα αφαιρέσει τη μονάδα από το Στρατώνα και αν το επιλεγμένο τετράγωνο είχε κάποια μονάδα, αυτή θα μεταφερθεί στο Στρατώνα.",
+  "app.tabs.statistics": "Formation statistics",
+  "statistics.header.totalHP": "Total formation HP",
+  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the\n  formation, as well as fixed-number summons, like the Pirates of a Pirate\n  Ship and the Beast Master's Best Partner. But it does not include the HP\n  of Necromancer's Skeletons, as their number changes during battle.",
+  "statistics.header.formation.count": "Troop and Hero count",
+  "statistics.header.formation.analysis": "Troop formation analysis",
+  "statistics.header.formation.races": "Races in the formation",
+  "statistics.header.formation.grades": "Grades in the formation"
 }

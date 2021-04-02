@@ -158,5 +158,12 @@
   "views.view.card": "Style Cartes",
   "troopSelectionForm.tabs.data": "Données de jeu",
   "troopSelectionForm.tabs.barracks": "Caserne",
-  "troopSelectionForm.tabs.barracks.notification": "Ajouter à la formation une troupe depuis la Caserne supprimera cette même troupe de la Caserne; et s'il y avait déjà une troupe dans la case selectionnée celle-ci sera automatiquement déplacée dans la caserne."
+  "troopSelectionForm.tabs.barracks.notification": "Ajouter à la formation une troupe depuis la Caserne supprimera cette même troupe de la Caserne; et s'il y avait déjà une troupe dans la case selectionnée celle-ci sera automatiquement déplacée dans la caserne.",
+  "app.tabs.statistics": "Formation statistics",
+  "statistics.header.totalHP": "Total formation HP",
+  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the\n  formation, as well as fixed-number summons, like the Pirates of a Pirate\n  Ship and the Beast Master's Best Partner. But it does not include the HP\n  of Necromancer's Skeletons, as their number changes during battle.",
+  "statistics.header.formation.count": "Troop and Hero count",
+  "statistics.header.formation.analysis": "Troop formation analysis",
+  "statistics.header.formation.races": "Races in the formation",
+  "statistics.header.formation.grades": "Grades in the formation"
 }

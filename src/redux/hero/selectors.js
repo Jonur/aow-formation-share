@@ -16,6 +16,9 @@ export const getHeroData = createSelector(
           grade: content.gameData.grades[heroes[hero.id].grade].toLowerCase(),
           name: content.gameData.heroes[hero.id],
           image: heroes[hero.id].image,
+          hp: heroes[hero.id].hp,
+          race: heroes[hero.id].race,
+          gradeId: heroes[hero.id].grade,
         }
       : {}
 );
