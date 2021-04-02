@@ -74,7 +74,7 @@ export const getFormationHealthPoints = createSelector(
   heroSelectors.getHeroData,
   gameDataSelectors.getTroopIdHashMap,
   (formation, hero, troopIdHashMap) => {
-    const troopsHP = Object.values(formation).reduce((acc, troop, idx) => {
+    const troopsHP = Object.values(formation).reduce((acc, troop) => {
       const troopData = troopIdHashMap[troop.troop];
       const troopHP = troopData.hp[troop.level - 1];
 
