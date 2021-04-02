@@ -159,11 +159,11 @@
   "troopSelectionForm.tabs.data": "анни от играта",
   "troopSelectionForm.tabs.barracks": "Казарми",
   "troopSelectionForm.tabs.barracks.notification": "Добавянето на войски от казармата към формацията ще премахне тази единица от казармата, а ако на въпросното поле преди това е имало друга единица, тя ще бъде преместена в казармата.",
-  "app.tabs.statistics": "Formation statistics",
-  "statistics.header.totalHP": "Total formation HP",
-  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the formation, as well as fixed-number summons, like the Pirates of a Pirate Ship and the Beast Master's Best Partner. But it does not include the HP of Necromancer's Skeletons, as their number changes during battle.",
-  "statistics.header.formation.count": "Troop and Hero count",
-  "statistics.header.formation.analysis": "Troop formation analysis",
-  "statistics.header.formation.races": "Races in the formation",
-  "statistics.header.formation.grades": "Grades in the formation"
+  "app.tabs.statistics": "Статистика за формацията",
+  "statistics.header.totalHP": "Общо HP на формацията",
+  "statistics.details.totalHP": "Числото включва общо HP на героя и единиците във формацията, както и установеното число придадени, като пиратите от кораба и партньора на бийст мастъра. Не включва скелетите на некромансъра, тъй като броят им се променя по време на битката.",
+  "statistics.header.formation.count": "Бройка на единиците и героите",
+  "statistics.header.formation.analysis": "Анализ на формацията",
+  "statistics.header.formation.races": "Раси във формацията",
+  "statistics.header.formation.grades": "Грейдове във формацията"
 }

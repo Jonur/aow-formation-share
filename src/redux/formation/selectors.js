@@ -73,21 +73,14 @@ export const getFormationHealthPoints = createSelector(
   getFormation,
   heroSelectors.getHeroData,
   gameDataSelectors.getTroopIdHashMap,
-  gameDataSelectors.getIncreasableTroopCounts,
-  (formation, hero, troopIdHashMap, increasableTroopCounts) => {
-    const troopsHP = Object.values(formation).reduce((acc, troop) => {
+  (formation, hero, troopIdHashMap) => {
+    const troopsHP = Object.values(formation).reduce((acc, troop, idx) => {
       const troopData = troopIdHashMap[troop.troop];
-
-      const maxTroopCount = troopData.count;
-      const troopHP =
-        increasableTroopCounts[maxTroopCount][troop.level - 1] *
-        troopData.hp[troop.level - 1];
+      const troopHP = troopData.hp[troop.level - 1];
 
       let summonHP = 0;
       if (troopData.summon) {
-        summonHP =
-          increasableTroopCounts[troopData.summon.count][troop.level - 1] *
-          troopData.summon.hp[troop.level - 1];
+        summonHP = troopData.summon.hp[troop.level - 1];
       }
 
       return acc + troopHP + summonHP;
