@@ -6,6 +6,7 @@ import s from "./Statistics.module.scss";
 
 const Statistics = () => {
   const content = useSelector(appSelectors.getLocalisedContent);
+  const appLanguage = useSelector(appSelectors.getAppLanguage);
   const formationHealthPoints = useSelector(
     formationSelectors.getFormationHealthPoints
   );
@@ -20,6 +21,10 @@ const Statistics = () => {
     formationSelectors.getFormationTroopData
   );
 
+  const formationHP = new Intl.NumberFormat(appLanguage).format(
+    formationHealthPoints
+  );
+
   return (
     <div className={s.statistics}>
       <h2 className={s.header}>{content["app.tabs.statistics"]}</h2>
@@ -28,7 +33,7 @@ const Statistics = () => {
       <ul className={s.statList}>
         <li className={s.listLine}>
           <i className="fas fa-heart"></i>
-          <span className={s.data}>{formationHealthPoints}</span>
+          <span className={s.data}>{formationHP}</span>
         </li>
       </ul>
       <p className={s.details}>{content["statistics.details.totalHP"]}</p>
