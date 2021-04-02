@@ -2,11 +2,7 @@ import { createSelector } from "reselect";
 import { appSelectors } from "../app";
 import { gameDataSelectors } from "../gameData";
 import { heroSelectors } from "../hero";
-
-const removeEmptyEntries = (data) =>
-  Object.keys(data).reduce((acc, entry) => {
-    return data[entry].count > 0 ? { ...acc, [entry]: data[entry] } : acc;
-  }, {});
+import removeEmptyEntries from "../../utils/removeEmptyEntries";
 
 export const getFormation = ({ formation }) => formation;
 

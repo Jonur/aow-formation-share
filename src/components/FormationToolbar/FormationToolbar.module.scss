@@ -77,7 +77,7 @@ html {
     .primaryTools,
     .secondaryTools {
       *:not(:first-child) {
-        margin-right: 1rem;
+        margin-right: 0.75rem;
       }
     }
   }
@@ -86,7 +86,7 @@ html {
     .primaryTools,
     .secondaryTools {
       *:not(:first-child) {
-        margin-left: 1rem;
+        margin-left: 0.75rem;
       }
     }
   }

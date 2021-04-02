@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { appSelectors } from "../../redux/app";
 import { formationSelectors } from "../../redux/formation";
+import getIntlNumber from "../../utils/getIntlNumber";
 import s from "./Statistics.module.scss";
 
 const Statistics = () => {
@@ -21,10 +22,6 @@ const Statistics = () => {
     formationSelectors.getFormationTroopData
   );
 
-  const formationHP = new Intl.NumberFormat(appLanguage).format(
-    formationHealthPoints
-  );
-
   return (
     <div className={s.statistics}>
       <h2 className={s.header}>{content["app.tabs.statistics"]}</h2>
@@ -33,7 +30,9 @@ const Statistics = () => {
       <ul className={s.statList}>
         <li className={s.listLine}>
           <i className="fas fa-heart"></i>
-          <span className={s.data}>{formationHP}</span>
+          <span className={s.data}>
+            {getIntlNumber(appLanguage, formationHealthPoints)}
+          </span>
         </li>
       </ul>
       <p className={s.details}>{content["statistics.details.totalHP"]}</p>
@@ -53,7 +52,8 @@ const Statistics = () => {
             <span className={s.label}>{formationTroopData[troop].label}:</span>
             <span className={s.data}>
               {formationTroopData[troop].count} (
-              {parseFloat(formationTroopData[troop].percentage.toFixed(2))}%)
+              {getIntlNumber(appLanguage, formationTroopData[troop].percentage)}
+              %)
             </span>
           </li>
         ))}
@@ -67,8 +67,9 @@ const Statistics = () => {
             <span className={s.data}>
               {formationRaceData[race].count}{" "}
               {formationRaceData[race].count > 0
-                ? `(${parseFloat(
-                    formationRaceData[race].percentage.toFixed(2)
+                ? `(${getIntlNumber(
+                    appLanguage,
+                    formationRaceData[race].percentage
                   )}%)`
                 : ""}
             </span>
@@ -84,8 +85,9 @@ const Statistics = () => {
             <span className={s.data}>
               {formationGradeData[grade].count}{" "}
               {formationGradeData[grade].count > 0
-                ? `(${parseFloat(
-                    formationGradeData[grade].percentage.toFixed(2)
+                ? `(${getIntlNumber(
+                    appLanguage,
+                    formationGradeData[grade].percentage
                   )}%)`
                 : ""}
             </span>
