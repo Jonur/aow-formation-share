@@ -161,7 +161,7 @@
   "troopSelectionForm.tabs.barracks.notification": "Η προσθήκη μονάδας από το Στρατώνα στο Σχηματισμό, θα αφαιρέσει τη μονάδα από το Στρατώνα και αν το επιλεγμένο τετράγωνο είχε κάποια μονάδα, αυτή θα μεταφερθεί στο Στρατώνα.",
   "app.tabs.statistics": "Στατιστικά σχηματισμού",
   "statistics.header.totalHP": "Συνολικό HP σχηματισμού",
-  "statistics.details.totalHP": "Ο άνωθι αριθμός περιλαμβάνει στο συνολικό HP του ήρωα και των μονάδων στο σχηματισμό. Επίσης, περιλαμβάνει το HP ακόλουθων των βασικών μονάδων που έχουν στατικό αριθμό, όπως οι Pirates του Pirate Ship και Best Partner του Beast Master. Δεν περιλαμβάνει το HP των Skeleton του Necromancer, καθώς ο αριθμός τους μεταβάλλεται κατά τη διάρκεια της μάχης.",
+  "statistics.details.totalHP": "Ο άνωθι αριθμός περιλαμβάνει το συνολικό HP του ήρωα και των μονάδων στο σχηματισμό. Επίσης, περιλαμβάνει το HP των ακόλουθων των βασικών μονάδων που έχουν στατικό αριθμό, όπως οι Pirates του Pirate Ship και το Best Partner του Beast Master. Δεν περιλαμβάνει το HP των Skeleton του Necromancer, καθώς ο αριθμός τους μεταβάλλεται κατά τη διάρκεια της μάχης.",
   "statistics.header.formation.count": "Σύνολο ήρωα και μονάδων",
   "statistics.header.formation.analysis": "Ανάλυση σχηματισμού",
   "statistics.header.formation.races": "Φυλές στο σχηματισμό",
