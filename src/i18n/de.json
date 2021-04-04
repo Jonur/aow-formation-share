@@ -159,11 +159,11 @@
   "troopSelectionForm.tabs.data": "Spieldaten",
   "troopSelectionForm.tabs.barracks": "Kaserne",
   "troopSelectionForm.tabs.barracks.notification": "Das Hinzufügen einer Einheit aus der Kaserne zur Formation entfernt diese aus der Kaserne. Sollte auf dem gewählten Zielfeld bereits eine Einheit stehen, so wird diese in die Kaserne verschoben.",
-  "app.tabs.statistics": "Formation statistics",
-  "statistics.header.totalHP": "Total formation HP",
-  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the formation, as well as fixed-number summons, like the Pirates of a Pirate Ship and the Beast Master's Best Partner. But it does not include the HP of Necromancer's Skeletons, as their number changes during battle.",
-  "statistics.header.formation.count": "Troop and Hero count",
-  "statistics.header.formation.analysis": "Troop formation analysis",
-  "statistics.header.formation.races": "Races in the formation",
-  "statistics.header.formation.grades": "Grades in the formation"
+  "app.tabs.statistics": "Statistiken zur Formation",
+  "statistics.header.totalHP": "Gesamtstärke der Formation",
+  "statistics.details.totalHP": "Die obige Angabe der Gesamtstärke beinhaltet die Stärkepunkte des Helden und aller Einheiten der Formation sowie eventueller Zugaben wie z.B. die Piraten des Piratenschiffes und den besten Freund des Tiermeisters. Nicht enthalten sind dagegen die Stärkepunkte der Skelette, da deren Anzahl sich während des Kampfes verändert.",
+  "statistics.header.formation.count": "Anzahl Truppen und Helden",
+  "statistics.header.formation.analysis": "Analyse der Truppen Formation",
+  "statistics.header.formation.races": "Rassen in der Formation",
+  "statistics.header.formation.grades": "Klassen in der Formation"
 }
