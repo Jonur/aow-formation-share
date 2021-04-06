@@ -159,11 +159,11 @@
   "troopSelectionForm.tabs.data": "بيانات اللعبة",
   "troopSelectionForm.tabs.barracks": "الثكنات العسكرية",
   "troopSelectionForm.tabs.barracks.notification": "اضافة وحدات من الثكنات العسكرية إلى التشكيلة سيحذفها من الثكنات و اذا كانت هناك وحدة في المربع المقصود فإن هذه الوحدة سوف تنتقل الثكنات العسكرية",
-  "app.tabs.statistics": "Formation statistics",
-  "statistics.header.totalHP": "Total formation HP",
-  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the formation, as well as fixed-number summons, like the Pirates of a Pirate Ship and the Beast Master's Best Partner. But it does not include the HP of Necromancer's Skeletons, as their number changes during battle.",
-  "statistics.header.formation.count": "Troop and Hero count",
-  "statistics.header.formation.analysis": "Troop formation analysis",
-  "statistics.header.formation.races": "Races in the formation",
-  "statistics.header.formation.grades": "Grades in the formation"
+  "app.tabs.statistics": " احصائيات التشكيلة",
+  "statistics.header.totalHP": "مجموع نقاط الطاقة للتشكيلة",
+  "statistics.details.totalHP": "الرقم اعلاه يشمل مجموع نقاط الطاقة للبطل و للقوات داخل التشكيلة ، كما يشمل رقم-ثابت للاستدعاءات ، مثل القراصنة في سفينة القراصنة و رفيق سيد الوحش. لكن لا يشمل نقاط الطاقة الخاصة بالهياكل عند مستحضر الأرواح لان ارقامهم تتغير أثناء المعركة.",
+  "statistics.header.formation.count": "عدد البطل والقوات",
+  "statistics.header.formation.analysis": "تحليل تشكيلة القوات",
+  "statistics.header.formation.races": "السباقات داخل التشكيلة",
+  "statistics.header.formation.grades": "الدرجات داخل التشكيلة"
 }
