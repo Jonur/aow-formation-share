@@ -6,8 +6,6 @@ import s from "./Header.module.scss";
 const Header = () => {
   const content = useSelector(appSelectors.getLocalisedContent);
 
-  console.log(process.env.TINYURLCREATE);
-
   return (
     <header className={s.header}>
       <h1>{content["header.title"]}</h1>
