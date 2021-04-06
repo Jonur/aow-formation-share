@@ -1,11 +1,12 @@
 import { appActions, appSelectors } from "./";
 import { formationActions, formationSelectors } from "../../redux/formation";
 import { gameDataSelectors } from "../../redux/gameData";
-import { barracksActions, barracksSelectors } from "../../redux/barracks";
-import { heroActions, heroSelectors } from "../../redux/hero";
+import { barracksActions } from "../../redux/barracks";
+import { heroActions } from "../../redux/hero";
 import getFormationFromURL from "../../utils/getFormationFromURL";
 import getBarracksFromURL from "../../utils/getBarracksFromURL";
 import getHeroFromURL from "../../utils/getHeroFromURL";
+import getTinyURL from "../../utils/getTinyURL";
 
 const appMiddleware = (store) => (next) => (action) => {
   if (action.type === appActions.APP_INIT) {
@@ -54,14 +55,10 @@ const appMiddleware = (store) => (next) => (action) => {
   if (action.type === appActions.CREATE_SHAREABLE_LINK) {
     const state = store.getState();
 
-    const formationLinkParams = formationSelectors.getFormationLinkParams(
-      state
-    );
-    const barracksLinkParams = barracksSelectors.getBarracksLinkParams(state);
-    const heroLinkParams = heroSelectors.getHeroLinkParams(state);
+    const formationLink = formationSelectors.getFormationLink(state);
     const content = appSelectors.getLocalisedContent(state);
 
-    const formationLink = `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}${barracksLinkParams}${heroLinkParams}`;
+    // getTinyURL(formationLink);
 
     const newTextarea = document.createElement("textarea");
     newTextarea.id = "formation-link";

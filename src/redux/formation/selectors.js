@@ -2,6 +2,7 @@ import { createSelector } from "reselect";
 import { appSelectors } from "../app";
 import { gameDataSelectors } from "../gameData";
 import { heroSelectors } from "../hero";
+import { barracksSelectors } from "../barracks";
 import removeEmptyEntries from "../../utils/removeEmptyEntries";
 
 export const getFormation = ({ formation }) => formation;
@@ -277,4 +278,12 @@ export const getFormationTroopData = createSelector(
 
     return removeEmptyEntries(troopGroupCount);
   }
+);
+
+export const getFormationLink = createSelector(
+  getFormationLinkParams,
+  barracksSelectors.getBarracksLinkParams,
+  heroSelectors.getHeroLinkParams,
+  (formationLinkParams, barracksLinkParams, heroLinkParams) =>
+    `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}${barracksLinkParams}${heroLinkParams}`
 );
