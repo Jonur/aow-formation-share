@@ -71,6 +71,23 @@
   @media screen and (min-width: 768px) {
     padding: 0 0.5rem 0 0;
     margin-left: -90px;
-    order: 1;
+  }
+}
+
+html {
+  &[dir="rtl"] {
+    .heroBar {
+      @media screen and (min-width: 768px) {
+        order: 3;
+      }
+    }
+  }
+
+  &[dir="ltr"] {
+    .heroBar {
+      @media screen and (min-width: 768px) {
+        order: 1;
+      }
+    }
   }
 }
