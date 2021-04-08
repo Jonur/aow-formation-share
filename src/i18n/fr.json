@@ -159,11 +159,11 @@
   "troopSelectionForm.tabs.data": "Données de jeu",
   "troopSelectionForm.tabs.barracks": "Caserne",
   "troopSelectionForm.tabs.barracks.notification": "Ajouter à la formation une troupe depuis la Caserne supprimera cette même troupe de la Caserne; et s'il y avait déjà une troupe dans la case selectionnée celle-ci sera automatiquement déplacée dans la caserne.",
-  "app.tabs.statistics": "Formation statistics",
-  "statistics.header.totalHP": "Total formation HP",
-  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the formation, as well as fixed-number summons, like the Pirates of a Pirate Ship and the Beast Master's Best Partner. But it does not include the HP of Necromancer's Skeletons, as their number changes during battle.",
-  "statistics.header.formation.count": "Troop and Hero count",
-  "statistics.header.formation.analysis": "Troop formation analysis",
-  "statistics.header.formation.races": "Races in the formation",
-  "statistics.header.formation.grades": "Grades in the formation"
+  "app.tabs.statistics": "Statistiques de la formation",
+  "statistics.header.totalHP": "HP totaux de la formation",
+  "statistics.details.totalHP": "Le nombre ci-dessus comprends les HP totaux du héros et des troupes dans la formation, ainsi que ceux des troupes additionnelles fixes comme les pirates du Navire des Pirates et le familier de compagnie du maitre des animaux. Mais il n'inclut pas les HP des squelettes du Nécromancien, puisque leur nombre varie selon les parties.",
+  "statistics.header.formation.count": "Nombre de troupes et héros",
+  "statistics.header.formation.analysis": "Analyse des troupes de la formation",
+  "statistics.header.formation.races": "Races dans la formation",
+  "statistics.header.formation.grades": "Grades dans la formation"
 }

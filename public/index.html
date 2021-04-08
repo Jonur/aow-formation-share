@@ -20,26 +20,6 @@
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
     ></script>
-
-    <script>
-      window.onerror = function (msg, url, lineNo, columnNo, error) {
-        var string = msg.toLowerCase();
-        var substring = "script error";
-        if (string.indexOf(substring) > -1) {
-          alert("Script Error: See Browser Console for Detail");
-        } else {
-          var message = [
-            "Message: " + msg,
-            "URL: " + url,
-            "Line: " + lineNo,
-            "Column: " + columnNo,
-            "Error object: " + JSON.stringify(error),
-          ].join(" - ");
-
-          alert(message);
-        }
-      };
-    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
