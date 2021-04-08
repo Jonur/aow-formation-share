@@ -159,11 +159,11 @@
   "troopSelectionForm.tabs.data": "게임 데이터",
   "troopSelectionForm.tabs.barracks": "배럭",
   "troopSelectionForm.tabs.barracks.notification": "\"배럭\"에서 \"배치\"로 군대를 추가하면 \"배럭\"에 있는 군대가 제거되고 선택된 군대가 있으면 \"배럭\"으로 이동됩니다.",
-  "app.tabs.statistics": "Formation statistics",
-  "statistics.header.totalHP": "Total formation HP",
-  "statistics.details.totalHP": "The number above includes the total HP of the hero and troops in the formation, as well as fixed-number summons, like the Pirates of a Pirate Ship and the Beast Master's Best Partner. But it does not include the HP of Necromancer's Skeletons, as their number changes during battle.",
-  "statistics.header.formation.count": "Troop and Hero count",
-  "statistics.header.formation.analysis": "Troop formation analysis",
-  "statistics.header.formation.races": "Races in the formation",
-  "statistics.header.formation.grades": "Grades in the formation"
+  "app.tabs.statistics": "배치 통계",
+  "statistics.header.totalHP": "부대 전체 HP",
+  "statistics.details.totalHP": "상단의 숫자는 영웅, 용병, 해적서의 해적, 비스트 마스터의 파트너, 그리고 일정 소환수들의 전체 HP를 포함합니다. 단, 강령술사의 해골병사의 수는 가변적이므로 포함하지 않습니다.",
+  "statistics.header.formation.count": "용병과 영웅의 수",
+  "statistics.header.formation.analysis": "군대 배치 통계",
+  "statistics.header.formation.races": "종족",
+  "statistics.header.formation.grades": "등급"
 }
