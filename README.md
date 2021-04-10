@@ -33,7 +33,7 @@ infinite is typing loop - Troop and Hero power data
 
 **Arabic**: Ahmed Hadi
 
-**Polish**: Kamila [Instagram](https://www.instagram.com/kambi_03/), [TikTok](https://www.tiktok.com/@kambi_03)
+**Polish**: Kamila / Kocia [Instagram](https://www.instagram.com/kambi_03/), [TikTok](https://www.tiktok.com/@kambi_03)
 
 # Tech
 

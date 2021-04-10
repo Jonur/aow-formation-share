@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
+
 import { appActions } from "../../redux/app";
 import { heroSelectors } from "../../redux/hero";
+import { gameDataSelectors } from "../../redux/gameData";
 
 import s from "./Hero.module.scss";
 
@@ -10,12 +12,19 @@ const Hero = () => {
   const dispatch = useDispatch();
 
   const heroData = useSelector(heroSelectors.getHeroData);
+  const troopGradesHashMap = useSelector(
+    gameDataSelectors.getTroopGradesHashMap
+  );
+
+  const heroGrade = heroData.id
+    ? troopGradesHashMap[heroData.gradeId].title.toLowerCase()
+    : "";
 
   return (
     <div className={s.heroBar}>
       <button
         className={classNames(s.hero, {
-          [s[heroData.grade]]: heroData.grade,
+          [s[heroGrade]]: heroGrade,
         })}
         aria-label={heroData.name}
         onClick={() => dispatch(appActions.setHeroFormStatus({ status: true }))}
