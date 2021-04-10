@@ -6,6 +6,7 @@ import { heroActions } from "../../redux/hero";
 import getFormationFromURL from "../../utils/getFormationFromURL";
 import getBarracksFromURL from "../../utils/getBarracksFromURL";
 import getHeroFromURL from "../../utils/getHeroFromURL";
+import getTinyURL from "../../utils/getTinyURL";
 
 const appMiddleware = (store) => (next) => (action) => {
   if (action.type === appActions.APP_INIT) {
@@ -56,6 +57,8 @@ const appMiddleware = (store) => (next) => (action) => {
 
     const formationLink = formationSelectors.getFormationLink(state);
     const content = appSelectors.getLocalisedContent(state);
+
+    getTinyURL(formationLink);
 
     const newTextarea = document.createElement("textarea");
     newTextarea.id = "formation-link";
