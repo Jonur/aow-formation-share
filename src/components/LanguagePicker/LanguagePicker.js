@@ -10,19 +10,22 @@ import s from "./LanguagePicker.module.scss";
 const LanguagePicker = () => {
   const appLanguage = useSelector(appSelectors.getAppLanguage);
   const content = useSelector(appSelectors.getLocalisedContent);
-  const formationLinkParams = useSelector(
-    formationSelectors.getFormationLinkParams
+  const composedFormationLinkParams = useSelector(
+    formationSelectors.getComposedFormationLinkParams
   );
 
   const changeLanguage = useCallback(
     (language) => {
       const urlParams = window.location.search;
+      console.log({ composedFormationLinkParams, urlParams });
       localStorage.setItem("language", language);
       window.location.replace(
-        `${language}${urlParams || `?v=2${formationLinkParams}`}`
+        `${language}?v=2${
+          composedFormationLinkParams ? composedFormationLinkParams : urlParams
+        }`
       );
     },
-    [formationLinkParams]
+    [composedFormationLinkParams]
   );
 
   return (

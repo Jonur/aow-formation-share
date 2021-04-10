@@ -280,10 +280,16 @@ export const getFormationTroopData = createSelector(
   }
 );
 
-export const getFormationLink = createSelector(
+export const getComposedFormationLinkParams = createSelector(
   getFormationLinkParams,
   barracksSelectors.getBarracksLinkParams,
   heroSelectors.getHeroLinkParams,
   (formationLinkParams, barracksLinkParams, heroLinkParams) =>
-    `${window.location.origin}${window.location.pathname}?v=2${formationLinkParams}${barracksLinkParams}${heroLinkParams}`
+    `${formationLinkParams}${barracksLinkParams}${heroLinkParams}`
+);
+
+export const getFormationLink = createSelector(
+  getComposedFormationLinkParams,
+  (composedFormationLinkParams) =>
+    `${window.location.origin}${window.location.pathname}?v=2${composedFormationLinkParams}`
 );
