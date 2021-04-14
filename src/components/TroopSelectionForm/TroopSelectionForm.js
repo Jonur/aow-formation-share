@@ -97,11 +97,6 @@ const TroopSelectionForm = () => {
             })
           );
         }
-        console.log("Decrease from Barracks", {
-          barracksEntryCount,
-          currentlySelectedTroop,
-          currentlySelectedTroopLevel,
-        });
 
         const shouldMovePreviousTrooptoBarracks = !!formation[selectedSquare];
         if (shouldMovePreviousTrooptoBarracks) {

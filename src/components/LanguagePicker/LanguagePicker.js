@@ -17,10 +17,9 @@ const LanguagePicker = () => {
   const changeLanguage = useCallback(
     (language) => {
       const urlParams = window.location.search;
-      console.log({ composedFormationLinkParams, urlParams });
       localStorage.setItem("language", language);
       window.location.replace(
-        `${language}?v=2${
+        `${language}${urlParams.includes('?v=2') ? '' : '?v=2'}${
           composedFormationLinkParams ? composedFormationLinkParams : urlParams
         }`
       );
