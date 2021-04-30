@@ -242,7 +242,6 @@ const initialState = {
     },
     {
       grade: "3XE9",
-      gradedAs: "fod3",
       id: "YVcP",
       image: "/img/aow-troops/harbingeroffire.png",
       boardImage: "/img/aow-troops-igv/harbingeroffire.png",
