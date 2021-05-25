@@ -37,6 +37,8 @@ infinite is typing loop - Troop and Hero power data
 
 **Spanish**: Alfredo A. Sanchez
 
+**Russian**: A1pha
+
 # Tech
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The stack used is React, Redux, SASS and it is hosted using Vercel.
