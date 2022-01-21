@@ -22,7 +22,7 @@ const initialState = {
   troops: [
     {
       grade: "fod3",
-      id: "6Lj1",
+      id: "h3wp",
       image: "/img/aow-troops/orchunters.png",
       boardImage: "/img/aow-troops-igv/orchunters.png",
       name: "Orc hunters",
@@ -32,14 +32,14 @@ const initialState = {
     },
     {
       grade: "3XE9",
-      id: "7Lj1",
+      id: "SOvz",
       image: "/img/aow-troops/goblintech.png",
       boardImage: "/img/aow-troops-igv/goblintech.png",
       name: "Goblin Tech",
       race: "u2TP",
       count: 1,
       summon: {
-        id: "8Lj1",
+        id: "NFXr",
         name: "Goblin Cannon",
         race: "u2TP",
         count: 1,
