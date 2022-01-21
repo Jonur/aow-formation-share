@@ -15,6 +15,10 @@ Dimitris Damilos - [GitHub](https://github.com/Jonur), [LinkedIn](https://www.li
 
 Phasecast - [YouTube](https://www.youtube.com/phasecast), Game content
 
+[Antonio Calvente Almagro](https://www.linkedin.com/in/antonio-calvente-almagro-b11911a4/), Code & Data
+
+[Chris Phillips](https://www.linkedin.com/in/chris-phillips-476099ab/), Data
+
 infinite is typing loop - Troop and Hero power data
 
 ### Translations
