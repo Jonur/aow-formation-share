@@ -46,7 +46,7 @@ const Hero = () => {
       </button>
 
       {shouldShowStars && (
-        <div className="stars">
+        <div className={s.stars}>
           {new Array(+heroData.stars).fill(0).map((_, index) => (
             <i key={`stars-${index}`} class="fa fa-star" aria-hidden="true"></i>
           ))}
