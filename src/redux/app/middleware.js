@@ -16,6 +16,8 @@ const appMiddleware = (store) => (next) => (action) => {
     const boardSquares = gameDataSelectors.getBoardSquares(state);
     const heroesIdHashMap = gameDataSelectors.getHeroesIdHashMap(state);
     const maxHeroLevel = gameDataSelectors.getMaxHeroLevel(state);
+    const maxHeroStars = gameDataSelectors.getMaxHeroStars(state);
+    const legendaryHeroes = gameDataSelectors.getLegendaryHeroes(state);
 
     const formationFromURL = getFormationFromURL(
       troopNames,
@@ -24,7 +26,12 @@ const appMiddleware = (store) => (next) => (action) => {
       boardSquares
     );
     const barracksFromURL = getBarracksFromURL(troopHashMap, maxTroopLevel);
-    const heroFromURL = getHeroFromURL(heroesIdHashMap, maxHeroLevel);
+    const heroFromURL = getHeroFromURL(
+      heroesIdHashMap,
+      maxHeroLevel,
+      maxHeroStars,
+      legendaryHeroes
+    );
 
     const formationExistsInURL = !!Object.keys(formationFromURL).length;
     if (formationExistsInURL) {
