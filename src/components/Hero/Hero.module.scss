@@ -3,6 +3,7 @@
   justify-content: center;
   padding: 1rem;
   position: relative;
+  flex-direction: column;
 
   .hero {
     position: relative;
@@ -78,6 +79,11 @@
     color: gold;
     position: absolute;
     top: 0px;
+
+    @media screen and (min-width: 768px) {
+      position: initial;
+      top: auto;
+    }
   }
 
   @media screen and (min-width: 768px) {
