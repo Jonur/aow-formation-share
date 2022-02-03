@@ -20,8 +20,6 @@ const Hero = () => {
     ? troopGradesHashMap[heroData.gradeId].title.toLowerCase()
     : "";
 
-  console.log({ stars: heroData.stars });
-
   const shouldShowStars = +heroData.stars > 0;
 
   return (

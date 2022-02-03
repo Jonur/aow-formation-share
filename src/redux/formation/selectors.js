@@ -32,9 +32,23 @@ export const getFormationPower = createSelector(
   gameDataSelectors.getHeroesIdHashMap,
   gameDataSelectors.getPower,
   (formation, hero, troopIdHashMap, heroesIdHashMap, power) => {
-    const heroPower = hero.id
-      ? power[heroesIdHashMap[hero.id].grade].hero[+hero.level - 1]
-      : 0;
+    let heroPower = 0;
+    if (hero.id) {
+      const gradePower = power[heroesIdHashMap[hero.id].grade];
+      const heroPurePower = gradePower.hero[+hero.level - 1];
+
+      heroPower = !!hero.stars
+        ? gradePower.stars[`${hero.level}-${hero.stars}`] || heroPurePower
+        : heroPurePower;
+
+      console.log({
+        heroPower,
+        hero,
+        gradePower,
+        heroPurePower,
+        gradePowerHero: gradePower.stars[`${hero.level}-${hero.stars}`],
+      });
+    }
 
     const troopsPower = Object.values(formation).reduce((acc, troop) => {
       const troopData = troopIdHashMap[troop.troop];

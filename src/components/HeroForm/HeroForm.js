@@ -8,6 +8,7 @@ import {
   ENTER_KEY_CODE,
   TAB_KEY_CODE,
   ESCAPE_KEY_CODE,
+  MAX_LEVEL_FOR_STARS,
   MIN_LEVEL_FOR_STARS,
 } from "../../utils/constants";
 import s from "./HeroForm.module.scss";
@@ -35,7 +36,9 @@ const HeroForm = () => {
     (hero) => hero.id === formSelectedHeroId
   );
   const canHeroHaveStars =
-    +formSelectedLevel >= MIN_LEVEL_FOR_STARS && !!isFormSelectedHeroLegendary;
+    +formSelectedLevel >= MIN_LEVEL_FOR_STARS &&
+    +formSelectedLevel <= MAX_LEVEL_FOR_STARS &&
+    !!isFormSelectedHeroLegendary;
 
   const defaultHeroLevel = !!isFormSelectedHeroLegendary
     ? selectedHero.level || heroLevels[0]
@@ -151,7 +154,10 @@ const HeroForm = () => {
           <option
             value={lvl}
             key={`lvl-${lvl}`}
-            disabled={!isFormSelectedHeroLegendary && lvl > MIN_LEVEL_FOR_STARS}
+            disabled={
+              (!isFormSelectedHeroLegendary && lvl > MIN_LEVEL_FOR_STARS) ||
+              lvl > MAX_LEVEL_FOR_STARS
+            }
           >
             {lvl}
           </option>
