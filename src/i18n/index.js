@@ -10,7 +10,22 @@ import ko from "./ko.json";
 import pl from "./pl.json";
 import pt from "./pt.json";
 import ru from "./ru.json";
+import it from "./it.json";
 
-const supportedLanguage = { ar, bg, cs, de, en, el, es, fr, ko, pl, pt, ru };
+const supportedLanguage = {
+  ar,
+  bg,
+  cs,
+  de,
+  en,
+  el,
+  es,
+  fr,
+  it,
+  ko,
+  pl,
+  pt,
+  ru,
+};
 
 export default supportedLanguage;
