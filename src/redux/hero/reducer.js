@@ -4,6 +4,7 @@ import { heroActions } from "./";
 const initialState = {
   id: "",
   level: "",
+  stars: "",
 };
 
 const heroReducer = (state = initialState, action) => {
@@ -12,6 +13,7 @@ const heroReducer = (state = initialState, action) => {
       return update(state, {
         id: { $set: action.payload.id },
         level: { $set: action.payload.level },
+        stars: { $set: action.payload.stars },
       });
     }
     default: {

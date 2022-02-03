@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { gameDataSelectors } from "../../redux/gameData";
@@ -8,6 +8,7 @@ import {
   ENTER_KEY_CODE,
   TAB_KEY_CODE,
   ESCAPE_KEY_CODE,
+  MIN_LEVEL_FOR_STARS,
 } from "../../utils/constants";
 import s from "./HeroForm.module.scss";
 
@@ -19,7 +20,28 @@ const HeroForm = () => {
   const content = useSelector(appSelectors.getLocalisedContent);
   const localisedHeroes = useSelector(gameDataSelectors.getLocalisedHeroes);
   const heroLevels = useSelector(gameDataSelectors.getHeroLevelsReversed);
+  const heroStars = useSelector(gameDataSelectors.getHeroStars);
+  const legendaryHeroes = useSelector(gameDataSelectors.getLegendaryHeroes);
   const selectedHero = useSelector(heroSelectors.getHero);
+
+  const [formSelectedHeroId, setFormSelectedHeroId] = useState(
+    selectedHero.id || localisedHeroes[0].id
+  );
+  const [formSelectedLevel, setFormSelectedLevel] = useState(
+    selectedHero.level || heroLevels[0]
+  );
+
+  const isFormSelectedHeroLegendary = legendaryHeroes.find(
+    (hero) => hero.id === formSelectedHeroId
+  );
+  const canHeroHaveStars =
+    +formSelectedLevel >= MIN_LEVEL_FOR_STARS && !!isFormSelectedHeroLegendary;
+
+  const defaultHeroLevel = !!isFormSelectedHeroLegendary
+    ? selectedHero.level || heroLevels[0]
+    : selectedHero.level <= MIN_LEVEL_FOR_STARS
+    ? selectedHero.level
+    : MIN_LEVEL_FOR_STARS;
 
   const handleCloseForm = useCallback(() => {
     dispatch(appActions.setHeroFormStatus({ status: false }));
@@ -42,10 +64,25 @@ const HeroForm = () => {
   const handleAddHero = useCallback(
     (e) => {
       e.preventDefault();
-      const { hero, level } = heroFormRef.current.elements;
-      dispatch(heroActions.updateHero({ id: hero.value, level: level.value }));
+      const { hero, level, stars } = heroFormRef.current.elements;
+
+      const validLevel = !!isFormSelectedHeroLegendary
+        ? level.value
+        : level.value <= MIN_LEVEL_FOR_STARS
+        ? level.value
+        : MIN_LEVEL_FOR_STARS;
+
+      const validStars = canHeroHaveStars ? stars?.value || "" : "";
+
+      dispatch(
+        heroActions.updateHero({
+          id: hero.value,
+          level: validLevel,
+          stars: validStars,
+        })
+      );
     },
-    [dispatch]
+    [canHeroHaveStars, dispatch, isFormSelectedHeroLegendary]
   );
 
   const handleSubmitWithEnter = (e) => {
@@ -84,6 +121,7 @@ const HeroForm = () => {
         title={content["select.label.heroName"]}
         autoFocus
         onKeyDown={handleSubmitWithEnter}
+        onChange={(e) => setFormSelectedHeroId(e.target.value)}
         tabIndex={1}
         ref={heroSelectionRef}
       >
@@ -103,14 +141,41 @@ const HeroForm = () => {
       <select
         id="level"
         name="level"
-        defaultValue={selectedHero.level || heroLevels[0]}
+        defaultValue={defaultHeroLevel}
         title={content["select.label.heroLevel"]}
         onKeyDown={handleSubmitWithEnter}
+        onChange={(e) => setFormSelectedLevel(e.target.value)}
         tabIndex={2}
       >
         {heroLevels.map((lvl) => (
-          <option value={lvl} key={`lvl-${lvl}`}>
+          <option
+            value={lvl}
+            key={`lvl-${lvl}`}
+            disabled={!isFormSelectedHeroLegendary && lvl > MIN_LEVEL_FOR_STARS}
+          >
             {lvl}
+          </option>
+        ))}
+      </select>
+
+      <label className={s.label} htmlFor="stars">
+        {content["select.label.heroStars"]}
+      </label>
+      <select
+        id="stars"
+        name="stars"
+        defaultValue={selectedHero.stars || ""}
+        title={content["select.label.heroStars"]}
+        onKeyDown={handleSubmitWithEnter}
+        tabIndex={3}
+        disabled={!canHeroHaveStars}
+      >
+        <option value="" key="no-hero-stars">
+          {content["select.label.noHeroStars"]}
+        </option>
+        {heroStars.map((stars) => (
+          <option value={stars} key={`star-${stars}`}>
+            {stars}
           </option>
         ))}
       </select>

@@ -154,6 +154,8 @@
   "select.label.heroName": "Изберете герой",
   "button.label.closeHeroForm": "Затворете формата",
   "select.label.heroLevel": "Изберете ниво на героя",
+  "select.label.heroStars": "Select hero stars",
+  "select.label.noHeroStars": "--- No stars ---",
   "select.label.noHero": "--- Няма герой ---",
   "views.title": "Изберете изглед",
   "views.view.game": "Стил от играта",

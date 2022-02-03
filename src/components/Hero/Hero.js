@@ -20,6 +20,10 @@ const Hero = () => {
     ? troopGradesHashMap[heroData.gradeId].title.toLowerCase()
     : "";
 
+  console.log({ stars: heroData.stars });
+
+  const shouldShowStars = +heroData.stars > 0;
+
   return (
     <div className={s.heroBar}>
       <button
@@ -40,6 +44,14 @@ const Hero = () => {
           </div>
         )}
       </button>
+
+      {shouldShowStars && (
+        <div className="stars">
+          {new Array(+heroData.stars).fill(0).map((_, index) => (
+            <i key={`stars-${index}`} class="fa fa-star" aria-hidden="true"></i>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

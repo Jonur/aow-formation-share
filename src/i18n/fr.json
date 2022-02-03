@@ -154,6 +154,8 @@
   "select.label.heroName": "Sélectionner un héros",
   "button.label.closeHeroForm": "Fermer le formulaire",
   "select.label.heroLevel": "Sélectionner le niveau du héros",
+  "select.label.heroStars": "Select hero stars",
+  "select.label.noHeroStars": "--- No stars ---",
   "select.label.noHero": "--- Pas de héros ---",
   "views.title": "Sélectionner l'esthétique",
   "views.view.game": "Style en jeu",

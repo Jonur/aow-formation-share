@@ -154,6 +154,8 @@
   "select.label.heroName": "Wähle Held",
   "button.label.closeHeroForm": "Schließe das Formular",
   "select.label.heroLevel": "Wähle Heldenlevel",
+  "select.label.heroStars": "Select hero stars",
+  "select.label.noHeroStars": "--- No stars ---",
   "select.label.noHero": "--- Kein Held ---",
   "views.title": "Wähle Ansicht",
   "views.view.game": "Spielansicht",

@@ -154,6 +154,8 @@
   "select.label.heroName": "اختيار بطل",
   "button.label.closeHeroForm": "أغلق الواجهة",
   "select.label.heroLevel": "حدد مستوى البطل",
+  "select.label.heroStars": "Select hero stars",
+  "select.label.noHeroStars": "--- No stars ---",
   "select.label.noHero": "--- فراغ ---",
   "views.title": "اختيار طريقة العرض",
   "views.view.game": "النمط الحقيقي",

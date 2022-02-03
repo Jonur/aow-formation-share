@@ -81,6 +81,11 @@ export const getMaxHeroLevel = createSelector(
   ({ board }) => board.maxHeroLevel
 );
 
+export const getMaxHeroStars = createSelector(
+  getGameData,
+  ({ board }) => board.maxHeroStars
+);
+
 export const getBoardSquares = createSelector(
   getGameData,
   ({ board }) => board.squares
@@ -90,7 +95,7 @@ export const getTroopLevelsReversed = createSelector(
   getMaxTroopLevel,
   (maxLevel) =>
     Array.from(new Array(maxLevel))
-      .map((num, index) => index + 1)
+      .map((_, index) => index + 1)
       .reverse()
 );
 
@@ -98,8 +103,12 @@ export const getHeroLevelsReversed = createSelector(
   getMaxHeroLevel,
   (maxLevel) =>
     Array.from(new Array(maxLevel))
-      .map((num, index) => index + 1)
+      .map((_, index) => index + 1)
       .reverse()
+);
+
+export const getHeroStars = createSelector(getMaxHeroStars, (maxStars) =>
+  Array.from(new Array(maxStars)).map((_, index) => index + 1)
 );
 
 export const getBoardSquaresGrid = createSelector(getBoardSquares, (squares) =>
@@ -108,4 +117,15 @@ export const getBoardSquaresGrid = createSelector(getBoardSquares, (squares) =>
 
 export const getTroopGradesHashMap = createSelector(getTroopGrades, (grades) =>
   grades.reduce((acc, grade) => ({ ...acc, [grade.id]: grade }), {})
+);
+
+export const getLegendaryHeroes = createSelector(
+  getTroopGrades,
+  getHeroes,
+  (grades, heroes) => {
+    const legendaryGrade = grades.find(
+      ({ title }) => title.toLowerCase() === "legendary"
+    ).id;
+    return heroes.filter(({ grade }) => grade === legendaryGrade);
+  }
 );

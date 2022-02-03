@@ -7,6 +7,7 @@ export const DEFAULT_LANGUAGE = "en"; // English
 
 export const MAX_BARRACKS_ENTRIES = 30;
 export const MAX_BARRACKS_TROOP_COUNT = 50;
+export const MIN_LEVEL_FOR_STARS = 15;
 
 export const APP_TABS = {
   BARRACKS: "barracks",

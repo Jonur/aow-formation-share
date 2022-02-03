@@ -154,6 +154,8 @@
   "select.label.heroName": "Vybrat hrdinu",
   "button.label.closeHeroForm": "Zavřít formaci",
   "select.label.heroLevel": "Vyberte úroveň hrdiny",
+  "select.label.heroStars": "Select hero stars",
+  "select.label.noHeroStars": "--- No stars ---",
   "select.label.noHero": "--- Žádný hrdina ---",
   "views.title": "Vybrat pohled",
   "views.view.game": "Herní styl",

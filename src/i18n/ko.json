@@ -154,6 +154,8 @@
   "select.label.heroName": "영웅 선택",
   "button.label.closeHeroForm": "닫기",
   "select.label.heroLevel": "영웅 레벨 설정",
+  "select.label.heroStars": "Select hero stars",
+  "select.label.noHeroStars": "--- No stars ---",
   "select.label.noHero": "--- 영웅이 없습니다. ---",
   "views.title": "테마 선택",
   "views.view.game": "인게임 스타일",
