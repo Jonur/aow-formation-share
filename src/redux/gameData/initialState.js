@@ -23,8 +23,8 @@ const initialState = {
     {
       grade: "fod3",
       id: "as23",
-      image: "/img/aow-troops/undeadwarrior.png",
-      boardImage: "/img/aow-troops-igv/undeadwarrior.png",
+      image: "/img/aow-troops/undeadwarriors.png",
+      boardImage: "/img/aow-troops-igv/undeadwarriors.png",
       name: "Undead warriors",
       race: "T1WD",
       count: 9,
