@@ -22,6 +22,42 @@ const initialState = {
   troops: [
     {
       grade: "fod3",
+      id: "as23",
+      image: "/img/aow-troops/undeadwarriors.png",
+      boardImage: "/img/aow-troops-igv/undeadwarriors.png",
+      name: "Undead warriors",
+      race: "T1WD",
+      count: 9,
+      hp: [
+        3000, 6500, 11900, 22500, 35100, 52200, 70200, 89100, 156150, 190800,
+      ],
+    },
+    {
+      grade: "fod3",
+      id: "j84s",
+      image: "/img/aow-troops/shadowninja.png",
+      boardImage: "/img/aow-troops-igv/shadowninja.png",
+      name: "Shadow ninja",
+      race: "T1WD",
+      count: 9,
+      hp: [
+        2850, 5250, 9100, 17550, 32850, 46800, 64350, 81900, 143325, 173430,
+      ],
+    },
+    {
+      grade: "BB4h",
+      id: "a5dw",
+      image: "/img/aow-troops/angel.png",
+      boardImage: "/img/aow-troops-igv/angel.png",
+      name: "Angel",
+      race: "z18Y",
+      count: 1,
+      hp: [
+        1400, 2800, 5250, 8400, 11900, 15750, 20300, 25200, 44100, 55125,
+      ],
+    },
+    {
+      grade: "fod3",
       id: "h3wp",
       image: "/img/aow-troops/orchunters.png",
       boardImage: "/img/aow-troops-igv/orchunters.png",
